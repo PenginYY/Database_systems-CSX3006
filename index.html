@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Personal Information</title>
+    <title>Online hotel management system</title>
   </head>
   <link rel="stylesheet" href="style.css" />
   <body>
@@ -22,37 +22,27 @@
     </div>
 
     <div class="login-form">
-      <h1>Login</h1>
-      <h2>Email</h2>
-      <input type="text" id="email" name="email_input" />
-      <h2>Password</h2>
-      <input type="text" id="password" name="pwd_input" />
-      <input type="submit" id="login" value="Login" />
+      <div class="fill-email-pwd">
+        <h1>Login</h1>
+        <h2>Email</h2>
+        <input
+          type="text"
+          id="email"
+          name="email_input"
+          placeholder="12345@gmail.com"
+        />
+        <h2>Password</h2>
+        <input
+          type="text"
+          id="password"
+          name="pwd_input"
+          placeholder="xxxxxxxx"
+          required
+        />
+      </div>
+      <a href="/personal_info.html">
+        <button type="submit" class="button">Login</button>
+      </a>
     </div>
-    <!-- Personal info -->
-    <!-- <div>
-      <nav class="navbar-container">
-        <a href="#"
-          ><img src="./logo/Assumption_University(logo).png" alt="logo"
-        /></a>
-        <ul class="navbar-left">
-          <li>
-            <a href="#"><h1>online hotel management system</h1></a>
-          </li>
-        </ul>
-
-        <ul class="navbar-right">
-          <li>
-            <a href="#">personal information</a>
-          </li>
-          <li>
-            <a href="#">room & hotel info</a>
-          </li>
-          <li>
-            <a href="#">feedback</a>
-          </li>
-        </ul>
-      </nav>
-    </div> -->
   </body>
 </html>

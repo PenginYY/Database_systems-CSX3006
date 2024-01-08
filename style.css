@@ -17,7 +17,8 @@ body {
 }
 
 .navbar-container img {
-  padding-left: 10px;
+  padding-left: 20px;
+  padding-top: 5px;
 }
 
 .navbar-container ul li {
@@ -56,8 +57,10 @@ img {
 }
 
 .login-form {
-  width: fit-content;
-  height: fit-content;
+  width: auto;
+  height: auto;
+  align-items: center;
+  text-align: center;
   margin-top: 100px;
   padding: 100px 250px 150px 250px;
   border-radius: 20px;
@@ -71,7 +74,38 @@ img {
   text-transform: uppercase;
 }
 
+.fill-email-pwd {
+  margin-bottom: 10px;
+}
+
 .login-form h2 {
+  text-align: left;
   font-size: 24px;
   font-weight: 500;
+}
+
+#email {
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  margin-bottom: 20px;
+}
+
+#password {
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  margin-bottom: 20px;
+}
+
+.button {
+  width: 250px;
+  height: 30px;
+  font-size: 12px;
+  border-radius: 5px;
+  border: 1px solid #d73938;
+  color: white;
+  background-color: #d73938;
 }
