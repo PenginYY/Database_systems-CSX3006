@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600&display=swap');
+
+
 body {
   font-family: "Times New Roman", Times, serif;
   display: flex;
@@ -5,6 +8,7 @@ body {
   align-items: center;
 }
 
+/*navbar*/
 .navbar {
   width: 100%;
 }
@@ -51,11 +55,13 @@ body {
 .navbar-right li a {
   color: grey;
 }
-img {
+
+.logo img{
   height: 100px;
   width: 100px;
 }
 
+/*login*/
 .login-form {
   width: auto;
   height: auto;
@@ -108,4 +114,79 @@ img {
   border: 1px solid #d73938;
   color: white;
   background-color: #d73938;
+}
+
+/*reservation*/
+.reservation-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px #d73938;
+}
+
+.button_edit{
+  height: 10px;
+  width: 10px;
+}
+
+.reservation-button{
+  padding: 7px 25px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-family: 'Source Sans 3';
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  border: 1px solid #d73938;
+  background-color: #d73938;
+  display: inline-block;
+}
+
+/*add reservation*/
+.overlay{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target{
+  visibility: visible;
+  opacity: 1;
+}
+
+.wrapper{
+  margin: 70px auto;
+  padding: 20 px;
+  background: #e7e7e7;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.wrapper h2{
+  margin-top: 0;
+  color: #333;
+}
+
+.wrapper .close{
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.wrapper .content{
+  max-height: 30%;
+  overflow: auto;
 }
