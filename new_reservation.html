@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal information Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Rservation Navbar -->
+    <div class="navbar">
+      <nav class="navbar-container">
+        <a href="#"
+          ><img src="./logo/Assumption_University(logo).png" alt="logo"
+        /></a>
+        <ul class="navbar-left">
+          <li>
+            <a href="#"><h1>online hotel management system</h1></a>
+          </li>
+        </ul>
+
+        <ul class="navbar-right">
+          <li>
+            <a href="#">new reservation</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Rservation List -->
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col">
+          <div class="card mt-5">
+            <div class="card-header">
+              <h2 class="display-6 text-center">RESERVATION</h2>
+            </div>
+
+            <div class="card-days">
+              <table border="1" style="background-color: red;">
+                <tr bgcolor="white" align="center">
+                  <th> 4 NOVEMBER 2023 </th>
+                  <th> 5 NOVEMBER 2023 </th>
+                  <th> 6 NOVEMBER 2023 </th>
+                </tr>
+              </table>
+               <a href="add.php"> Add </a>
+            </div>
+
+            <div class="card-body">
+              <table bgcolor="black">
+                <tr bgcolor="white" align="left">
+                  <th width="244"> Reservation No. </th>
+                  <th width="240"> Customer Name </th>
+                  <th width="151" align="center"> Agent </th>
+                  <th width="121"> Arrive </th>
+                  <th width="129"> Depart </th>
+                  <th width="55"> Edit </th>
+                </tr>
+                <tr bgcolor="white" align="left">
+                  <td> 000001 </td>
+                  <td> Chayapat Pangpon </td>
+                  <td align="center"> Agoda </td>
+                  <td> 04/11/23 </td>
+                  <td> 05/11/23 </td>
+                  <td> <a href="Edit.php"> Edit </a> </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rservation Add -->
+    <div class="overlay" id="divOne">
+      <div class="wrapper">
+        <h2>Add Reservation</h2>
+        <a href="#" class="close">&times;</a> <!--ปุ่มปิดหน้าpopup แค่ทำตามตัวอย่างเฉยๆ-->
+        <div class="content">
+          <div class="container">
+            <form>
+              <label>First Name</label>
+              <input type="text" placeholder="Your First Name">
+              <label>Last Name</label>
+              <input type="text" placeholder="Your Last Name">
+              <label>Subject</label>
+              <textarea placeholder="Your Query Here..."></textarea>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+</html>
