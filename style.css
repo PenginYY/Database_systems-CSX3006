@@ -5,6 +5,18 @@ body {
   align-items: center;
 }
 
+.account {
+  color: gray;
+  align-items: center;
+  text-align: center;
+}
+
+.account a {
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: gray;
+}
+
 .navbar {
   width: 100%;
 }
@@ -51,20 +63,10 @@ body {
 .navbar-right li a {
   color: grey;
 }
+
 img {
   height: 100px;
   width: 100px;
-}
-
-.login-form {
-  width: auto;
-  height: auto;
-  align-items: center;
-  text-align: center;
-  margin-top: 100px;
-  padding: 100px 250px 150px 250px;
-  border-radius: 20px;
-  box-shadow: 0px 2px 10px 1.5px rgba(0, 0, 0, 0.25);
 }
 
 .login-form h1 {
@@ -74,30 +76,52 @@ img {
   text-transform: uppercase;
 }
 
-.fill-email-pwd {
-  margin-bottom: 10px;
-}
-
-.login-form h2 {
-  text-align: left;
-  font-size: 24px;
+.login-form label {
+  font-size: 20px;
   font-weight: 500;
+  text-align: left;
+  margin-bottom: 15px;
 }
 
-#email {
+.signup-form h1 {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.fill-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 100px;
+  padding: 100px 250px 130px 250px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 10px 1.5px rgba(0, 0, 0, 0.25);
+}
+
+.signup-form label {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+input {
   width: 300px;
   height: 30px;
   border-radius: 10px;
   border: 1px solid grey;
   margin-bottom: 20px;
+  text-overflow: ellipsis;
 }
 
-#password {
-  width: 300px;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid grey;
-  margin-bottom: 20px;
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+::placeholder {
+  padding: 10px;
 }
 
 .button {
