@@ -116,7 +116,23 @@ input {
   text-overflow: ellipsis;
 }
 
+/* Chrome/Safari/Opera */
 input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+/* Firefox 18- */
+input:focus:-moz-placeholder {
+  color: transparent;
+}
+
+/* Firefox 19+ */
+input:focus::-moz-placeholder {
+  color: transparent;
+}
+
+/* IE 8 and older ;) */
+input:focus:-ms-input-placeholder {
   color: transparent;
 }
 
