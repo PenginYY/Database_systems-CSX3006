@@ -35,22 +35,21 @@
       </div>
 
       <div class="reservation-top">
-        <div class="card-days">
-          <table border="1" style="background-color: red;">
-            <tr bgcolor="white" align="center">
-              <th> 4 NOVEMBER 2023 </th> <!--change to button that call data of that day-->
-              <th> 5 NOVEMBER 2023 </th>
-              <th> 6 NOVEMBER 2023 </th>
-            </tr>
-          </table>
+        <div class="radio-days">
+          <input class="radio__input" type="radio" value="day1" name="days" id="day1">
+          <label class="radio__label" for="day1"> 4 NOVEMBER 2023 </label>
+          <input class="radio__input" type="radio" value="day2" name="days" id="day2">
+          <label class="radio__label" for="day2"> 5 NOVEMBER 2023 </label>
+          <input class="radio__input" type="radio" value="day3" name="days" id="day3">
+          <label class="radio__label" for="day3"> 6 NOVEMBER 2023 </label>
         </div>
-  
+        
         <a href="#popup-add" class="reservation-button">Add</a>
       </div>
       
 
       <div class="card-body">
-        <table bgcolor="black">
+        <table>
           <tr bgcolor="white" align="left">
             <th width="244"> Reservation No. </th>
             <th width="240"> Customer Name </th>

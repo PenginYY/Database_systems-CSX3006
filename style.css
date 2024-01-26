@@ -116,6 +116,10 @@ body {
   background-color: #d73938;
 }
 
+
+
+
+
 /*reservation*/
 .reservation-top{
   display: flex;
@@ -124,11 +128,38 @@ body {
   border: 1px #d73938;
 }
 
-.button_edit{
-  height: 10px;
-  width: 10px;
+/*reservation radio-day*/
+.radio-days {
+  display: inline-flex;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid #d73938;
 }
 
+.radio__input {
+  display: none;*
+}
+
+.radio__label {
+  padding: 8px 14px;
+  font-size: 12px;
+  font-family: 'Source Sans 3';
+  color: #AAAAAA;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.radio__label:not(:last-of-type) {
+  border-right: 1px solid #d73938;
+}
+
+.radio__input:checked + .radio__label {
+  color: #fff;
+  background: #d73938;
+}
+
+/*reservation button*/
 .reservation-button{
   padding: 7px 25px;
   border-radius: 5px;
@@ -141,6 +172,27 @@ body {
   background-color: #d73938;
   display: inline-block;
 }
+
+.button_edit{
+  height: 10px;
+  width: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*add reservation*/
 .overlay{
@@ -190,3 +242,4 @@ body {
   max-height: 30%;
   overflow: auto;
 }
+
