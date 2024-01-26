@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Online hotel management system</title>
+    <title>Sign up Page</title>
   </head>
   <link rel="stylesheet" href="style.css" />
   <body>
-    <!-- Login Page -->
+    <!-- Sign up page -->
     <div class="navbar">
       <nav class="navbar-container">
         <a href="#"
@@ -21,17 +21,20 @@
       </nav>
     </div>
 
-    <div class="login-form">
+    <div class="signup-form">
       <div class="fill-info">
-        <h1>Login</h1>
+        <h1>Sign up</h1>
         <label for="email"><b>Email</b></label>
         <input
           type="text"
           id="email"
           name="email_input"
-          placeholder="12345@gmail.com"
+          placeholder="John.Smith@gmail.com"
           required
         />
+
+        <label for="name"><b>Name</b></label>
+        <input type="text" id="name" placeholder="John" required />
 
         <label for="password"><b>Password</b></label>
         <input
@@ -42,13 +45,21 @@
           required
         />
 
+        <label for="surname"><b>Surname</b></label>
+        <input type="text" id="surname" placeholder="Smith" required />
+
+        <label for="address"><b>Address</b></label>
+        <input
+          type="text"
+          id="address"
+          placeholder="Robert Robertson, 1234 NW Bobcat Lane, St. Robert, MO 65584-5678"
+        />
+
         <a href="./personal_info.html">
-          <button type="submit" class="button">Login</button>
+          <button type="submit" class="button">Sign up</button>
         </a>
 
-        <p class="account">
-          Need an account? <a href="./signup.html">Sign up</a>
-        </p>
+        <p class="account">Have an account? <a href="./index.html">Login</a></p>
       </div>
     </div>
   </body>
