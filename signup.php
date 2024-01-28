@@ -48,7 +48,7 @@
             type="password"
             id="password"
             name="password"
-            placeholder="xxxxxxxxx"
+            placeholder="12345"
             required
           />
 
@@ -69,7 +69,7 @@
             placeholder="Robert Robertson, 1234 NW Bobcat Lane, St. Robert, MO 65584-5678"
           />
 
-          <input type="submit" name="submit" class="button" />
+          <a href="index.php"><input type="submit" name="submit" class="button" value="Sign up"/></a>
           <p class="account">
             Already have an account? <a href="index.php">Login</a>
           </p>
