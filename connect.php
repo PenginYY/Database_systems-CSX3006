@@ -15,9 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 
     $result = mysqli_query($conn, $sql);
 
-
     if ($result) {
-      echo 'Created account';
+      header("Location: http://localhost:3000/index.php");
+      exit();
     } else {
       echo 'Create account not completed!';
     }
