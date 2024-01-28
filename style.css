@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600&display=swap");
+
 body {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Source Sans 3", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,6 +21,9 @@ body {
 
 .navbar {
   width: 100%;
+  position: sticky;
+  top: 0px;
+  background-color: white;
 }
 
 .navbar-container {
@@ -52,7 +57,7 @@ body {
 }
 
 .navbar-right {
-  margin: auto;
+  margin: auto 0px auto auto;
   padding-left: 150px;
 }
 
@@ -141,9 +146,10 @@ input:focus:-ms-input-placeholder {
 }
 
 .button {
+  margin: 0 auto;
   width: 250px;
   height: 30px;
-  font-size: 12px;
+  font-size: 13px;
   border-radius: 5px;
   border: 1px solid #d73938;
   color: white;

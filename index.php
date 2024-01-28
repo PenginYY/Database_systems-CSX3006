@@ -26,28 +26,21 @@
         <h1>Login</h1>
         <label for="email"><b>Email</b></label>
         <input
-          type="text"
+          type="email"
           id="email"
-          name="email_input"
-          placeholder="12345@gmail.com"
+          placeholder="John.Smith@gmail.com"
           required
         />
 
         <label for="password"><b>Password</b></label>
-        <input
-          type="text"
-          id="password"
-          name="pwd_input"
-          placeholder="xxxxxxxx"
-          required
-        />
+        <input type="password" id="password" placeholder="xxxxxxxx" required />
 
-        <a href="./personal_info.html">
-          <button type="submit" class="button">Login</button>
+        <a href="#">
+          <button type="submit" name="submit" class="button">Login</button>
         </a>
 
         <p class="account">
-          Need an account? <a href="./signup.html">Sign up</a>
+          Don't have an account? <a href="signup.php"> Sign up</a>
         </p>
       </div>
     </div>
