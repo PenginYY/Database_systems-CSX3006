@@ -156,12 +156,8 @@ input:focus:-ms-input-placeholder {
   background-color: #d73938;
 }
 
-
-
-
-
 /*reservation*/
-.reservation-top{
+.reservation-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -183,8 +179,8 @@ input:focus:-ms-input-placeholder {
 .radio__label {
   padding: 8px 14px;
   font-size: 12px;
-  font-family: 'Source Sans 3';
-  color: #AAAAAA;
+  font-family: "Source Sans 3";
+  color: #aaaaaa;
   background: #fff;
   cursor: pointer;
   transition: background 0.1s;
@@ -200,11 +196,11 @@ input:focus:-ms-input-placeholder {
 }
 
 /*reservation button*/
-.reservation-button{
+.reservation-button {
   padding: 7px 25px;
   border-radius: 5px;
   font-size: 12px;
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3";
   font-weight: bold;
   text-decoration: none;
   color: white;
@@ -213,29 +209,13 @@ input:focus:-ms-input-placeholder {
   display: inline-block;
 }
 
-.button_edit{
+.button_edit {
   font-size: 22px;
   color: black;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*add reservation*/
-.overlay{
+.overlay {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -247,12 +227,12 @@ input:focus:-ms-input-placeholder {
   opacity: 0;
 }
 
-.overlay:target{
+.overlay:target {
   visibility: visible;
   opacity: 1;
 }
 
-.wrapper{
+.wrapper {
   margin: 70px auto;
   padding: 20 px;
   background: #e7e7e7;
@@ -262,12 +242,12 @@ input:focus:-ms-input-placeholder {
   transition: all 5s ease-in-out;
 }
 
-.wrapper h2{
+.wrapper h2 {
   margin-top: 0;
   color: #333;
 }
 
-.wrapper .close{
+.wrapper .close {
   position: absolute;
   top: 20px;
   right: 30px;
@@ -278,8 +258,7 @@ input:focus:-ms-input-placeholder {
   color: #333;
 }
 
-.wrapper .content{
+.wrapper .content {
   max-height: 30%;
   overflow: auto;
 }
-
