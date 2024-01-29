@@ -72,7 +72,7 @@
             <td> 04/11/23 </td>
             <td> 05/11/23 </td>
             <td> 
-              <a href="#" class="button_edit">
+              <a href="#" class="button-edit">
                 <i class="fa-regular fa-pen-to-square"></i>
               </a>
             </td>
@@ -85,25 +85,46 @@
     <!-- Rservation Add -->
     <div class="overlay" id="popup-add">
       <div class="wrapper">
-        <h2>Add Reservation</h2>
         <div class="content">
+          <h2>Add Reservation</h2>
           <div class="container">
-            <form>
-              <label>Customer Name</label>
-              <input type="text" placeholder="Customer Name">
-              <label>Agent</label>
-              <input type="text" placeholder="Agent">
-              <label>Arriving Date</label>
-              <input type="text" placeholder="00/00/00">
-              <label>Departure Date</label>
-              <input type="text" placeholder="00/00/00">
-              <input type="submit" value="Submit">
+            <form style="flex-direction: row;">
+              <div style="display: flex;">
+                <div>
+                  <label>Reservation Number</label>
+                  <input type="text" placeholder="Reservation Number">
+                </div>
+                <div>
+                  <label>Total Guest</label>
+                  <input type="text" placeholder="Total Guest">
+                </div>
+              </div>
+              <div>
+                <label>Customer Name</label>
+                <input type="text" placeholder="Customer Name">
+              </div>
+              <div style="display: flex;">
+                <div>
+                  <label>Agent</label>
+                  <input type="text" placeholder="Agent">
+                </div>
+                <div>
+                  <label>Arriving Date</label>
+                  <input type="text" placeholder="00/00/00">
+                </div>
+                <div>
+                  <label>Departure Date</label>
+                  <input type="text" placeholder="00/00/00">
+                </div>
+              </div>
+              
             </form>
           </div>
+          <div style="float: right;">
+            <a href="add.php" class="reservation-button"> Add </a>
+            <a href="#" class="button-close">&times;Close</a>
+          </div>
         </div>
-        <a href="#" class="reservation-button">&times;Close</a>
-        <a href="add.php" class="reservation-button"> Add </a>
-
       </div>
     </div>
 

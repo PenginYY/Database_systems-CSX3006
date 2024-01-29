@@ -2,7 +2,7 @@
 
 
 body {
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Source Sans 3';
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,7 +160,7 @@ body {
 }
 
 /*reservation button*/
-.reservation-button{
+.reservation-button {
   padding: 7px 25px;
   border-radius: 5px;
   font-size: 12px;
@@ -173,29 +173,27 @@ body {
   display: inline-block;
 }
 
-.button_edit{
+.button-close {
+  padding: 7px 25px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-family: 'Source Sans 3';
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  background-color: white;
+  display: inline-block;
+}
+
+.button-edit {
   font-size: 22px;
   color: black;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*add reservation*/
-.overlay{
+/*reservation add*/
+.overlay {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -207,39 +205,46 @@ body {
   opacity: 0;
 }
 
-.overlay:target{
+.overlay:target {
   visibility: visible;
   opacity: 1;
 }
 
-.wrapper{
+.wrapper {
   margin: 70px auto;
   padding: 20 px;
-  background: #e7e7e7;
+  background: white;
   border-radius: 5px;
   width: 30%;
   position: relative;
   transition: all 5s ease-in-out;
 }
 
-.wrapper h2{
+.wrapper h2 {
   margin-top: 0;
-  color: #333;
+  color: black;
 }
 
-.wrapper .close{
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #333;
-}
-
-.wrapper .content{
+.wrapper .content {
   max-height: 30%;
   overflow: auto;
+  padding: 20px;
 }
 
+/* form design */
+.container {
+  border-radius: 5px;
+  background-color: white;
+  padding: 20px 0;
+}
+
+input[type=text], textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
