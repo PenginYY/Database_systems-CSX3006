@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Personal information Page</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room & Hotel Info </title>
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Personal info -->
-    <div class="navbar">
+</head>
+<body>
+<div class="navbar">
       <nav class="navbar-container">
         <a href="personal_info.php"
           ><img src="./logo/Assumption_University(logo).png" alt="logo"
@@ -35,12 +34,15 @@
       </nav>
     </div>
 
+    <h1 class="head">Room & Hotel information</h1>
+
     <div class="info-left">
-      
+
     </div>
 
     <div class="info-right">
 
     </div>
-  </body>
+
+</body>
 </html>

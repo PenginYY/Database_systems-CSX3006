@@ -156,6 +156,17 @@ input:focus:-ms-input-placeholder {
   background-color: #d73938;
 }
 
+.info-left {
+}
+
+.head {
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.info-right {
+}
+
 /*reservation*/
 .reservation-top {
   display: flex;
