@@ -158,51 +158,114 @@ input:focus:-ms-input-placeholder {
 
 
 /*reservation*/
-.reservation-top{
+.reservation {
+  width: 60%;
+}
+/*reservation title*/
+.reservation-title {
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+/*reservation header*/
+.reservation-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px #d73938;
 }
 
 /*reservation radio-day*/
-.radio-days {
+.reservation-header .radio-days {
+  font-weight: bold;
   display: inline-flex;
   overflow: hidden;
   border-radius: 8px;
   border: 1px solid #d73938;
 }
 
-.radio__input {
+.reservation-header .radio__input {
   display: none;
 }
 
-.radio__label {
+.reservation-header .radio__label {
   padding: 8px 14px;
-  font-size: 12px;
-  font-family: 'Source Sans 3';
+  font-size: h3;
   color: #AAAAAA;
   background: #fff;
   cursor: pointer;
   transition: background 0.1s;
 }
 
-.radio__label:not(:last-of-type) {
+.reservation-header .radio__label:not(:last-of-type) {
   border-right: 1px solid #d73938;
 }
 
-.radio__input:checked + .radio__label {
+.reservation-header .radio__input:checked + .radio__label {
   color: #fff;
   background: #d73938;
 }
 
+/*reservation body*/
+.reservation-body {
+  margin-top: 30px;
+  font-size: h3;
+  overflow: auto;
+}
+
+.reservation-body::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.reservation-body::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: #0004;
+  visibility: hidden;
+}
+
+.reservation-body:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+/*reservation table*/
+.reservation-body table {
+  width: 100%;
+}
+
+.reservation-body table, th, td{
+  border-collapse: collapse;
+  padding: 1rem;
+}
+
+.reservation-body th.left, td.left {
+  text-align: left;
+}
+
+.reservation-body th.center, td.center {
+  text-align: center;
+}
+
+.reservation-body thead th {
+  position: sticky;
+  top: 0;
+}
+
+@media (max-width: 1000px) {
+  td:not(:first-of-type) {
+    min-width: 12.5rem;
+  }
+}
+
+
 /*reservation button*/
-.reservation-button {
-  padding: 7px 25px;
+.reservation-button-red {
+  width: 100px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   border-radius: 5px;
-  font-size: 12px;
-  font-family: 'Source Sans 3';
+  font-size: h3;
   font-weight: bold;
+  text-align: center;
   text-decoration: none;
   color: white;
   border: 1px solid #d73938;
@@ -210,12 +273,14 @@ input:focus:-ms-input-placeholder {
   display: inline-block;
 }
 
-.button-close {
-  padding: 7px 25px;
+.reservation-button-black {
+  width: 100px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   border-radius: 5px;
-  font-size: 12px;
-  font-family: 'Source Sans 3';
+  font-size: h3;
   font-weight: bold;
+  text-align: center;
   text-decoration: none;
   color: black;
   border: 1px solid black;
@@ -223,13 +288,13 @@ input:focus:-ms-input-placeholder {
   display: inline-block;
 }
 
-.button-edit {
-  font-size: 22px;
+.reservation-button-edit {
+  font-size: 20px;
   color: black;
 }
 
 
-/*reservation add*/
+/*reservation popup*/
 .overlay {
   position: fixed;
   top: 0;
@@ -247,41 +312,75 @@ input:focus:-ms-input-placeholder {
   opacity: 1;
 }
 
-.wrapper {
-  margin: 70px auto;
-  padding: 20 px;
-  background: white;
-  border-radius: 5px;
-  width: 30%;
-  position: relative;
-  transition: all 5s ease-in-out;
-}
-
-.wrapper h2 {
-  margin-top: 0;
-  color: black;
-}
-
-.wrapper .content {
-  max-height: 30%;
-  overflow: auto;
-  padding: 20px;
-}
-
-/* form design */
-.container {
-  border-radius: 5px;
-  background-color: white;
-  padding: 20px 0;
-}
-
-input[type=text], textarea {
+.popup-box .container {
+  top: 50%;
+  left: 50%;
+  transform: translate(120%, 30%);
+  /*position: relative;*/
+  max-width: 400px;
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
+  background: white;
+  padding: 25px;
   border-radius: 5px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
+}
+
+form .reservation-details .column1 {
+  display: flex;
+  column-gap: 70px;
+}
+
+form .reservation-details .column2 {
+  display: flex;
+  column-gap: 30px;
+}
+
+.popup-box .container form .reservation-details .input-box {
+  width: 100%;
+  margin-top: 5px;
+}
+
+
+form .reservation-details .input-box label {
+  display: block;
+  font-size: h2;
+  font-weight: bold;
+}
+
+
+form .reservation-details .input-box input {
+  position: relative;
+  height: 30px;
+  width: 100%;
+  outline: none;
+  font-size: h2;
+  border-radius: 5px;
+  border: 1px solid #AAAAAA;
+  padding-left: 0 25px;
+  transition: all 0.3s ease;
+}
+
+.reservation-details .input-box input:focus,
+.reservation-details .input-box input:valid {
+  border-color: #303030;
+}
+
+.popup-add-button {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 1em;
+}
+
+.popup-edit-button {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 1em;
+}
+
+.popup-edit-button a:first-child {
+  margin-right: auto;
+}
+
+.popup-info-button {
+  display: flex;
+  justify-content: flex-end;
 }
