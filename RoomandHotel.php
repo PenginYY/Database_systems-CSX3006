@@ -22,10 +22,10 @@
 
         <ul class="navbar-right">
           <li>
-            <a href="#">personal information</a>
+            <a href="./personal_info.php">personal information</a>
           </li>
           <li>
-            <a href="#">room & hotel info</a>
+            <a href="./RoomandHotel.php">room & hotel info</a>
           </li>
           <li>
             <a href="#">feedback</a>
@@ -34,7 +34,7 @@
       </nav>
     </div>
 
-    <h1 class="head">Room & Hotel information</h1>
+    <h1 class="title">Room & Hotel information</h1>
 
     <div class="info-left">
 

@@ -23,10 +23,10 @@
 
         <ul class="navbar-right">
           <li>
-            <a href="#">personal information</a>
+            <a href="./personal_info.php">personal information</a>
           </li>
           <li>
-            <a href="#">room & hotel info</a>
+            <a href="./RoomandHotel.php">room & hotel info</a>
           </li>
           <li>
             <a href="#">feedback</a>
@@ -35,12 +35,45 @@
       </nav>
     </div>
 
-    <div class="info-left">
-      
-    </div>
+    <div class="personnal-info">
+    <h1 class="title">personal information</h1>
 
-    <div class="info-right">
+      <table>
+        <tr>
+          <th class="head">customer name</th>
+          <th class="head">address</th>
+        </tr>
 
+        <tr>
+          <td class="sub-head">name<p class="sub-body">John</p></td>
+          <td class="body">123 cute city, thailand koh lan nakorn 
+sithammarat rattanakosin road, 22980</td>
+        </tr>
+
+        <tr>
+          <td class="sub-head">surmane<p class="sub-body">Smith</p></td>
+        </tr>
+
+        <tr>
+          <th class="head">date of birth</th>
+          <th class="head">emergency call</th>
+        </tr>
+
+        <tr>
+          <td><p class="sub-body">12 October 1987</p></td>
+          <td class="sub-head">name<p class="sub-body">Esther Howard</p></td>
+        </tr>
+
+        <tr>
+        <th class="head">Phone number</th>
+        <td class="sub-head">telephone<p class="sub-body">099-999-9999</p></td>
+        </tr>
+
+        <tr>
+        <td><p class="sub-body">088-888-8888</p></td>
+        <td class="sub-head">relationship<p class="sub-body">father</p></td>
+        </tr>
+      </table>
     </div>
   </body>
 </html>

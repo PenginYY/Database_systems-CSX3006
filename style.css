@@ -156,17 +156,35 @@ input:focus:-ms-input-placeholder {
   background-color: #d73938;
 }
 
-.info-left {
+.title {
+  margin-top: 25px;
+  text-transform: uppercase;
 }
 
 .head {
-  text-transform: uppercase;
+  width: 50%;
   text-align: left;
+  font-size: 22px;
+  text-transform: capitalize;
 }
 
-.info-right {
+.sub-head {
+  font-size: 18px;
+  text-transform: capitalize;
 }
 
+.body {
+  font-size: 16px;
+  padding-left: 18px;
+  font-weight: lighter;
+}
+
+.sub-body {
+  margin: 0;
+  font-size: 14px;
+  padding-left: 18px;
+  font-weight: lighter;
+}
 /*reservation*/
 .reservation-top {
   display: flex;
