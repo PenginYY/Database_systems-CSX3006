@@ -156,8 +156,21 @@ input:focus:-ms-input-placeholder {
   background-color: #d73938;
 }
 
+.personal-info {
+  width: 1000px;
+  height: auto;
+}
+
+.personal-info .account {
+  color: gray;
+  text-align: left;
+  margin-top: 30px;
+  font-weight: lighter;
+}
+
 .title {
-  margin-top: 25px;
+  margin-top: 65px;
+  margin-bottom: 30px;
   text-transform: uppercase;
 }
 
@@ -174,17 +187,24 @@ input:focus:-ms-input-placeholder {
 }
 
 .body {
+  margin: 0;
   font-size: 16px;
   padding-left: 18px;
   font-weight: lighter;
 }
 
-.sub-body {
-  margin: 0;
-  font-size: 14px;
-  padding-left: 18px;
-  font-weight: lighter;
+.edit-personal-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.edit-personal-info .button {
+  width: 100px;
+  height: 40px;
+}
+
 /*reservation*/
 .reservation-top {
   display: flex;
