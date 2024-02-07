@@ -43,6 +43,5 @@
     <div class="info-right">
 
     </div>
-
 </body>
 </html>

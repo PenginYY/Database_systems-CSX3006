@@ -35,8 +35,8 @@
       </nav>
     </div>
 
-    <div class="personnal-info">
-    <h1 class="title">personal information</h1>
+    <div class="personal-info">
+      <h1 class="title">personal information</h1>
 
       <table>
         <tr>
@@ -45,13 +45,13 @@
         </tr>
 
         <tr>
-          <td class="sub-head">name<p class="sub-body">John</p></td>
+          <td class="sub-head">name<p class="body">John</p></td>
           <td class="body">123 cute city, thailand koh lan nakorn 
-sithammarat rattanakosin road, 22980</td>
+            sithammarat rattanakosin road, 22980</td>
         </tr>
 
         <tr>
-          <td class="sub-head">surmane<p class="sub-body">Smith</p></td>
+          <td class="sub-head">surmane<p class="body">Smith</p></td>
         </tr>
 
         <tr>
@@ -60,20 +60,30 @@ sithammarat rattanakosin road, 22980</td>
         </tr>
 
         <tr>
-          <td><p class="sub-body">12 October 1987</p></td>
-          <td class="sub-head">name<p class="sub-body">Esther Howard</p></td>
+          <td><p class="body">12 October 1987</p></td>
+          <td class="sub-head">name<p class="body">Esther Howard</p></td>
         </tr>
 
         <tr>
         <th class="head">Phone number</th>
-        <td class="sub-head">telephone<p class="sub-body">099-999-9999</p></td>
+        <td class="sub-head">telephone<p class="body">099-999-9999</p></td>
         </tr>
 
         <tr>
-        <td><p class="sub-body">088-888-8888</p></td>
-        <td class="sub-head">relationship<p class="sub-body">father</p></td>
+        <td><p class="body">088-888-8888</p></td>
+        <td class="sub-head">relationship<p class="body">father</p></td>
         </tr>
       </table>
+
+      <div class="edit-personal-info">
+      <!-- link to pop up page -->
+      <p class="account"><a href="#">delete account</a></p> 
+
+      <!-- link to edit page -->
+      <a href="#">
+      <button type="submit" name="submit" class="button">Edit</button>
+      </a>
+    </div>
     </div>
   </body>
 </html>

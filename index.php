@@ -35,12 +35,12 @@
         <label for="password"><b>Password</b></label>
         <input type="password" id="password" placeholder="xxxxxxxx" required />
 
-        <a href="#">
+        <a href="./personal_info.php">
           <button type="submit" name="submit" class="button">Login</button>
         </a>
 
         <p class="account">
-          Don't have an account? <a href="signup.php"> Sign up</a>
+          Don't have an account? <a href="./signup.php"> Sign up</a>
         </p>
       </div>
     </div>
