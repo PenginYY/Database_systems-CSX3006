@@ -76,14 +76,14 @@
       </table>
 
       <div class="edit-personal-info">
-      <!-- link to pop up page -->
-      <p class="account"><a href="#">delete account</a></p> 
+        <!-- link to pop up page -->
+        <p class="account"><a href="#">delete account</a></p> 
 
-      <!-- link to edit page -->
-      <a href="#">
-      <button type="submit" name="submit" class="button">Edit</button>
-      </a>
-    </div>
+        <!-- link to edit page -->
+        <a href="#">
+        <button type="submit" name="submit" class="button">Edit</button>
+        </a>
+      </div>
     </div>
   </body>
 </html>
