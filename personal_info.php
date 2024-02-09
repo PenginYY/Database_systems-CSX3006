@@ -35,7 +35,7 @@
       </nav>
     </div>
 
-    <div class="personal-info">
+    <div class="account-info">
       <h1 class="title">personal information</h1>
 
       <table>
