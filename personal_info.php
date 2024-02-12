@@ -28,16 +28,12 @@
           <li>
             <a href="./RoomandHotel.php">room & hotel info</a>
           </li>
-          <li>
-            <a href="#">feedback</a>
-          </li>
         </ul>
       </nav>
     </div>
 
     <div class="account-info">
-      <h1 class="title">personal information</h1>
-
+    <h1 class="title">personal information</h1>
       <table>
         <tr>
           <th class="head">customer name</th>

@@ -27,21 +27,32 @@
           <li>
             <a href="./RoomandHotel.php">room & hotel info</a>
           </li>
-          <li>
-            <a href="#">feedback</a>
-          </li>
         </ul>
       </nav>
     </div>
 
     <h1 class="title">Room & Hotel information</h1>
 
-    <div class="info-left">
+    <div class="room-hotel-info">
+      <div class="info">
+        <h3 class="head">Room Information</h3>
+        <table class="room-info">
+          <tr>
+            <th class="head">resevation number</th>
+            <th class="head">guest</th>
+          </tr>
+        </table>
+      </div>
 
-    </div>
-
-    <div class="info-right">
-
+      <div class="info">
+      <h3 class="head">Hotel Infomation</h3>
+          <table class="room-info">
+            <tr>
+              <th class="head">Email<p class="body">cute.hotel@gmail.com</p>
+              </th>
+            </tr>
+          </table>
+      </div>
     </div>
 </body>
 </html>
