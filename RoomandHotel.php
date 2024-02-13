@@ -41,6 +41,37 @@
             <th class="head">resevation number</th>
             <th class="head">guest</th>
           </tr>
+
+          <tr>
+            <td class="sub-head">000005</td>
+            <td class="sub-head">3 people</td>
+          </tr>
+
+          <tr>
+            <th class="head">customer name</th>
+            <th class="head">room type</th>
+          </tr>
+
+          <tr>
+            <td class="sub-head">Brooklyn Simmons</td>
+            <td class="sub-head">Deluxe Twin</td>
+          </tr>
+
+          <tr>
+            <th class="head">room number</th>
+          </tr>
+
+          <tr>
+            <td class="sub-head">123</td>
+          </tr>
+
+          <tr>
+            <th class="head">payment</th>
+          </tr>
+
+          <tr>
+            <td class="sub-head">cash</td>
+          </tr>
         </table>
       </div>
 
@@ -48,8 +79,36 @@
       <h3 class="head">Hotel Infomation</h3>
           <table class="room-info">
             <tr>
-              <th class="head">Email<p class="body">cute.hotel@gmail.com</p>
-              </th>
+              <th class="head">email</th>
+            </tr>
+
+            <tr>
+              <td class="sub-head">Brooklyn.hotel@gmail.com</td>
+            </tr>
+
+            <tr>
+              <th class="head">telephone</th>
+            </tr>
+
+            <tr>
+              <td class="sub-head">02-333-1010</td>
+            </tr>
+
+            <tr>
+              <th class="head">address</th>
+            </tr>
+
+            <tr>
+              <td class="sub-head">123 cute city, thailand koh lan nakorn 
+sithammarat rattanakosin road, 22980</td>
+            </tr>
+
+            <tr>
+              <th class="head">website</th>
+            </tr>
+
+            <tr>
+              <td class="sub-head">www.hotel.com</td>
             </tr>
           </table>
       </div>
