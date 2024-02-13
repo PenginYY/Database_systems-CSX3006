@@ -154,7 +154,7 @@ input:focus:-ms-input-placeholder {
 }
 
 .account-info {
-  width: 50%;
+  width: 40%;
   height: auto;
   margin: auto;
 }
@@ -182,6 +182,7 @@ input:focus:-ms-input-placeholder {
 
 .sub-head {
   font-size: 18px;
+  padding-bottom: 35px;
   text-transform: capitalize;
 }
 
@@ -210,8 +211,8 @@ input:focus:-ms-input-placeholder {
 }
 
 .info {
-  width: 40%;
-  height: auto;
+  width: 35%;
+  height: 800px;
   margin: auto;
   border: 1px solid black;
   border-radius: 10px;
@@ -220,6 +221,7 @@ input:focus:-ms-input-placeholder {
 
 .room-info {
   margin-left: 30px;
+  width: -webkit-fill-available;
 }
 
 /*reservation*/
@@ -245,7 +247,6 @@ input:focus:-ms-input-placeholder {
 .radio__label {
   padding: 8px 14px;
   font-size: 12px;
-  font-family: "Source Sans 3";
   color: #aaaaaa;
   background: #fff;
   cursor: pointer;
@@ -266,7 +267,6 @@ input:focus:-ms-input-placeholder {
   padding: 7px 25px;
   border-radius: 5px;
   font-size: 12px;
-  font-family: "Source Sans 3";
   font-weight: bold;
   text-decoration: none;
   color: white;
