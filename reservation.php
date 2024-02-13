@@ -10,7 +10,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Personal information Page</title>
+    <title>Reservation Page</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -71,7 +71,7 @@
           <tbody>
             <tr>
               <td class="left"> 000001 </td>
-              <td class="left"><a href="#popup-info" style="text-decoration: none; color: black;"> Chayapat Pangpon </a></td>
+              <td class="left"><a href="#popup-info2" style="text-decoration: none; color: black;"> Chayapat Pangpon </a></td>
               <td class="center"> Agoda </td>
               <td class="center"> 04/11/23 </td>
               <td class="center"> 05/11/23 </td>
@@ -101,8 +101,8 @@
                   <input type="text" id="res-number-a" name="res-number" placeholder="Reservation number" required>
                 </div>
                 <div class="input-box">
-                  <label for="total-guest-a">Total Guest</label>
-                  <input type="text" id="total-guest-a" name="total-guest" placeholder="Enter total guest" required>
+                  <label for="total-guest-a">Number of Room</label>
+                  <input type="text" id="total-guest-a" name="total-guest" placeholder="Enter number of room" required>
                 </div>
               </div>
               
@@ -128,7 +128,7 @@
 
             </div>
             <div class="popup-add-button">
-              <a href="add.php" class="reservation-button-red"> Add </a>
+              <a href="#" class="reservation-button-red"> Add </a>
               <a href="#" class="reservation-button-black">Cancel</a>
             </div>
           </form>
@@ -150,8 +150,8 @@
                   <input type="text" id="res-number-e" name="res-number" placeholder="Reservation number" required>
                 </div>
                 <div class="input-box">
-                  <label for="total-guest-e">Total Guest</label>
-                  <input type="text" id="total-guest-e" name="total-guest" placeholder="Enter total guest" required>
+                  <label for="total-guest-e">Number of Room</label>
+                  <input type="text" id="total-guest-e" name="total-guest" placeholder="Enter number of room" required>
                 </div>
               </div>
               
@@ -200,8 +200,8 @@
                   <input type="text" id="res-number-i" name="res-number" placeholder="Reservation number" required>
                 </div>
                 <div class="input-box">
-                  <label for="total-guest-i">Total Guest</label>
-                  <input type="text" id="total-guest-i" name="total-guest" placeholder="Enter total guest" required>
+                  <label for="total-guest-i">Number of Room</label>
+                  <input type="text" id="total-guest-i" name="total-guest" placeholder="Enter number of room" required>
                 </div>
               </div>
               
@@ -230,6 +230,52 @@
               <a href="#" class="reservation-button-red">Done</a>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rservation Info 2 -->
+    <div class="overlay" id="popup-info2">
+      <div class="popup-box">
+        <div class="container">
+          <div class="title"><h3>Reservation Info</h3></div>
+          <div class="reservation-details">
+            
+            <div class="column1">
+              <dl>
+                <dt>Reservation Number</dt>
+                <dd>000001</dd>
+              </dl>
+              <dl>
+                <dt>Number of Room</dt>
+                <dd>1</dd>
+              </dl>
+            </div>
+
+            <ul type="None">
+              <li>Customer Name</li>
+              <li>Chayapat Pangpon</li>
+            </ul>
+            
+            <div class="column2">
+              <ul type="None">
+                <li>Agent</li>
+                <li>Agoda</li>
+              </ul>
+              <ul type="None">
+                <li>Arriving Date</li>
+                <li>04/11/23</li>
+              </ul>
+              <ul type="None">
+                <li>Departure Date</li>
+                <li>05/11/23</li>
+              </ul>
+            </div>
+          
+          </div>
+          <div class="popup-info-button">
+            <a href="#" class="reservation-button-red">Done</a>
+          </div>
         </div>
       </div>
     </div>
