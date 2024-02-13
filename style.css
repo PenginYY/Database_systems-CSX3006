@@ -1,8 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600&display=swap");
+
 body {
-  font-family: "Times New Roman", Times, serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  font-family: "Source Sans 3", sans-serif;
 }
 
 .account {
@@ -19,6 +18,9 @@ body {
 
 .navbar {
   width: 100%;
+  position: sticky;
+  top: 0px;
+  background-color: white;
 }
 
 .navbar-container {
@@ -52,7 +54,7 @@ body {
 }
 
 .navbar-right {
-  margin: auto;
+  margin: auto 0px auto auto;
   padding-left: 150px;
 }
 
@@ -141,11 +143,188 @@ input:focus:-ms-input-placeholder {
 }
 
 .button {
+  margin: 0 auto;
   width: 250px;
   height: 30px;
-  font-size: 12px;
+  font-size: 13px;
   border-radius: 5px;
   border: 1px solid #d73938;
   color: white;
   background-color: #d73938;
+}
+
+.account-info {
+  width: 40%;
+  height: auto;
+  margin: auto;
+}
+
+.personal-info .account {
+  color: gray;
+  text-align: left;
+  margin-top: 30px;
+  font-weight: lighter;
+}
+
+.title {
+  margin-top: 72px;
+  margin-bottom: 41px;
+  text-transform: uppercase;
+}
+
+.head {
+  width: 50%;
+  text-align: left;
+  font-size: 22px;
+  margin-left: 30px;
+  text-transform: capitalize;
+}
+
+.sub-head {
+  font-size: 18px;
+  padding-bottom: 35px;
+  text-transform: capitalize;
+}
+
+.body {
+  margin: 0;
+  font-size: 16px;
+  padding-left: 18px;
+  font-weight: lighter;
+}
+
+.edit-personal-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-personal-info .button {
+  width: 100px;
+  height: 40px;
+}
+
+.room-hotel-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.info {
+  width: 35%;
+  height: 800px;
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.room-info {
+  margin-left: 30px;
+  width: -webkit-fill-available;
+}
+
+/*reservation*/
+.reservation-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px #d73938;
+}
+
+/*reservation radio-day*/
+.radio-days {
+  display: inline-flex;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid #d73938;
+}
+
+.radio__input {
+  display: none;
+}
+
+.radio__label {
+  padding: 8px 14px;
+  font-size: 12px;
+  color: #aaaaaa;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.radio__label:not(:last-of-type) {
+  border-right: 1px solid #d73938;
+}
+
+.radio__input:checked + .radio__label {
+  color: #fff;
+  background: #d73938;
+}
+
+/*reservation button*/
+.reservation-button {
+  padding: 7px 25px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  border: 1px solid #d73938;
+  background-color: #d73938;
+  display: inline-block;
+}
+
+.button_edit {
+  font-size: 22px;
+  color: black;
+}
+
+/*add reservation*/
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.wrapper {
+  margin: 70px auto;
+  padding: 20 px;
+  background: #e7e7e7;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.wrapper h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.wrapper .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.wrapper .content {
+  max-height: 30%;
+  overflow: auto;
 }
