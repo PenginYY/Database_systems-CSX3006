@@ -32,8 +32,8 @@
       </nav>
     </div>
 
+    <h1 class="title_customer">personal information</h1>
     <div class="account-info">
-    <h1 class="title">personal information</h1>
       <table>
         <tr>
           <th class="head">customer name</th>
