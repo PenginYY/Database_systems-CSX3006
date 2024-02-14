@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room & Hotel Info </title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 </head>
 <body>
 <div class="navbar">
@@ -31,7 +38,7 @@
       </nav>
     </div>
 
-    <h1 class="title">Room & Hotel information</h1>
+    <h1 class="title_customer">Room & Hotel information</h1>
 
     <div class="room-hotel-info">
       <div class="info">
@@ -70,7 +77,12 @@
           </tr>
 
           <tr>
-            <td class="sub-head">cash</td>
+            <td class="sub-head">
+              <div class="money-icon">
+                <i class="fa-solid fa-wallet" style="margin-right: 20px; margin-top: 10px;">
+                </i>cash
+                </div>
+              </td>
           </tr>
         </table>
       </div>

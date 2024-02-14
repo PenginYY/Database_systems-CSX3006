@@ -169,17 +169,20 @@ input:focus:-ms-input-placeholder {
   font-weight: lighter;
 }
 
-.title {
-  /*margin-top: 72px;
-  margin-bottom: 41px;*/
+.title_customer {
+  margin-top: 72px;
+  text-align: center;
+  margin-bottom: 70px;
+>>>>>>> c727940f817282d8885be2b17d2cb4b1e63968fd
   text-transform: uppercase;
 }
 
 .head {
-  width: 50%;
+  width: 55%;
   text-align: left;
   font-size: 22px;
-  margin-left: 30px;
+  margin-top: 40px;
+  margin-left: 48px;
   text-transform: capitalize;
 }
 
@@ -214,8 +217,8 @@ input:focus:-ms-input-placeholder {
 }
 
 .info {
-  width: 35%;
-  height: 800px;
+  width: 40%;
+  height: 500px;
   margin: auto;
   border: 1px solid black;
   border-radius: 10px;
@@ -223,10 +226,18 @@ input:focus:-ms-input-placeholder {
 }
 
 .room-info {
-  margin-left: 30px;
+  margin-left: 50px;
   width: -webkit-fill-available;
 }
 
+.money-icon {
+  width: 120px;
+  height: 40px;
+  margin-top: 10px;
+  text-align: center;
+  border: 1px solid #aaaaaa;
+  border-radius: 10px;
+}
 /*reservation*/
 .reservation {
   width: 60%;
