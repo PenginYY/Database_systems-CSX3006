@@ -170,8 +170,8 @@ input:focus:-ms-input-placeholder {
 }
 
 .title {
-  margin-top: 72px;
-  margin-bottom: 41px;
+  /*margin-top: 72px;
+  margin-bottom: 41px;*/
   text-transform: uppercase;
 }
 
