@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online hotel management system</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <link rel="stylesheet" href="style.css" />
   <body>
     <!-- Login Page -->
     <div class="navbar">
@@ -35,12 +35,12 @@
         <label for="password"><b>Password</b></label>
         <input type="password" id="password" placeholder="xxxxxxxx" required />
 
-        <a href="#">
+        <a href="./personal_info.php">
           <button type="submit" name="submit" class="button">Login</button>
         </a>
 
         <p class="account">
-          Don't have an account? <a href="signup.php"> Sign up</a>
+          Don't have an account? <a href="./signup.php"> Sign up</a>
         </p>
       </div>
     </div>

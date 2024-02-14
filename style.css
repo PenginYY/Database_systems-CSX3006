@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600&display=swap");
 
 body {
-  font-family: "Source Sans 3", sans-serif;
+  font-family: 'Source Sans 3';
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -156,56 +156,186 @@ input:focus:-ms-input-placeholder {
   background-color: #d73938;
 }
 
+.account-info {
+  width: 40%;
+  height: auto;
+  margin: auto;
+}
 
+.personal-info .account {
+  color: gray;
+  text-align: left;
+  margin-top: 30px;
+  font-weight: lighter;
+}
 
+.title {
+  margin-top: 72px;
+  margin-bottom: 41px;
+  text-transform: uppercase;
+}
 
+.head {
+  width: 50%;
+  text-align: left;
+  font-size: 22px;
+  margin-left: 30px;
+  text-transform: capitalize;
+}
+
+.sub-head {
+  font-size: 18px;
+  padding-bottom: 35px;
+  text-transform: capitalize;
+}
+
+.body {
+  margin: 0;
+  font-size: 16px;
+  padding-left: 18px;
+  font-weight: lighter;
+}
+
+.edit-personal-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-personal-info .button {
+  width: 100px;
+  height: 40px;
+}
+
+.room-hotel-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.info {
+  width: 35%;
+  height: 800px;
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.room-info {
+  margin-left: 30px;
+  width: -webkit-fill-available;
+}
 
 /*reservation*/
-.reservation-top{
+.reservation {
+  width: 60%;
+}
+/*reservation title*/
+.reservation-title {
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+/*reservation header*/
+.reservation-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px #d73938;
 }
 
 /*reservation radio-day*/
-.radio-days {
+.reservation-header .radio-days {
+  font-weight: bold;
   display: inline-flex;
   overflow: hidden;
   border-radius: 8px;
   border: 1px solid #d73938;
 }
 
-.radio__input {
+.reservation-header .radio__input {
   display: none;
 }
 
-.radio__label {
+.reservation-header .radio__label {
   padding: 8px 14px;
-  font-size: 12px;
-  font-family: 'Source Sans 3';
+  font-size: h3;
   color: #AAAAAA;
   background: #fff;
   cursor: pointer;
   transition: background 0.1s;
 }
 
-.radio__label:not(:last-of-type) {
+.reservation-header .radio__label:not(:last-of-type) {
   border-right: 1px solid #d73938;
 }
 
-.radio__input:checked + .radio__label {
+.reservation-header .radio__input:checked + .radio__label {
   color: #fff;
   background: #d73938;
 }
 
+/*reservation body*/
+.reservation-body {
+  margin-top: 30px;
+  font-size: h3;
+  overflow: auto;
+}
+
+.reservation-body::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.reservation-body::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: #0004;
+  visibility: hidden;
+}
+
+.reservation-body:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+/*reservation table*/
+.reservation-body table {
+  width: 100%;
+}
+
+.reservation-body table, th, td{
+  border-collapse: collapse;
+  padding: 1rem;
+}
+
+.reservation-body th.left, td.left {
+  text-align: left;
+}
+
+.reservation-body th.center, td.center {
+  text-align: center;
+}
+
+.reservation-body thead th {
+  position: sticky;
+  top: 0;
+}
+
+@media (max-width: 1000px) {
+  td:not(:first-of-type) {
+    min-width: 12.5rem;
+  }
+}
+
+
 /*reservation button*/
-.reservation-button{
-  padding: 7px 25px;
+.reservation-button-red {
+  width: 100px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   border-radius: 5px;
-  font-size: 12px;
-  font-family: 'Source Sans 3';
+  font-size: h3;
   font-weight: bold;
+  text-align: center;
   text-decoration: none;
   color: white;
   border: 1px solid #d73938;
@@ -213,29 +343,29 @@ input:focus:-ms-input-placeholder {
   display: inline-block;
 }
 
-.button_edit{
-  font-size: 22px;
+.reservation-button-black {
+  width: 100px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 5px;
+  font-size: h3;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  background-color: white;
+  display: inline-block;
+}
+
+.reservation-button-edit {
+  font-size: 20px;
   color: black;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*add reservation*/
-.overlay{
+/*reservation popup*/
+.overlay {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -247,39 +377,81 @@ input:focus:-ms-input-placeholder {
   opacity: 0;
 }
 
-.overlay:target{
+.overlay:target {
   visibility: visible;
   opacity: 1;
 }
 
-.wrapper{
-  margin: 70px auto;
-  padding: 20 px;
-  background: #e7e7e7;
+.popup-box .container {
+  top: 50%;
+  left: 50%;
+  transform: translate(120%, 30%);
+  /*position: relative;*/
+  max-width: 400px;
+  width: 100%;
+  background: white;
+  padding: 25px;
   border-radius: 5px;
-  width: 30%;
-  position: relative;
-  transition: all 5s ease-in-out;
 }
 
-.wrapper h2{
-  margin-top: 0;
-  color: #333;
+form .reservation-details .column1 {
+  display: flex;
+  column-gap: 70px;
 }
 
-.wrapper .close{
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
+form .reservation-details .column2 {
+  display: flex;
+  column-gap: 30px;
+}
+
+.popup-box .container form .reservation-details .input-box {
+  width: 100%;
+  margin-top: 5px;
+}
+
+
+form .reservation-details .input-box label {
+  display: block;
+  font-size: h2;
   font-weight: bold;
-  text-decoration: none;
-  color: #333;
 }
 
-.wrapper .content{
-  max-height: 30%;
-  overflow: auto;
+
+form .reservation-details .input-box input {
+  position: relative;
+  height: 30px;
+  width: 100%;
+  outline: none;
+  font-size: h2;
+  border-radius: 5px;
+  border: 1px solid #AAAAAA;
+  padding-left: 0 25px;
+  transition: all 0.3s ease;
+}
+
+.reservation-details .input-box input:focus,
+.reservation-details .input-box input:valid {
+  border-color: #303030;
+}
+
+.popup-add-button {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 1em;
+}
+
+.popup-edit-button {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 1em;
+}
+
+.popup-edit-button a:first-child {
+  margin-right: auto;
+}
+
+.popup-info-button {
+  display: flex;
+  justify-content: flex-end;
 }
 

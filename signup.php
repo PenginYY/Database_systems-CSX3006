@@ -24,7 +24,7 @@
     <form action="connect.php" method="POST">
       <div class="signup-form">
         <div class="fill-info">
-          <h1>Sign up</h1>
+          <h1>Sign up</h1><br>
           <label for="email"><b>Email</b></label>
           <input
             type="email"
@@ -34,21 +34,21 @@
             required
           />
 
-          <label for="name"><b>Name</b></label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="John"
-            required
-          />
-
           <label for="password"><b>Password</b></label>
           <input
             type="password"
             id="password"
             name="password"
             placeholder="12345"
+            required
+          />
+
+          <label for="name"><b>Name</b></label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="John"
             required
           />
 

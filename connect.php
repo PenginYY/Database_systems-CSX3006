@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
       header("Location: http://localhost:3000/index.php");
       exit();
     } else {
-      echo 'Create account not completed!';
+      echo $result;
     }
 
   }
