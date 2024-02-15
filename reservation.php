@@ -57,30 +57,29 @@
       
       <!-- Rservation Body -->
       <div class="reservation-body">
-        <table>
-          <thead>
-            <tr>
-              <th class="left"> Reservation No. </th>
-              <th class="left"> Customer Name </th>
-              <th class="center"> Agent </th>
-              <th class="center"> Arrive </th>
-              <th class="center"> Depart </th>
-              <th class="center"> Edit </th>
+        <table class="res-table">
+          <thead class="res-thead">
+            <tr class="res-tr">
+              <th class="res-th" style="text-align: left;"> Reservation No. </th>
+              <th class="res-th" style="text-align: left;"> Customer Name </th>
+              <th class="res-th" style="text-align: center;"> Agent </th>
+              <th class="res-th" style="text-align: center;"> Arrive </th>
+              <th class="res-th" style="text-align: center;"> Depart </th>
+              <th class="res-th" style="text-align: center;"> Edit </th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td class="left"> 000001 </td>
-              <td class="left"><a href="#popup-info2" style="text-decoration: none; color: black;"> Chayapat Pangpon </a></td>
-              <td class="center"> Agoda </td>
-              <td class="center"> 04/11/23 </td>
-              <td class="center"> 05/11/23 </td>
-              <td class="center"> 
+          <tbody class="res-tbody">
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;"> 000001 </td>
+              <td class="res-td" style="text-align: left;"><a href="#popup-info2" style="text-decoration: none; color: black;"> Chayapat Pangpon </a></td>
+              <td class="res-td" style="text-align: center;"> Agoda </td>
+              <td class="res-td" style="text-align: center;"> 04/11/23 </td>
+              <td class="res-td" style="text-align: center;"> 05/11/23 </td>
+              <td class="res-td" style="text-align: center;"> 
                 <a href="#popup-edit" class="reservation-button-edit">
                   <i class="fa-regular fa-pen-to-square"></i>
                 </a>
               </td>
-              
             </tr>
           </tbody>
         </table>

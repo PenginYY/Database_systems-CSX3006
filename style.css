@@ -308,30 +308,22 @@ input:focus:-ms-input-placeholder {
 }
 
 /*reservation table*/
-.reservation-body table {
+.reservation-body .res-table {
   width: 100%;
 }
 
-.reservation-body table, th, td{
+.reservation-body .res-table, .res-th, .res-td{
   border-collapse: collapse;
   padding: 1rem;
 }
 
-.reservation-body th.left, td.left {
-  text-align: left;
-}
-
-.reservation-body th.center, td.center {
-  text-align: center;
-}
-
-.reservation-body thead th {
+.reservation-body .res-th {
   position: sticky;
   top: 0;
 }
 
 @media (max-width: 1000px) {
-  td:not(:first-of-type) {
+  .res-td:not(:first-of-type) {
     min-width: 12.5rem;
   }
 }
