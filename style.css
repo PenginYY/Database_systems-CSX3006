@@ -2,6 +2,9 @@
 
 body {
   font-family: "Source Sans 3", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .account {
@@ -154,7 +157,7 @@ input:focus:-ms-input-placeholder {
 }
 
 .account-info {
-  width: 40%;
+  width: 70%;
   height: auto;
   margin: auto;
 }
@@ -210,12 +213,14 @@ input:focus:-ms-input-placeholder {
 .room-hotel-info {
   display: flex;
   flex-direction: row;
+  width: 80%;
 }
 
 .info {
-  width: 40%;
+  width: 50%;
   height: 500px;
   margin: auto;
+  margin-right: 50px;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
@@ -234,6 +239,7 @@ input:focus:-ms-input-placeholder {
   border: 1px solid #aaaaaa;
   border-radius: 10px;
 }
+
 /*reservation*/
 .reservation-top {
   display: flex;
