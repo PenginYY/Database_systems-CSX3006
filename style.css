@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600&display=swap");
 
 body {
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -157,7 +157,8 @@ input:focus:-ms-input-placeholder {
 }
 
 .account-info {
-  width: 40%;
+  width: 70%;
+  text-align: -webkit-center;
   height: auto;
   margin: auto;
 }
@@ -169,17 +170,19 @@ input:focus:-ms-input-placeholder {
   font-weight: lighter;
 }
 
-.title {
+.title_customer {
   margin-top: 72px;
-  margin-bottom: 41px;
+  text-align: center;
+  margin-bottom: 70px;
   text-transform: uppercase;
 }
 
 .head {
-  width: 50%;
+  width: 55%;
   text-align: left;
   font-size: 22px;
-  margin-left: 30px;
+  margin-top: 40px;
+  margin-left: 48px;
   text-transform: capitalize;
 }
 
@@ -211,20 +214,31 @@ input:focus:-ms-input-placeholder {
 .room-hotel-info {
   display: flex;
   flex-direction: row;
+  width: 80%;
 }
 
 .info {
-  width: 35%;
-  height: 800px;
+  width: 50%;
+  height: 500px;
   margin: auto;
+  margin-right: 50px;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
 }
 
 .room-info {
-  margin-left: 30px;
+  margin-left: 50px;
   width: -webkit-fill-available;
+}
+
+.money-icon {
+  width: 120px;
+  height: 40px;
+  margin-top: 10px;
+  text-align: center;
+  border: 1px solid #aaaaaa;
+  border-radius: 10px;
 }
 
 /*reservation*/
@@ -260,7 +274,7 @@ input:focus:-ms-input-placeholder {
 .reservation-header .radio__label {
   padding: 8px 14px;
   font-size: h3;
-  color: #AAAAAA;
+  color: #aaaaaa;
   background: #fff;
   cursor: pointer;
   transition: background 0.1s;
@@ -298,34 +312,27 @@ input:focus:-ms-input-placeholder {
 }
 
 /*reservation table*/
-.reservation-body table {
+.reservation-body .res-table {
   width: 100%;
 }
 
-.reservation-body table, th, td{
+.reservation-body .res-table,
+.res-th,
+.res-td {
   border-collapse: collapse;
   padding: 1rem;
 }
 
-.reservation-body th.left, td.left {
-  text-align: left;
-}
-
-.reservation-body th.center, td.center {
-  text-align: center;
-}
-
-.reservation-body thead th {
+.reservation-body .res-th {
   position: sticky;
   top: 0;
 }
 
 @media (max-width: 1000px) {
-  td:not(:first-of-type) {
+  .res-td:not(:first-of-type) {
     min-width: 12.5rem;
   }
 }
-
 
 /*reservation button*/
 .reservation-button-red {
@@ -363,7 +370,6 @@ input:focus:-ms-input-placeholder {
   color: black;
 }
 
-
 /*reservation popup*/
 .overlay {
   position: fixed;
@@ -386,7 +392,6 @@ input:focus:-ms-input-placeholder {
   top: 50%;
   left: 50%;
   transform: translate(120%, 30%);
-  /*position: relative;*/
   max-width: 400px;
   width: 100%;
   background: white;
@@ -394,12 +399,12 @@ input:focus:-ms-input-placeholder {
   border-radius: 5px;
 }
 
-form .reservation-details .column1 {
+.reservation-details .column1 {
   display: flex;
   column-gap: 70px;
 }
 
-form .reservation-details .column2 {
+.reservation-details .column2 {
   display: flex;
   column-gap: 30px;
 }
@@ -409,13 +414,11 @@ form .reservation-details .column2 {
   margin-top: 5px;
 }
 
-
 form .reservation-details .input-box label {
   display: block;
   font-size: h2;
   font-weight: bold;
 }
-
 
 form .reservation-details .input-box input {
   position: relative;
@@ -424,9 +427,26 @@ form .reservation-details .input-box input {
   outline: none;
   font-size: h2;
   border-radius: 5px;
-  border: 1px solid #AAAAAA;
+  border: 1px solid #aaaaaa;
   padding-left: 0 25px;
   transition: all 0.3s ease;
+}
+
+.reservation-details .res-info-box {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+.reservation-details .res-info-box .res-dt {
+  font-size: h2;
+  font-weight: bold;
+}
+
+.reservation-details .res-dd {
+  margin-left: 10px;
+  font-size: h2;
+  font-family: 'Source Sans 3';
 }
 
 .reservation-details .input-box input:focus,
@@ -454,4 +474,3 @@ form .reservation-details .input-box input {
   display: flex;
   justify-content: flex-end;
 }
-
