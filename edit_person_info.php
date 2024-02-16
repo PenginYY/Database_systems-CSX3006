@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Personal information Page</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Personal Infomation</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Personal info -->
-    <div class="navbar">
+</head>
+<body>
+<div class="navbar">
       <nav class="navbar-container">
         <a href="personal_info.php"
           ><img src="./logo/Assumption_University(logo).png" alt="logo"
@@ -71,14 +70,12 @@
         </tr>
       </table>
 
-      <div class="edit-personal-info">
-        <p class="account"><a href="#">delete account</a></p> 
-
-        <!-- link to edit page -->
-        <a href="./edit_person_info.php">
-        <button type="submit" name="submit" class="button">Edit</button>
-        </a>
+        <div class="edit-personal-info">
+            <a href="./personal_info.php">
+                <button type="submit" name="submit" class="button">Done</button>
+                </a>
+        </div>
       </div>
     </div>
-  </body>
+</body>
 </html>

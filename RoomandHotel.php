@@ -95,7 +95,7 @@
             </tr>
 
             <tr>
-              <td class="sub-head">Brooklyn.hotel@gmail.com</td>
+              <td class="sub-head">brooklyn.hotel@gmail.com</td>
             </tr>
 
             <tr>
@@ -120,7 +120,7 @@ sithammarat rattanakosin road, 22980</td>
             </tr>
 
             <tr>
-              <td class="sub-head">www.hotel.com</td>
+              <td class="sub-head">WWW.HOTEL.COM</td>
             </tr>
           </table>
       </div>
