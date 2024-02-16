@@ -57,30 +57,29 @@
       
       <!-- Rservation Body -->
       <div class="reservation-body">
-        <table>
-          <thead>
-            <tr>
-              <th class="left"> Reservation No. </th>
-              <th class="left"> Customer Name </th>
-              <th class="center"> Agent </th>
-              <th class="center"> Arrive </th>
-              <th class="center"> Depart </th>
-              <th class="center"> Edit </th>
+        <table class="res-table">
+          <thead class="res-thead">
+            <tr class="res-tr">
+              <th class="res-th" style="text-align: left;"> Reservation No. </th>
+              <th class="res-th" style="text-align: left;"> Customer Name </th>
+              <th class="res-th" style="text-align: center;"> Agent </th>
+              <th class="res-th" style="text-align: center;"> Arrive </th>
+              <th class="res-th" style="text-align: center;"> Depart </th>
+              <th class="res-th" style="text-align: center;"> Edit </th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td class="left"> 000001 </td>
-              <td class="left"><a href="#popup-info2" style="text-decoration: none; color: black;"> Chayapat Pangpon </a></td>
-              <td class="center"> Agoda </td>
-              <td class="center"> 04/11/23 </td>
-              <td class="center"> 05/11/23 </td>
-              <td class="center"> 
+          <tbody class="res-tbody">
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;"> 000001 </td>
+              <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Chayapat Pangpon </a></td>
+              <td class="res-td" style="text-align: center;"> Agoda </td>
+              <td class="res-td" style="text-align: center;"> 04/11/23 </td>
+              <td class="res-td" style="text-align: center;"> 05/11/23 </td>
+              <td class="res-td" style="text-align: center;"> 
                 <a href="#popup-edit" class="reservation-button-edit">
                   <i class="fa-regular fa-pen-to-square"></i>
                 </a>
               </td>
-              
             </tr>
           </tbody>
         </table>
@@ -98,7 +97,7 @@
               <div class="column1">
                 <div class="input-box">
                   <label for="res-number-a">Reservation Number</label>
-                  <input type="text" id="res-number-a" name="res-number" placeholder="Reservation number" required>
+                  <dd class="res-dd">000001</dd>
                 </div>
                 <div class="input-box">
                   <label for="total-guest-a">Number of Room</label>
@@ -147,31 +146,31 @@
               <div class="column1">
                 <div class="input-box">
                   <label for="res-number-e">Reservation Number</label>
-                  <input type="text" id="res-number-e" name="res-number" placeholder="Reservation number" required>
+                  <dd class="res-dd">000001</dd>
                 </div>
                 <div class="input-box">
                   <label for="total-guest-e">Number of Room</label>
-                  <input type="text" id="total-guest-e" name="total-guest" placeholder="Enter number of room" required>
+                  <input type="text" id="total-guest-e" name="total-guest" placeholder="316" required>
                 </div>
               </div>
               
               <div class="input-box">
                 <label for="cus-name-e">Customer Name</label>
-                <input type="text" id="cus-name-e" name="cus-name" placeholder="Enter customer name" required>
+                <input type="text" id="cus-name-e" name="cus-name" placeholder="Chayapat Pangpon" required>
               </div>
               
               <div class="column2">
                 <div class="input-box">
                   <label for="agent-e">Agent</label>
-                  <input type="text" id="agent-e" name="agent" placeholder="Enter agent" required>
+                  <input type="text" id="agent-e" name="agent" placeholder="Agoda" required>
                 </div>
                 <div class="input-box">
                   <label for="arr-date-e">Arriving Date</label>
-                  <input type="text" id="arr-date-e" name="arr-date" placeholder="00/00/00" required>
+                  <input type="text" id="arr-date-e" name="arr-date" placeholder="04/11/23" required>
                 </div>
                 <div class="input-box">
                   <label for="dep-date-e">Departure Date</label>
-                  <input type="text" id="dep-date-e" name="dep-date" placeholder="00/00/00" required>
+                  <input type="text" id="dep-date-e" name="dep-date" placeholder="05/11/23" required>
                 </div>
               </div>
 
@@ -191,37 +190,36 @@
       <div class="popup-box">
         <div class="container">
           <div class="title"><h3>Reservation Info</h3></div>
-          <form action="#">
             <div class="reservation-details">
               
               <div class="column1">
-                <div class="input-box">
-                  <label for="res-number-i">Reservation Number</label>
-                  <input type="text" id="res-number-i" name="res-number" placeholder="Reservation number" required>
+                <div class="res-info-box">
+                  <dt class="res-dt">Reservation Number</dt>
+                  <dd class="res-dd">000001</dd>
                 </div>
-                <div class="input-box">
-                  <label for="total-guest-i">Number of Room</label>
-                  <input type="text" id="total-guest-i" name="total-guest" placeholder="Enter number of room" required>
+                <div class="res-info-box">
+                  <dt class="res-dt">Number of Room</dt>
+                  <dd class="res-dd">1</dd>
                 </div>
               </div>
               
-              <div class="input-box">
-                <label for="cus-name-i">Customer Name</label>
-                <input type="text" id="cus-name-i" name="cus-name" placeholder="Enter customer name" required>
+              <div class="res-info-box">
+                <dt class="res-dt">Customer Name</dt>
+                <dd class="res-dd">Chayapat Pangpon</dd>
               </div>
               
               <div class="column2">
-                <div class="input-box">
-                  <label for="agent-i">Agent</label>
-                  <input type="text" id="agent-i" name="agent" placeholder="Enter agent" required>
+                <div class="res-info-box">
+                  <dt class="res-dt">Agent</dt>
+                  <dd class="res-dd">Agoda</dd>
                 </div>
-                <div class="input-box">
-                  <label for="arr-date-i">Arriving Date</label>
-                  <input type="text" id="arr-date-i" name="arr-date" placeholder="00/00/00" required>
+                <div class="res-info-box">
+                  <dt class="res-dt">Arriving Date</dt>
+                  <dd class="res-dd">04/11/23</dd>
                 </div>
-                <div class="input-box">
-                  <label for="dep-date-i">Departure Date</label>
-                  <input type="text" id="dep-date-i" name="dep-date" placeholder="00/00/00" required>
+                <div class="res-info-box">
+                  <dt class="res-dt">Departure Date</dt>
+                  <dd class="res-dd">05/11/23</dd>
                 </div>
               </div>
             
@@ -229,57 +227,9 @@
             <div class="popup-info-button">
               <a href="#" class="reservation-button-red">Done</a>
             </div>
-          </form>
         </div>
       </div>
     </div>
-
-    <!-- Rservation Info 2 -->
-    <div class="overlay" id="popup-info2">
-      <div class="popup-box">
-        <div class="container">
-          <div class="title"><h3>Reservation Info</h3></div>
-          <div class="reservation-details">
-            
-            <div class="column1">
-              <dl>
-                <dt>Reservation Number</dt>
-                <dd>000001</dd>
-              </dl>
-              <dl>
-                <dt>Number of Room</dt>
-                <dd>1</dd>
-              </dl>
-            </div>
-
-            <ul type="None">
-              <li>Customer Name</li>
-              <li>Chayapat Pangpon</li>
-            </ul>
-            
-            <div class="column2">
-              <ul type="None">
-                <li>Agent</li>
-                <li>Agoda</li>
-              </ul>
-              <ul type="None">
-                <li>Arriving Date</li>
-                <li>04/11/23</li>
-              </ul>
-              <ul type="None">
-                <li>Departure Date</li>
-                <li>05/11/23</li>
-              </ul>
-            </div>
-          
-          </div>
-          <div class="popup-info-button">
-            <a href="#" class="reservation-button-red">Done</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
 
   </body>
 </html>
