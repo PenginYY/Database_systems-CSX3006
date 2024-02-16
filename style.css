@@ -392,7 +392,6 @@ input:focus:-ms-input-placeholder {
   top: 50%;
   left: 50%;
   transform: translate(120%, 30%);
-  /*position: relative;*/
   max-width: 400px;
   width: 100%;
   background: white;
@@ -400,12 +399,12 @@ input:focus:-ms-input-placeholder {
   border-radius: 5px;
 }
 
-form .reservation-details .column1 {
+.reservation-details .column1 {
   display: flex;
   column-gap: 70px;
 }
 
-form .reservation-details .column2 {
+.reservation-details .column2 {
   display: flex;
   column-gap: 30px;
 }
@@ -431,6 +430,23 @@ form .reservation-details .input-box input {
   border: 1px solid #aaaaaa;
   padding-left: 0 25px;
   transition: all 0.3s ease;
+}
+
+.reservation-details .res-info-box {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+.reservation-details .res-info-box .res-dt {
+  font-size: h2;
+  font-weight: bold;
+}
+
+.reservation-details .res-dd {
+  margin-left: 10px;
+  font-size: h2;
+  font-family: 'Source Sans 3';
 }
 
 .reservation-details .input-box input:focus,
