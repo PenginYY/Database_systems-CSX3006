@@ -188,7 +188,7 @@ input:focus:-ms-input-placeholder {
 
 .sub-head {
   font-size: 18px;
-  padding-bottom: 35px;
+  padding-bottom: 30px;
   text-transform: capitalize;
 }
 
@@ -204,6 +204,7 @@ input:focus:-ms-input-placeholder {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 20px;
 }
 
 .edit-personal-info .button {
@@ -446,7 +447,6 @@ form .reservation-details .input-box input {
 .reservation-details .res-dd {
   margin-left: 10px;
   font-size: h2;
-  font-family: 'Source Sans 3';
 }
 
 .reservation-details .input-box input:focus,
