@@ -23,7 +23,7 @@
 
         <ul class="navbar-right">
           <li>
-            <a href="./personal_info.php">personal information</a>
+            <a href="./personal_info.php" style="color: #d73938;">personal information</a>
           </li>
           <li>
             <a href="./RoomandHotel.php">room & hotel info</a>
@@ -42,32 +42,32 @@
 
         <tr>
           <td class="sub-head">name<p class="body">Brooklyn</p></td>
-          <td class="body">123 cute city, thailand koh lan nakorn 
-            sithammarat rattanakosin road, 22980</td>
+          <td class="sub-head">Address (City / State / Country)<p class="body">123 cute city, thailand koh lan nakorn 
+            sithammarat rattanakosin road, 22980</p></td>
         </tr>
 
         <tr>
           <td class="sub-head">surmane<p class="body">Simmons</p></td>
-        </tr>
-
-        <tr>
-          <th class="head">date of birth</th>
           <th class="head">emergency call</th>
         </tr>
 
         <tr>
-          <td><p class="body">12 October 1987</p></td>
+          <th class="head">date of birth</th>
           <td class="sub-head">name<p class="body">Esther Howard</p></td>
         </tr>
 
         <tr>
-        <th class="head">Phone number</th>
-        <td class="sub-head">telephone<p class="body">099-999-9999</p></td>
+          <td class="sub-head">DD/MM/YYYY<p class="body">12 October 1987</p></td>
+          <td class="sub-head">telephone<p class="body">099-999-9999</p></td>
         </tr>
 
         <tr>
-        <td><p class="body">088-888-8888</p></td>
+        <th class="head">Phone number</th>
         <td class="sub-head">relationship<p class="body">father</p></td>
+        </tr>
+
+        <tr>
+        <td class="sub-head">TEL.XXX-XXX-XXXX<p class="body">088-888-8888</p></td>
         </tr>
       </table>
 
@@ -75,7 +75,7 @@
         <p class="account"><a href="#">delete account</a></p> 
 
         <!-- link to edit page -->
-        <a href="./edit_person_info.php">
+        <a href="./edit_personal_info.php">
         <button type="submit" name="submit" class="button">Edit</button>
         </a>
       </div>
