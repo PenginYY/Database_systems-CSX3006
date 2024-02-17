@@ -41,13 +41,13 @@
         </tr>
 
         <tr>
-          <td class="sub-head">name<p class="body">John</p></td>
+          <td class="sub-head">name<p class="body">Brooklyn</p></td>
           <td class="body">123 cute city, thailand koh lan nakorn 
             sithammarat rattanakosin road, 22980</td>
         </tr>
 
         <tr>
-          <td class="sub-head">surmane<p class="body">Smith</p></td>
+          <td class="sub-head">surmane<p class="body">Simmons</p></td>
         </tr>
 
         <tr>
