@@ -14,6 +14,8 @@
     />
 </head>
 <body>
+
+<!-- Room & Hotel navbar-->
 <div class="navbar">
       <nav class="navbar-container">
         <a href="personal_info.php"
@@ -22,8 +24,8 @@
         <ul class="navbar-left">
           <li>
             <a href="personal_info.php"
-              ><h1>online hotel management system</h1></a
-            >
+              ><h1>online hotel management system</h1>
+            </a>
           </li>
         </ul>
 
@@ -40,6 +42,7 @@
 
     <h1 class="title_customer">Room & Hotel information</h1>
 
+    <!-- Room information-->
     <div class="room-hotel-info">
       <div class="info">
         <h3 class="head">Room Information</h3>
@@ -85,6 +88,7 @@
         </table>
       </div>
 
+      <!-- Hotel information -->
       <div class="info">
       <h3 class="head">Hotel Information</h3>
           <table class="room-info">
