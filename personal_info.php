@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Personal info -->
+    <!-- Personal info navbar -->
     <div class="navbar">
       <nav class="navbar-container">
         <a href="personal_info.php"
@@ -32,6 +32,7 @@
       </nav>
     </div>
 
+    <!-- Personal information -->
     <h1 class="title_customer">personal information</h1>
     <div class="account-info">
       <table>
