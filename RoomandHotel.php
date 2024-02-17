@@ -56,12 +56,10 @@
 
           <tr>
             <th class="head">customer name</th>
-            <th class="head">room type</th>
           </tr>
 
           <tr>
             <td class="sub-head">Brooklyn Simmons</td>
-            <td class="sub-head">Deluxe Twin</td>
           </tr>
 
           <tr>
@@ -88,14 +86,14 @@
       </div>
 
       <div class="info">
-      <h3 class="head">Hotel Infomation</h3>
+      <h3 class="head">Hotel Information</h3>
           <table class="room-info">
             <tr>
               <th class="head">email</th>
             </tr>
 
             <tr>
-              <td class="sub-head">brooklyn.hotel@gmail.com</td>
+              <td class="sub-head">cute.hotel@gmail.com</td>
             </tr>
 
             <tr>
@@ -120,7 +118,7 @@ sithammarat rattanakosin road, 22980</td>
             </tr>
 
             <tr>
-              <td class="sub-head">WWW.HOTEL.COM</td>
+              <td class="sub-head"><a href="#" style="color:black;">WWW.CUTE-HOTEL.COM</a></td>
             </tr>
           </table>
       </div>
