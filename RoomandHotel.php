@@ -32,7 +32,7 @@
             <a href="./personal_info.php">personal information</a>
           </li>
           <li>
-            <a href="./RoomandHotel.php">room & hotel info</a>
+            <a href="./RoomandHotel.php" style="color: #d73938;">room & hotel info</a>
           </li>
         </ul>
       </nav>
