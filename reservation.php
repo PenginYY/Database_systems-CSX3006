@@ -109,6 +109,10 @@
                 <label for="cus-name-a">Customer Name</label>
                 <input type="text" id="cus-name-a" name="cus-name" placeholder="Enter customer name" required>
               </div>
+              <div class="res-info-box">
+                <dt class="res-dt">Email</dt>
+                <dd class="res-dd">pangpon.c@gmail.com</dd>
+              </div>
               
               <div class="column2">
                 <div class="input-box">
@@ -158,6 +162,10 @@
                 <label for="cus-name-e">Customer Name</label>
                 <input type="text" id="cus-name-e" name="cus-name" placeholder="Chayapat Pangpon" required>
               </div>
+              <div class="res-info-box">
+                <dt class="res-dt">Email</dt>
+                <dd class="res-dd">pangpon.c@gmail.com</dd>
+              </div>
               
               <div class="column2">
                 <div class="input-box">
@@ -206,6 +214,10 @@
               <div class="res-info-box">
                 <dt class="res-dt">Customer Name</dt>
                 <dd class="res-dd">Chayapat Pangpon</dd>
+              </div>
+              <div class="res-info-box">
+                <dt class="res-dt">Email</dt>
+                <dd class="res-dd">pangpon.c@gmail.com</dd>
               </div>
               
               <div class="column2">
