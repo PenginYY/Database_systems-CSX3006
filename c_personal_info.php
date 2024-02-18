@@ -84,13 +84,26 @@
       </table>
 
       <div class="edit-personal-info">
-        <p class="account"><a href="#">delete account</a></p> 
+        <p class="account"><a href="#popup-delete-acc">delete account</a></p> 
 
         <!-- link to edit page -->
         <a href="./c_edit_personal_info.php">
         <button type="submit" name="submit" class="button">Edit</button>
         </a>
       </div>
+
+      <div class="popup-delete-acc" id="popup-delete-acc">
+        <div class="overlay-acc">
+            <div class="popup-acc-content">
+                <h3>Are you certain to delete this account?</h3>
+                <div class="controls">
+                  <a href="./c_index.php"><button type="submit" name="submit" class="yes-btn">yes</button></a>
+                  <a href="#"><button type="submit" name="submit" class="no-btn">no</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </body>
 </html>
