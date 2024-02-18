@@ -23,10 +23,10 @@
 
         <ul class="navbar-right">
           <li>
-            <a href="./personal_info.php" style="color: #d73938;">personal information</a>
+            <a href="./c_personal_info.php" style="color: #d73938;">personal information</a>
           </li>
           <li>
-            <a href="./RoomandHotel.php">room & hotel info</a>
+            <a href="./c_RoomandHotel.php">room & hotel info</a>
           </li>
         </ul>
       </nav>
@@ -49,7 +49,7 @@
 
         <tr>
           <td class="sub-head">surmane<p class="body">Simmons</p></td>
-          <th class="head">emergency call</th>
+          <th class="head">emergency contact</th>
         </tr>
 
         <tr>
@@ -64,7 +64,18 @@
 
         <tr>
         <th class="head">Phone number</th>
-        <td class="sub-head">relationship<p class="body">father</p></td>
+        <td class="sub-head">
+          <label for="relationship">relationship</label>
+          <p class="body">
+          <select id="relationships" name="relationships" style="font-size: 50px;">
+            <option value="parent">Parent</option>
+            <option value="sibling">Sibling</option>
+            <option value="relative">Relative</option>
+            <option value="friend">Friend</option>
+            <option value="other">Other</option>
+          </select>
+          </p>
+        </td>
         </tr>
 
         <tr>
