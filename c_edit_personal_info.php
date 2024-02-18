@@ -9,23 +9,24 @@
 <body>
 <div class="navbar">
       <nav class="navbar-container">
-        <a href="personal_info.php"
+        <a href="./c_personal_info.php"
           ><img src="./logo/Assumption_University(logo).png" alt="logo"
         /></a>
         <ul class="navbar-left">
           <li>
-            <a href="personal_info.php"
-              ><h1>online hotel management system</h1></a
+            <a href="./c_personal_info.php">
+              <h1>online hotel management system</h1>
+            </a
             >
           </li>
         </ul>
 
         <ul class="navbar-right">
           <li>
-            <a href="./personal_info.php" style="color: #d73938;">personal information</a>
+            <a href="./c_personal_info.php" style="color: #d73938;">personal information</a>
           </li>
           <li>
-            <a href="./RoomandHotel.php">room & hotel info</a>
+            <a href="./c_RoomandHotel.php">room & hotel info</a>
           </li>
         </ul>
       </nav>
@@ -40,7 +41,7 @@
         </tr>
 
         <tr>
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
             <label for="name">Name</label>
             <p class="body">
             <input type="text"
@@ -51,7 +52,7 @@
           </p>
         </td>
         
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
           <label for="address">Address (City / State / Country)</label>
           <p class="body">
             <input
@@ -66,7 +67,7 @@
         </tr>
 
         <tr>
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
               <label for="surname">surname</label>
               <p class="body">
               <input type="text"
@@ -81,7 +82,7 @@
 
         <tr>
           <th class="head">date of birth</th>
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
             <label for="name">name</label>
             <p class="body">
             <input type="text"
@@ -94,7 +95,7 @@
         </tr>
 
         <tr>
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
             <label for="dob">DD/MM/YYYY</label>
             <p class="body">
             <input type="text"
@@ -105,7 +106,7 @@
             </p>
           </td>
 
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
             <label for="telephone">telephone</label>
             <p class="body">
             <input type="text"
@@ -118,20 +119,22 @@
 
         <tr>
           <th class="head">Phone number</th>
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
             <label for="relationship">relationship</label>
             <p class="body">
-            <input type="text"
-              id="relationship"
-              name="relationship"
-              value="father"
-              >
+              <select id="relationships" name="relationships" style="font-size: 50px; ">
+              <option value="parent">Parent</option>
+              <option value="sibling">Sibling</option>
+              <option value="relative">Relative</option>
+              <option value="friend">Friend</option>
+              <option value="other">Other</option>
+              </select>
             </p>
           </td>
         </tr>
 
         <tr>
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
             <label for="telephone">TEL.XXX-XXX-XXXX</label>
             <p class="body">
             <input type="text"
@@ -146,7 +149,7 @@
       </table>
 
         <div class="edit-personal-info" style="margin-left: 85%;">
-            <a href="./personal_info.php">
+            <a href="./c_personal_info.php">
                 <button type="submit" name="submit" class="button">Done</button>
                 </a>
         </div>

@@ -10,12 +10,12 @@
     <!-- Personal info navbar -->
     <div class="navbar">
       <nav class="navbar-container">
-        <a href="personal_info.php"
+        <a href="./c_personal_info.php"
           ><img src="./logo/Assumption_University(logo).png" alt="logo"
         /></a>
         <ul class="navbar-left">
           <li>
-            <a href="personal_info.php"
+            <a href="./c_personal_info.php"
               ><h1>online hotel management system</h1></a
             >
           </li>
@@ -23,10 +23,10 @@
 
         <ul class="navbar-right">
           <li>
-            <a href="./personal_info.php" style="color: #d73938;">personal information</a>
+            <a href="./c_personal_info.php" style="color: #d73938;">personal information</a>
           </li>
           <li>
-            <a href="./RoomandHotel.php">room & hotel info</a>
+            <a href="./c_RoomandHotel.php">room & hotel info</a>
           </li>
         </ul>
       </nav>
@@ -49,7 +49,7 @@
 
         <tr>
           <td class="sub-head">surmane<p class="body">Simmons</p></td>
-          <th class="head">emergency call</th>
+          <th class="head">emergency contact</th>
         </tr>
 
         <tr>
@@ -64,7 +64,10 @@
 
         <tr>
         <th class="head">Phone number</th>
-        <td class="sub-head">relationship<p class="body">father</p></td>
+        <td class="sub-head">
+          <label for="relationship">relationship</label>
+          <p class="body">Parent</p>
+        </td>
         </tr>
 
         <tr>
@@ -73,13 +76,26 @@
       </table>
 
       <div class="edit-personal-info">
-        <p class="account"><a href="#">delete account</a></p> 
+        <p class="account"><a href="#popup-delete-acc">delete account</a></p> 
 
         <!-- link to edit page -->
-        <a href="./edit_personal_info.php">
+        <a href="./c_edit_personal_info.php">
         <button type="submit" name="submit" class="button">Edit</button>
         </a>
       </div>
+
+      <div class="popup-delete-acc" id="popup-delete-acc">
+        <div class="overlay-acc">
+            <div class="popup-acc-content">
+                <h3>Are you certain to delete this account?</h3>
+                <div class="controls">
+                  <a href="./c_index.php"><button type="submit" name="submit" class="yes-btn">yes</button></a>
+                  <a href="#"><button type="submit" name="submit" class="no-btn">no</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </body>
 </html>

@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
-      header("Location: http://localhost:3000/index.php");
+      header("Location: http://localhost:3000/c_index.php");
       exit();
     } else {
       echo $result;

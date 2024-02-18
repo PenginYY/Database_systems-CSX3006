@@ -10,12 +10,12 @@
     <!-- Hotel info -->
     <div class="navbar">
       <nav class="navbar-container">
-        <a href="hotel_info.php"
+        <a href="mg_hotel_info.php"
           ><img src="./logo/Assumption_University(logo).png" alt="logo"
         /></a>
         <ul class="navbar-left">
           <li>
-            <a href="hotel_info.php"
+            <a href="mg_hotel_info.php"
               ><h1>online hotel management system</h1></a
             >
           </li>
@@ -23,10 +23,10 @@
         <!-- To select other features -->
         <ul class="navbar-right">
           <li>
-            <a href="./account_manager.php">account manager</a>
+            <a href="./mg_account_manager.php" style="color: #d73938;">account manager</a>
           </li>
           <li>
-            <a href="./customer_list.php">customer list</a>
+            <a href="./mg_customer_list.php">customer list</a>
           </li>
         </ul>
       </nav>
@@ -46,7 +46,7 @@
         </tr>
 
         <tr>
-          <th class="head">Adress</th>
+          <th class="head">Address</th>
           <th class="head">Website</th>
         </tr>
 
@@ -59,8 +59,8 @@
 
       <div class="edit-hotel-info" style="text-align: right;">
         <!-- link to edit page -->
-        <a href="./hotel_info.php">
-        <button type="submit" name="submit" class="reservation-button-red">Done</button>
+        <a href="./mg_edit_hotel_info.php">
+        <button type="submit" name="submit" class="reservation-button-red">Edit</button>
         </a>
       </div>
     </div>

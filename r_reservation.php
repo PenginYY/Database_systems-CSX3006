@@ -29,7 +29,7 @@
 
         <ul class="navbar-right">
           <li>
-            <a href="#">reservation list</a>
+            <a href="#" style="color: #d73938;">reservation list</a>
           </li>
         </ul>
       </nav>
@@ -41,7 +41,7 @@
         <h2>RESERVATIONS</h2>
       </div>
 
-      <!-- Rservation Head -->
+      <!-- Reservation Head -->
       <div class="reservation-header">
         <div class="radio-days">
           <input class="radio__input" type="radio" value="day1" id="day1" name="days">
@@ -55,7 +55,7 @@
         <a href="#popup-add" class="reservation-button-red">Add</a>
       </div>
       
-      <!-- Rservation Body -->
+      <!-- Reservation Body -->
       <div class="reservation-body">
         <table class="res-table">
           <thead class="res-thead">
@@ -81,6 +81,42 @@
                 </a>
               </td>
             </tr>
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;"> 000002 </td>
+              <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Esther Howard </a></td>
+              <td class="res-td" style="text-align: center;"> Booking.com </td>
+              <td class="res-td" style="text-align: center;"> 04/11/23 </td>
+              <td class="res-td" style="text-align: center;"> 06/11/23 </td>
+              <td class="res-td" style="text-align: center;"> 
+                <a href="#popup-edit" class="reservation-button-edit">
+                  <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;"> 000003 </td>
+              <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Brooklyn Simmons </a></td>
+              <td class="res-td" style="text-align: center;"> Walk-in </td>
+              <td class="res-td" style="text-align: center;"> 04/11/23 </td>
+              <td class="res-td" style="text-align: center;"> 05/11/23 </td>
+              <td class="res-td" style="text-align: center;"> 
+                <a href="#popup-edit" class="reservation-button-edit">
+                  <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;"> 000004 </td>
+              <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Savannah Nguyen </a></td>
+              <td class="res-td" style="text-align: center;"> Walk-in </td>
+              <td class="res-td" style="text-align: center;"> 04/11/23 </td>
+              <td class="res-td" style="text-align: center;"> 11/11/23 </td>
+              <td class="res-td" style="text-align: center;"> 
+                <a href="#popup-edit" class="reservation-button-edit">
+                  <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -96,12 +132,12 @@
               
               <div class="column1">
                 <div class="input-box">
-                  <label for="res-number-a">Reservation Number</label>
+                  <label for="res-number-a">Reservation No.</label>
                   <dd class="res-dd">000001</dd>
                 </div>
                 <div class="input-box">
-                  <label for="total-guest-a">Number of Room</label>
-                  <input type="text" id="total-guest-a" name="total-guest" placeholder="Enter number of room" required>
+                  <label for="total-guest-a">Total Room(s)</label>
+                  <input type="text" id="total-guest-a" name="total-guest" placeholder="Enter total room(s)" required>
                 </div>
               </div>
               
@@ -111,7 +147,7 @@
               </div>
               <div class="res-info-box">
                 <dt class="res-dt">Email</dt>
-                <dd class="res-dd">pangpon.c@gmail.com</dd>
+                <dd class="res-dd">chayapat@gmail.com</dd>
               </div>
               
               <div class="column2">
@@ -149,12 +185,12 @@
               
               <div class="column1">
                 <div class="input-box">
-                  <label for="res-number-e">Reservation Number</label>
+                  <label for="res-number-e">Reservation No.</label>
                   <dd class="res-dd">000001</dd>
                 </div>
                 <div class="input-box">
-                  <label for="total-guest-e">Number of Room</label>
-                  <input type="text" id="total-guest-e" name="total-guest" placeholder="316" required>
+                  <label for="total-guest-e">Total Room(s)</label>
+                  <input type="text" id="total-guest-e" name="total-guest" placeholder="1" required>
                 </div>
               </div>
               
@@ -164,7 +200,7 @@
               </div>
               <div class="res-info-box">
                 <dt class="res-dt">Email</dt>
-                <dd class="res-dd">pangpon.c@gmail.com</dd>
+                <dd class="res-dd">chayapat@gmail.com</dd>
               </div>
               
               <div class="column2">
@@ -202,11 +238,11 @@
               
               <div class="column1">
                 <div class="res-info-box">
-                  <dt class="res-dt">Reservation Number</dt>
+                  <dt class="res-dt">Reservation No.</dt>
                   <dd class="res-dd">000001</dd>
                 </div>
                 <div class="res-info-box">
-                  <dt class="res-dt">Number of Room</dt>
+                  <dt class="res-dt">Total Room(s)</dt>
                   <dd class="res-dd">1</dd>
                 </div>
               </div>
@@ -217,7 +253,7 @@
               </div>
               <div class="res-info-box">
                 <dt class="res-dt">Email</dt>
-                <dd class="res-dd">pangpon.c@gmail.com</dd>
+                <dd class="res-dd">chayapat@gmail.com</dd>
               </div>
               
               <div class="column2">
