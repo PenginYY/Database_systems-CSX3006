@@ -57,10 +57,10 @@
         </tr>
       </table>
 
-      <div class="edit-hotel-info">
+      <div class="edit-hotel-info" style="text-align: right;">
         <!-- link to edit page -->
         <a href="./hotel_info.php">
-        <button type="submit" name="submit" class="button">Done</button>
+        <button type="submit" name="submit" class="reservation-button-red">Done</button>
         </a>
       </div>
     </div>
