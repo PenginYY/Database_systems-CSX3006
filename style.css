@@ -352,6 +352,7 @@ select {
   background: #fff;
   cursor: pointer;
   transition: background 0.1s;
+  text-decoration: none;
 }
 
 /*.reservation-header*/

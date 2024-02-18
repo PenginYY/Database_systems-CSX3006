@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Check-in</title>
+  <title>CUSTOMER CHECK-OUT</title>
   <link rel="stylesheet" href="style.css"/>
   <link
     rel="stylesheet"
@@ -30,10 +30,10 @@
 
       <ul class="navbar-right">
         <li>
-          <a style="color:#d73938;" href="check_in.php">customer check-in</a>
+          <a href="./f_check_in.php">customer check-in</a>
         </li>
         <li>
-          <a href="check_out.php">customer check-out</a>
+          <a style="color:#d73938;" href="./f_check_out.php">customer check-out</a>
         </li>
       </ul>
     </nav>
@@ -49,11 +49,17 @@
     <div class="reservation-header">
       <div class="radio-days">
         <input class="radio__input" type="radio" value="waitinglist" id="waitinglist" name="wait_in" checked>
-        <a href="./f_check_in.php" class="radio__label" for="waitinglist">WAITING LIST</a>
+        <a href="./f_check_out.php" class="radio__label" for="waitinglist">WAITING LIST</a>
         <input class="radio__input" type="radio" value="inhouse" id="inhouse" name="wait_in">
-        <a href="./f_check_in-inhouse.php" class="radio__label" for="inhouse">IN-HOUSE</a>
+        <a href="./f_check_out-inhouse.php" class="radio__label" for="inhouse">IN-HOUSE</a>
       </div>
     </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Check the radio button corresponding to the current page
+      document.getElementById("waitinglist").checked = true;
+    });
+    </script>
     
     <!-- Check-in Body -->
     <div class="reservation-body">

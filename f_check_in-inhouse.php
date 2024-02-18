@@ -30,10 +30,10 @@
 
       <ul class="navbar-right">
         <li>
-          <a style="color:#d73938;" href="check_in.php">customer check-in</a>
+          <a style="color:#d73938;" href="./f_check_in-inhouse.php">customer check-in</a>
         </li>
         <li>
-          <a href="check_out.php">customer check-out</a>
+          <a href="./f_check_out.php">customer check-out</a>
         </li>
       </ul>
     </nav>
@@ -54,6 +54,12 @@
         <a href="./f_check_in-inhouse.php" class="radio__label" for="inhouse">IN-HOUSE</a>
       </div>
     </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Check the radio button corresponding to the current page
+      document.getElementById("inhouse").checked = true;
+    });
+    </script>
     
     <!-- Check-in Body -->
     <div class="reservation-body">
