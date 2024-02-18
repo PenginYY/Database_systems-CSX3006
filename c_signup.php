@@ -71,7 +71,7 @@
 
           <a href="index.php"><input type="submit" name="submit" class="button" value="Sign up"/></a>
           <p class="account">
-            Already have an account? <a href="index.php">Login</a>
+            Already have an account? <a href="c_index.php">Login</a>
           </p>
         </div>
       </div>

@@ -31,10 +31,10 @@
 
         <ul class="navbar-right">
           <li>
-            <a href="./personal_info.php">personal information</a>
+            <a href="./c_personal_info.php">personal information</a>
           </li>
           <li>
-            <a href="./RoomandHotel.php" style="color: #d73938;">room & hotel info</a>
+            <a href="./c_RoomandHotel.php" style="color: #d73938;">room & hotel info</a>
           </li>
         </ul>
       </nav>
@@ -49,12 +49,12 @@
         <table class="room-info">
           <tr>
             <th class="head">resevation number</th>
-            <th class="head">guest</th>
+            <th class="head">Total room</th>
           </tr>
 
           <tr>
             <td class="sub-head">000005</td>
-            <td class="sub-head">3 people</td>
+            <td class="sub-head">3</td>
           </tr>
 
           <tr>
@@ -70,7 +70,7 @@
           </tr>
 
           <tr>
-            <td class="sub-head">123</td>
+            <td class="sub-head">123, 124, 125</td>
           </tr>
 
           <tr>

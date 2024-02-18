@@ -156,7 +156,6 @@ input:focus:-ms-input-placeholder {
   background-color: #d73938;
 }
 
-
 .account-info {
   width: 70%;
   text-align: -webkit-center;
@@ -229,6 +228,10 @@ input:focus:-ms-input-placeholder {
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
 }
 
+select {
+  width: 130px;
+  margin-top: 10px;
+}
 .room-info {
   margin-left: 50px;
   width: -webkit-fill-available;
@@ -261,7 +264,8 @@ input:focus:-ms-input-placeholder {
 }
 
 /*reservation radio-day*/
-/*.reservation-header*/ .radio-days {
+/*.reservation-header*/
+.radio-days {
   font-weight: bold;
   display: inline-flex;
   overflow: hidden;
@@ -269,11 +273,13 @@ input:focus:-ms-input-placeholder {
   border: 1px solid #d73938;
 }
 
-/*.reservation-header*/ .radio__input {
+/*.reservation-header*/
+.radio__input {
   display: none;
 }
 
-/*.reservation-header*/ .radio__label {
+/*.reservation-header*/
+.radio__label {
   padding: 8px 14px;
   font-size: h3;
   color: #aaaaaa;
@@ -282,11 +288,13 @@ input:focus:-ms-input-placeholder {
   transition: background 0.1s;
 }
 
-/*.reservation-header*/ .radio__label:not(:last-of-type) {
+/*.reservation-header*/
+.radio__label:not(:last-of-type) {
   border-right: 1px solid #d73938;
 }
 
-/*.reservation-header*/ .radio__input:checked + .radio__label {
+/*.reservation-header*/
+.radio__input:checked + .radio__label {
   color: #fff;
   background: #d73938;
 }
@@ -318,14 +326,16 @@ input:focus:-ms-input-placeholder {
   width: 100%;
 }
 
-/*.reservation-body*/ .res-table,
+/*.reservation-body*/
+.res-table,
 .res-th,
 .res-td {
   border-collapse: collapse;
   padding: 1rem;
 }
 
-/*.reservation-body*/ .res-th {
+/*.reservation-body*/
+.res-th {
   position: sticky;
   top: 0;
 }
@@ -489,7 +499,6 @@ form .reservation-details .input-box input {
   display: flex;
   justify-content: flex-end;
 }
-
 
 /*Customer List*/
 .search-container {
