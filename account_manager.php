@@ -42,26 +42,23 @@
     </div>
           
     <div class="reservation">
-      <div class="account-title">
-        <h2>ACCOUNT MANAGER</h2>
-      </div>
-
-      <!-- Header -->
       <div class="reservation-header">
-        <div class="hotel-info-manager">
-          <!-- link to edit page -->
-          <a href="./hotel_info.php">
-          <button type="reservation-button-red" name="Hotel Info" class="button">Hotel Info</button>
-          </a>
+        <div class="account-title">
+          <h2>ACCOUNT MANAGER</h2>
         </div>
-        <div class="add-new-account-manager">
-          <!-- link to edit page -->
-          <a href="./add_new_account_manager.php">
-          <button type="reservation-button-red" name="Add" class="button">Add</button>
-          </a>
+        <div style="display: flex;">
+          <div class="hotel-info-manager" style="margin-right: 20px;">
+            <!-- link to edit page -->
+            <a href="./hotel_info.php" class="mg-button-red">Hotel Info</button></a>
+          </div>
+          <div class="add-new-account-manager">
+            <!-- link to edit page -->
+            <a href="./add_new_account_manager.php" class="reservation-button-red">Add</button>
+            </a>
+          </div>
         </div>
       </div>
-
+      
       <!-- Body -->
       <div class="reservation-body">
         <table class="res-table">

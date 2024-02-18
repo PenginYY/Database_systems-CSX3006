@@ -41,7 +41,7 @@
         <h2>RESERVATIONS</h2>
       </div>
 
-      <!-- Rservation Head -->
+      <!-- Reservation Head -->
       <div class="reservation-header">
         <div class="radio-days">
           <input class="radio__input" type="radio" value="day1" id="day1" name="days">
@@ -55,7 +55,7 @@
         <a href="#popup-add" class="reservation-button-red">Add</a>
       </div>
       
-      <!-- Rservation Body -->
+      <!-- Reservation Body -->
       <div class="reservation-body">
         <table class="res-table">
           <thead class="res-thead">
