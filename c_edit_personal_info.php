@@ -9,13 +9,14 @@
 <body>
 <div class="navbar">
       <nav class="navbar-container">
-        <a href="personal_info.php"
+        <a href="./c_personal_info.php"
           ><img src="./logo/Assumption_University(logo).png" alt="logo"
         /></a>
         <ul class="navbar-left">
           <li>
-            <a href="personal_info.php"
-              ><h1>online hotel management system</h1></a
+            <a href="./c_personal_info.php">
+              <h1>online hotel management system</h1>
+            </a
             >
           </li>
         </ul>
@@ -40,7 +41,7 @@
         </tr>
 
         <tr>
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
             <label for="name">Name</label>
             <p class="body">
             <input type="text"
@@ -51,7 +52,7 @@
           </p>
         </td>
         
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
           <label for="address">Address (City / State / Country)</label>
           <p class="body">
             <input
@@ -66,7 +67,7 @@
         </tr>
 
         <tr>
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
               <label for="surname">surname</label>
               <p class="body">
               <input type="text"
@@ -81,7 +82,7 @@
 
         <tr>
           <th class="head">date of birth</th>
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
             <label for="name">name</label>
             <p class="body">
             <input type="text"
@@ -94,7 +95,7 @@
         </tr>
 
         <tr>
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
             <label for="dob">DD/MM/YYYY</label>
             <p class="body">
             <input type="text"
@@ -105,7 +106,7 @@
             </p>
           </td>
 
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
             <label for="telephone">telephone</label>
             <p class="body">
             <input type="text"
@@ -118,7 +119,7 @@
 
         <tr>
           <th class="head">Phone number</th>
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
             <label for="relationship">relationship</label>
             <p class="body">
               <select id="relationships" name="relationships" style="font-size: 50px; ">
@@ -133,7 +134,7 @@
         </tr>
 
         <tr>
-          <td class="sub-head">
+          <td class="sub-head" style="padding-bottom: 0px;">
             <label for="telephone">TEL.XXX-XXX-XXXX</label>
             <p class="body">
             <input type="text"

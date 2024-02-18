@@ -10,12 +10,12 @@
     <!-- Personal info navbar -->
     <div class="navbar">
       <nav class="navbar-container">
-        <a href="personal_info.php"
+        <a href="./c_personal_info.php"
           ><img src="./logo/Assumption_University(logo).png" alt="logo"
         /></a>
         <ul class="navbar-left">
           <li>
-            <a href="personal_info.php"
+            <a href="./c_personal_info.php"
               ><h1>online hotel management system</h1></a
             >
           </li>
@@ -66,15 +66,7 @@
         <th class="head">Phone number</th>
         <td class="sub-head">
           <label for="relationship">relationship</label>
-          <p class="body">
-          <select id="relationships" name="relationships" style="font-size: 50px;">
-            <option value="parent">Parent</option>
-            <option value="sibling">Sibling</option>
-            <option value="relative">Relative</option>
-            <option value="friend">Friend</option>
-            <option value="other">Other</option>
-          </select>
-          </p>
+          <p class="body">Parent</p>
         </td>
         </tr>
 
