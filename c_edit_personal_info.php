@@ -121,11 +121,13 @@
           <td class="sub-head">
             <label for="relationship">relationship</label>
             <p class="body">
-            <input type="text"
-              id="relationship"
-              name="relationship"
-              value="father"
-              >
+              <select id="relationships" name="relationships" style="font-size: 50px; ">
+              <option value="parent">Parent</option>
+              <option value="sibling">Sibling</option>
+              <option value="relative">Relative</option>
+              <option value="friend">Friend</option>
+              <option value="other">Other</option>
+              </select>
             </p>
           </td>
         </tr>

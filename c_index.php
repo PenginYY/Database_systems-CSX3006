@@ -35,7 +35,7 @@
         <label for="password"><b>Password</b></label>
         <input type="password" id="password" placeholder="xxxxxxxx" required />
 
-        <a href="./personal_info.php">
+        <a href="./c_personal_info.php">
           <button type="submit" name="submit" class="button">Login</button>
         </a>
 
