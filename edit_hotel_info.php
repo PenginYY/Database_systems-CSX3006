@@ -59,8 +59,8 @@
 
       <div class="edit-hotel-info">
         <!-- link to edit page -->
-        <a href="./edit_hotel_info.php">
-        <button type="submit" name="submit" class="button">Edit</button>
+        <a href="./hotel_info.php">
+        <button type="submit" name="submit" class="button">Done</button>
         </a>
       </div>
     </div>
