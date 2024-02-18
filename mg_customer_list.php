@@ -18,12 +18,12 @@
     <!-- Customer List -->
     <div class="navbar">
       <nav class="navbar-container">
-        <a href="customer_list.php"
+        <a href="mg_customer_list.php"
           ><img src="./logo/Assumption_University(logo).png" alt="logo"
         /></a>
         <ul class="navbar-left">
           <li>
-            <a href="customer_list.php"
+            <a href="mg_customer_list.php"
               ><h1>online hotel management system</h1></a
             >
           </li>
@@ -31,10 +31,10 @@
 
         <ul class="navbar-right">
           <li>
-            <a href="./account_manager.php">account manager</a>
+            <a href="./mg_account_manager.php">account manager</a>
           </li>
           <li>
-            <a href="./customer_list.php">customer list</a>
+            <a href="./mg_customer_list.php">customer list</a>
           </li>
         </ul>
       </nav>
