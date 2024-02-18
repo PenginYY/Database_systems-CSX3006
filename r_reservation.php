@@ -29,7 +29,7 @@
 
         <ul class="navbar-right">
           <li>
-            <a href="#">reservation list</a>
+            <a href="#" style="color: #d73938;">reservation list</a>
           </li>
         </ul>
       </nav>
