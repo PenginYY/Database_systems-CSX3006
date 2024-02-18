@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Check-in</title>
+  <title>CUSTOMER CHECK-OUT</title>
   <link rel="stylesheet" href="style.css"/>
   <link
     rel="stylesheet"
@@ -30,10 +30,10 @@
 
       <ul class="navbar-right">
         <li>
-          <a style="color:#d73938;" href="./f_check_in.php">customer check-in</a>
+          <a href="./f_check_in.php">customer check-in</a>
         </li>
         <li>
-          <a href="./f_check_out.php">customer check-out</a>
+          <a style="color:#d73938;" href="./f_check_out.php">customer check-out</a>
         </li>
       </ul>
     </nav>
@@ -42,22 +42,22 @@
   <!-- Check-in -->
   <div class="reservation">
     <div class="reservation-title">
-      <h2>CUSTOMER CHECK-IN</h2>
+      <h2>CUSTOMER CHECK-OUT</h2>
     </div>
 
     <!-- Check-in Head -->
     <div class="reservation-header">
       <div class="radio-days">
         <input class="radio__input" type="radio" value="waitinglist" id="waitinglist" name="wait_in" checked>
-        <a href="./f_check_in.php" class="radio__label" for="waitinglist">WAITING LIST</a>
+        <a href="./f_check_out.php" class="radio__label" for="waitinglist">WAITING LIST</a>
         <input class="radio__input" type="radio" value="inhouse" id="inhouse" name="wait_in">
-        <a href="./f_check_in-inhouse.php" class="radio__label" for="inhouse">IN-HOUSE</a>
+        <a href="./f_check_out.php" class="radio__label" for="inhouse">IN-HOUSE</a>
       </div>
     </div>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
       // Check the radio button corresponding to the current page
-      document.getElementById("waitinglist").checked = true;
+      document.getElementById("inhouse").checked = true;
     });
     </script>
     
@@ -89,60 +89,57 @@
     </div>
   </div>
 
-
+  
 
   <!-- Select Waiting List -->
   <div class="overlay" id="popup-waitinglist">
     <div class="popup-box">
       <div class="container">
-        <div class="title"><h3>Customer Check-in</h3></div>
-        <form action="#">
-          <div class="reservation-details">
-         
-            <div class="column1">
-              <div class="res-info-box">
-                <dt class="res-dt">Reservation No.</dt>
-                <dd class="res-dd">000001</dd>
-              </div>
-              <div class="res-info-box">
-                <dt class="res-dt">Customer Name</dt>
-                <dd class="res-dd">Chayapat Pangpond</dd>
-              </div>
+        <div class="title"><h3>Customer Check-out</h3></div>
+        <div class="reservation-details">
+        
+          <div class="column1">
+            <div class="res-info-box">
+              <dt class="res-dt">Reservation No.</dt>
+              <dd class="res-dd">000001</dd>
             </div>
-            
-            <div class="column2">
-              <div class="res-info-box">
-                <dt class="res-dt">Agent</dt>
-                <dd class="res-dd">Agoda</dd>
-              </div>
-              <div class="res-info-box">
-                <dt class="res-dt">Arriving Date</dt>
-                <dd class="res-dd">04/11/23</dd>
-              </div>
-              <div class="res-info-box">
-                <dt class="res-dt">Departure Date</dt>
-                <dd class="res-dd">05/11/23</dd>
-              </div>
+            <div class="res-info-box">
+              <dt class="res-dt">Customer Name</dt>
+              <dd class="res-dd">Chayapat Pangpond</dd>
             </div>
-            
-            <div class="column1">
-              <div class="res-info-box">
-                <dt class="res-dt">Total room(s)</dt>
-                <dd class="res-dd">01</dd>
-              </div>
-              <div class="input-box">
-                <label for="paid-amount">Paid Amount</label>
-                <input type="text" id="paid-amount" name="paid-amount" placeholder="Enter paid amount" required>
-              </div>
-            </div>
+          </div>
           
+          <div class="column2">
+            <div class="res-info-box">
+              <dt class="res-dt">Agent</dt>
+              <dd class="res-dd">Agoda</dd>
+            </div>
+            <div class="res-info-box">
+              <dt class="res-dt">Arriving Date</dt>
+              <dd class="res-dd">04/11/23</dd>
+            </div>
+            <div class="res-info-box">
+              <dt class="res-dt">Departure Date</dt>
+              <dd class="res-dd">05/11/23</dd>
+            </div>
           </div>
-          <div class="popup-edit-button">
-            <a href="#" class="reservation-button-black">Delete</a> <!--need to change href to delete database-->
-            <a href="add.php" class="reservation-button-red">Check-in</a>
-            <a href="#" class="reservation-button-black">Cancel</a>
+          
+          <div class="column1">
+            <div class="res-info-box">
+              <dt class="res-dt">Total room(s)</dt>
+              <dd class="res-dd">01</dd>
+            </div>
+            <div class="res-info-box">
+              <dt class="res-dt">Paid Amount</dt>
+              <dd class="res-dd">1,600.00</dd>
+            </div>
           </div>
-        </form>
+        
+        </div>
+        <div class="popup-add-button">
+          <a href="#" class="reservation-button-red">Check-out</a> <!--need to change href to delete database-->
+          <a href="#" class="reservation-button-black">Cancel</a>
+        </div>
       </div>
     </div>
   </div>
