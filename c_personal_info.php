@@ -76,7 +76,7 @@
         <p class="account"><a href="#">delete account</a></p> 
 
         <!-- link to edit page -->
-        <a href="./edit_personal_info.php">
+        <a href="./c_edit_personal_info.php">
         <button type="submit" name="submit" class="button">Edit</button>
         </a>
       </div>
