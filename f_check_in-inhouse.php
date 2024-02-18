@@ -124,7 +124,7 @@
             
             <div class="column1">
               <div class="res-info-box">
-                <dt class="res-dt">Total room(s)</dt>
+                <dt class="res-dt">Total Room(s)</dt>
                 <dd class="res-dd">01</dd>
               </div>
               <div class="input-box">

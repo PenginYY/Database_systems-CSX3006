@@ -81,6 +81,26 @@
                 </a>
               </td>
             </tr>
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Esther Howard </a></td>
+              <td class="res-td" style="text-align: left;"> Howard@gmail.com </td>
+              <td class="res-td" style="text-align: left;"> Front Desk Staff </td>
+              <td class="res-td" style="text-align: center;"> 
+                <a href="./edit_account_manager" class="reservation-button-edit">
+                  <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Esther Howard </a></td>
+              <td class="res-td" style="text-align: left;"> Howard@gmail.com </td>
+              <td class="res-td" style="text-align: left;"> Front Desk Staff </td>
+              <td class="res-td" style="text-align: center;"> 
+                <a href="./edit_account_manager" class="reservation-button-edit">
+                  <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
