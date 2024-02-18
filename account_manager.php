@@ -15,6 +15,8 @@
   </head>
 
   <body>
+
+  <!-- NavBar -->
   <div class="navbar">
       <nav class="navbar-container">
         <a href="account_manager.php"
@@ -27,7 +29,7 @@
             >
           </li>
         </ul>
-
+        <!-- To select other features -->
         <ul class="navbar-right">
           <li>
             <a href="./account_manager.php">account manager</a>
@@ -38,49 +40,52 @@
         </ul>
       </nav>
     </div>
-    
-    <div class="account-info">
-      <h1>ACCOUNT MANAGER</h1>
+          
+    <div class="reservation">
+      <div class="account-title">
+        <h2>ACCOUNT MANAGER</h2>
+      </div>
 
-      <table>
-          <tr>
-            <th class="head">Name</th>
-            <th class="head">Email</th>
-            <th class="head">Role</th>
-            <th class="head"> Edit </th>
-          </tr>
-          <tr>
-            <td>Sorracha Panyasakulwong</td>
-            <td>beausorracha@gmail.com</td>
-            <td>Reservation Staff</td>
-            <td> 
-              <a href="#" class="button_edit">
-                <i class="fa-regular fa-pen-to-square"></i>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Pattiya Yiedram</td>
-            <td>pattiya.work@gmail.com</td>
-            <td>Front Desk</td>
-            <td> 
-              <a href="#" class="button_edit">
-                <i class="fa-regular fa-pen-to-square"></i>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Thanachart Thansakul</td>
-            <td>thanachart@gmail.com</td>
-            <td>Customer</td>
-            <td> 
-              <a href="#" class="button_edit">
-                <i class="fa-regular fa-pen-to-square"></i>
-              </a>
-            </td>
-          </tr>
+      <!-- Header -->
+      <div class="reservation-header">
+        <div class="hotel-info-manager">
+          <!-- link to edit page -->
+          <a href="./hotel_info.php">
+          <button type="reservation-button-red" name="Hotel Info" class="button">Hotel Info</button>
+          </a>
+        </div>
+        <div class="add-new-account-manager">
+          <!-- link to edit page -->
+          <a href="./add_new_account_manager.php">
+          <button type="reservation-button-red" name="Add" class="button">Add</button>
+          </a>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="reservation-body">
+        <table class="res-table">
+          <thead class="thead">
+            <tr class="res-tr">
+              <th class="res-th" style="text-align: left;"> Name </th>
+              <th class="res-th" style="text-align: left;"> Email </th>
+              <th class="res-th" style="text-align: left;"> Role </th>
+              <th class="res-td" style="text-align: center;"> Edit </th>
+            </tr>
+          </thead>
+          <tbody class="res-tbody">
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Chayapat Pangpon </a></td>
+              <td class="res-td" style="text-align: left;"> chayapat@gmail.com </td>
+              <td class="res-td" style="text-align: left;"> Reservation Staff </td>
+              <td class="res-td" style="text-align: center;"> 
+                <a href="#popup-edit" class="reservation-button-edit">
+                  <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
         </table>
+      </div>
     </div>
-    
-
   </body>
