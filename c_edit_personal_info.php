@@ -14,8 +14,9 @@
         /></a>
         <ul class="navbar-left">
           <li>
-            <a href="./c_personal_info.php"
-              ><h1>online hotel management system</h1></a
+            <a href="./c_personal_info.php">
+              <h1>online hotel management system</h1>
+            </a
             >
           </li>
         </ul>
