@@ -51,13 +51,13 @@
         <div class="hotel-info-manager">
           <!-- link to edit page -->
           <a href="./hotel_info.php">
-          <button type="reservation-button-red" name="Hotel Info" class="button">Hotel Info</button>
+          <button type="button" name="Hotel Info" class="reservation-button-red">Hotel Info</button>
           </a>
         </div>
         <div class="add-new-account-manager">
           <!-- link to edit page -->
           <a href="./add_new_account_manager.php">
-          <button type="reservation-button-red" name="Add" class="button">Add</button>
+          <button type="button" name="Add" class="reservation-button-red">Add</button>
           </a>
         </div>
       </div>
@@ -79,7 +79,7 @@
               <td class="res-td" style="text-align: left;"> chayapat@gmail.com </td>
               <td class="res-td" style="text-align: left;"> Reservation Staff </td>
               <td class="res-td" style="text-align: center;"> 
-                <a href="#popup-edit" class="reservation-button-edit">
+                <a href="./edit_account_manager" class="reservation-button-edit">
                   <i class="fa-regular fa-pen-to-square"></i>
                 </a>
               </td>
