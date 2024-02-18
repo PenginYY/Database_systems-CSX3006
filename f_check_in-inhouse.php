@@ -47,7 +47,7 @@
 
     <!-- Check-in Head -->
     <div class="reservation-header">
-      <div class="radio-days">
+        <div class="radio-days">
         <input class="radio__input" type="radio" value="waitinglist" id="waitinglist" name="wait_in" checked>
         <a href="./f_check_in.php" class="radio__label" for="waitinglist">WAITING LIST</a>
         <input class="radio__input" type="radio" value="inhouse" id="inhouse" name="wait_in">
@@ -65,6 +65,7 @@
             <th class="res-th" style="text-align: center;"> Agent </th>
             <th class="res-th" style="text-align: center;"> Arrive </th>
             <th class="res-th" style="text-align: center;"> Depart </th>
+            <th class="res-th" style="text-align: center;"> Paid Amount </th>
           </tr>
         </thead>
         <tbody class="res-tbody">
@@ -74,19 +75,15 @@
             <td class="res-td" style="text-align: center;"> Agoda </td>
             <td class="res-td" style="text-align: center;"> 04/11/23 </td>
             <td class="res-td" style="text-align: center;"> 05/11/23 </td>
-            <td class="res-td" style="text-align: center;">
-              <a href="#popup-waitinglist" class="reservation-button-red">Select</a>
-            </td>
+            <td class="res-td" style="text-align: center;"> 1600 BAHT </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 
-
-
-  <!-- Select Waiting List -->
-  <div class="overlay" id="popup-waitinglist">
+  <!-- Select In-House -->
+  <div class="overlay" id="popup-in-house">
     <div class="popup-box">
       <div class="container">
         <div class="title"><h3>Customer Check-in</h3></div>
@@ -126,14 +123,13 @@
               </div>
               <div class="input-box">
                 <label for="paid-amount">Paid Amount</label>
-                <input type="text" id="paid-amount" name="paid-amount" placeholder="Enter paid amount" required>
+                <input type="text" id="paid-amount" name="paid-amount" placeholder="1,600.00" required>
               </div>
             </div>
           
           </div>
-          <div class="popup-edit-button">
-            <a href="#" class="reservation-button-black">Delete</a> <!--need to change href to delete database-->
-            <a href="add.php" class="reservation-button-red">Check-in</a>
+          <div class="popup-add-button">
+            <a href="#" class="reservation-button-red">Done</a>
             <a href="#" class="reservation-button-black">Cancel</a>
           </div>
         </form>
