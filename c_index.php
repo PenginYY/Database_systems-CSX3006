@@ -40,7 +40,7 @@
         </a>
 
         <p class="account">
-          Don't have an account? <a href="./signup.php"> Sign up</a>
+          Don't have an account? <a href="./c_signup.php"> Sign up</a>
         </p>
       </div>
     </div>
