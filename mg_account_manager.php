@@ -43,10 +43,10 @@
           
     <div class="reservation">
       <div class="reservation-header">
-        <div class="account-title">
+        <div class="reservation-title">
           <h2>ACCOUNT MANAGER</h2>
         </div>
-        <div style="display: flex;">
+        <div style="display: flex; margin-top: 30px;">
           <div class="hotel-info-manager" style="margin-right: 20px;">
             <!-- link to edit page -->
             <a href="./hotel_info.php" class="mg-button-red">Hotel Info</button></a>
