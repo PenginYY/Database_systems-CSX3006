@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600&display=swap");
 
 body {
-  font-family: 'Source Sans 3';
+  font-family: "Source Sans 3", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -157,7 +157,8 @@ input:focus:-ms-input-placeholder {
 }
 
 .account-info {
-  width: 40%;
+  width: 70%;
+  text-align: -webkit-center;
   height: auto;
   margin: auto;
 }
@@ -187,7 +188,7 @@ input:focus:-ms-input-placeholder {
 
 .sub-head {
   font-size: 18px;
-  padding-bottom: 35px;
+  padding-bottom: 25px;
   text-transform: capitalize;
 }
 
@@ -203,6 +204,7 @@ input:focus:-ms-input-placeholder {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 20px;
 }
 
 .edit-personal-info .button {
@@ -213,12 +215,14 @@ input:focus:-ms-input-placeholder {
 .room-hotel-info {
   display: flex;
   flex-direction: row;
+  width: 80%;
 }
 
 .info {
-  width: 40%;
+  width: 50%;
   height: 500px;
   margin: auto;
+  margin-right: 50px;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
@@ -237,6 +241,7 @@ input:focus:-ms-input-placeholder {
   border: 1px solid #aaaaaa;
   border-radius: 10px;
 }
+
 /*reservation*/
 .reservation {
   width: 60%;
@@ -270,7 +275,7 @@ input:focus:-ms-input-placeholder {
 .reservation-header .radio__label {
   padding: 8px 14px;
   font-size: h3;
-  color: #AAAAAA;
+  color: #aaaaaa;
   background: #fff;
   cursor: pointer;
   transition: background 0.1s;
@@ -312,7 +317,9 @@ input:focus:-ms-input-placeholder {
   width: 100%;
 }
 
-.reservation-body .res-table, .res-th, .res-td{
+.reservation-body .res-table,
+.res-th,
+.res-td {
   border-collapse: collapse;
   padding: 1rem;
 }
@@ -327,7 +334,6 @@ input:focus:-ms-input-placeholder {
     min-width: 12.5rem;
   }
 }
-
 
 /*reservation button*/
 .reservation-button-red {
@@ -364,7 +370,6 @@ input:focus:-ms-input-placeholder {
   font-size: 20px;
   color: black;
 }
-
 
 /*reservation popup*/
 .overlay {
@@ -423,7 +428,7 @@ form .reservation-details .input-box input {
   outline: none;
   font-size: h2;
   border-radius: 5px;
-  border: 1px solid #AAAAAA;
+  border: 1px solid #aaaaaa;
   padding-left: 0 25px;
   transition: all 0.3s ease;
 }
@@ -442,7 +447,6 @@ form .reservation-details .input-box input {
 .reservation-details .res-dd {
   margin-left: 10px;
   font-size: h2;
-  font-family: 'Source Sans 3';
 }
 
 .reservation-details .input-box input:focus,
@@ -470,4 +474,3 @@ form .reservation-details .input-box input {
   display: flex;
   justify-content: flex-end;
 }
-

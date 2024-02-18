@@ -14,6 +14,8 @@
     />
 </head>
 <body>
+
+<!-- Room & Hotel navbar-->
 <div class="navbar">
       <nav class="navbar-container">
         <a href="personal_info.php"
@@ -22,8 +24,8 @@
         <ul class="navbar-left">
           <li>
             <a href="personal_info.php"
-              ><h1>online hotel management system</h1></a
-            >
+              ><h1>online hotel management system</h1>
+            </a>
           </li>
         </ul>
 
@@ -32,7 +34,7 @@
             <a href="./personal_info.php">personal information</a>
           </li>
           <li>
-            <a href="./RoomandHotel.php">room & hotel info</a>
+            <a href="./RoomandHotel.php" style="color: #d73938;">room & hotel info</a>
           </li>
         </ul>
       </nav>
@@ -40,6 +42,7 @@
 
     <h1 class="title_customer">Room & Hotel information</h1>
 
+    <!-- Room information-->
     <div class="room-hotel-info">
       <div class="info">
         <h3 class="head">Room Information</h3>
@@ -56,12 +59,10 @@
 
           <tr>
             <th class="head">customer name</th>
-            <th class="head">room type</th>
           </tr>
 
           <tr>
             <td class="sub-head">Brooklyn Simmons</td>
-            <td class="sub-head">Deluxe Twin</td>
           </tr>
 
           <tr>
@@ -87,15 +88,16 @@
         </table>
       </div>
 
+      <!-- Hotel information -->
       <div class="info">
-      <h3 class="head">Hotel Infomation</h3>
+      <h3 class="head">Hotel Information</h3>
           <table class="room-info">
             <tr>
               <th class="head">email</th>
             </tr>
 
             <tr>
-              <td class="sub-head">Brooklyn.hotel@gmail.com</td>
+              <td class="sub-head">cute.hotel@gmail.com</td>
             </tr>
 
             <tr>
@@ -120,7 +122,7 @@ sithammarat rattanakosin road, 22980</td>
             </tr>
 
             <tr>
-              <td class="sub-head">www.hotel.com</td>
+              <td class="sub-head"><a href="#" style="color:black;">WWW.CUTE-HOTEL.COM</a></td>
             </tr>
           </table>
       </div>
