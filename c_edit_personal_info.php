@@ -22,10 +22,10 @@
 
         <ul class="navbar-right">
           <li>
-            <a href="./personal_info.php" style="color: #d73938;">personal information</a>
+            <a href="./c_personal_info.php" style="color: #d73938;">personal information</a>
           </li>
           <li>
-            <a href="./RoomandHotel.php">room & hotel info</a>
+            <a href="./c_RoomandHotel.php">room & hotel info</a>
           </li>
         </ul>
       </nav>
@@ -146,7 +146,7 @@
       </table>
 
         <div class="edit-personal-info" style="margin-left: 85%;">
-            <a href="./personal_info.php">
+            <a href="./c_personal_info.php">
                 <button type="submit" name="submit" class="button">Done</button>
                 </a>
         </div>
