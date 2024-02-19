@@ -23,7 +23,7 @@
         <!-- To select other features -->
         <ul class="navbar-right">
             <li>
-                <a href="./mg_account_manager.php">account manager</a>
+                <a href="./mg_account_manager.php" style="color: #d73938;">account manager</a>
             </li>
             <li>
               <a href="./mg_customer_list.php">customer list</a>

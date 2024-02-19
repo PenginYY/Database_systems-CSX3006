@@ -32,7 +32,7 @@
         <!-- To select other features -->
         <ul class="navbar-right">
           <li>
-            <a href="./mg_account_manager.php">account manager</a>
+            <a href="./mg_account_manager.php" style="color: #d73938;">account manager</a>
           </li>
           <li>
             <a href="./mg_customer_list.php">customer list</a>
@@ -81,6 +81,37 @@
                 </a>
               </td>
             </tr>
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Esther Howard </a></td>
+              <td class="res-td" style="text-align: left;"> Howard@gmail.com </td>
+              <td class="res-td" style="text-align: left;"> Front Desk Staff </td>
+              <td class="res-td" style="text-align: center;"> 
+                <a href="./edit_account_manager" class="reservation-button-edit">
+                  <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Brooklyn Simmons </a></td>
+              <td class="res-td" style="text-align: left;"> Brooklyn@gmail.com </td>
+              <td class="res-td" style="text-align: left;"> Customer </td>
+              <td class="res-td" style="text-align: center;"> 
+                <a href="./edit_account_manager" class="reservation-button-edit">
+                  <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Savannah Nguyen </a></td>
+              <td class="res-td" style="text-align: left;"> Savannah@gmail.com </td>
+              <td class="res-td" style="text-align: left;"> Customer </td>
+              <td class="res-td" style="text-align: center;"> 
+                <a href="./edit_account_manager" class="reservation-button-edit">
+                  <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+              </td>
+            </tr>
+
           </tbody>
         </table>
       </div>

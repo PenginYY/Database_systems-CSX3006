@@ -75,11 +75,21 @@
         </thead>
         <tbody class="res-tbody">
           <tr class="res-tr">
-            <td class="res-td" style="text-align: left;"> 000001 </td>
-            <td class="res-td" style="text-align: left;"><a href="#popup-in-house" style="text-decoration: none; color: black;"> Chayapat Pangpon </a></td>
-            <td class="res-td" style="text-align: center;"> Agoda </td>
+            <td class="res-td" style="text-align: left;"> 000002 </td>
+            <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Esther Howard </a></td>
+            <td class="res-td" style="text-align: center;"> Booking.com </td>
             <td class="res-td" style="text-align: center;"> 04/11/23 </td>
-            <td class="res-td" style="text-align: center;"> 05/11/23 </td>
+            <td class="res-td" style="text-align: center;"> 06/11/23 </td>
+            <td class="res-td" style="text-align: center;">
+              <a href="#popup-waitinglist" class="reservation-button-red">Select</a>
+            </td>
+          </tr>
+          <tr class="res-tr">
+            <td class="res-td" style="text-align: left;"> 000004 </td>
+            <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Savannah Nguyen </a></td>
+            <td class="res-td" style="text-align: center;"> Walk-in </td>
+            <td class="res-td" style="text-align: center;"> 04/11/23 </td>
+            <td class="res-td" style="text-align: center;"> 11/11/23 </td>
             <td class="res-td" style="text-align: center;">
               <a href="#popup-waitinglist" class="reservation-button-red">Select</a>
             </td>
@@ -89,9 +99,7 @@
     </div>
   </div>
 
-  
-
-  <!-- Select Waiting List -->
+  <!-- Select In-House -->
   <div class="overlay" id="popup-waitinglist">
     <div class="popup-box">
       <div class="container">
@@ -101,18 +109,18 @@
           <div class="column1">
             <div class="res-info-box">
               <dt class="res-dt">Reservation No.</dt>
-              <dd class="res-dd">000001</dd>
+              <dd class="res-dd">000002</dd>
             </div>
             <div class="res-info-box">
               <dt class="res-dt">Customer Name</dt>
-              <dd class="res-dd">Chayapat Pangpond</dd>
+              <dd class="res-dd">Esther Howard</dd>
             </div>
           </div>
           
           <div class="column2">
             <div class="res-info-box">
               <dt class="res-dt">Agent</dt>
-              <dd class="res-dd">Agoda</dd>
+              <dd class="res-dd">Booking.com</dd>
             </div>
             <div class="res-info-box">
               <dt class="res-dt">Arriving Date</dt>
@@ -120,18 +128,18 @@
             </div>
             <div class="res-info-box">
               <dt class="res-dt">Departure Date</dt>
-              <dd class="res-dd">05/11/23</dd>
+              <dd class="res-dd">06/11/23</dd>
             </div>
           </div>
           
           <div class="column1">
             <div class="res-info-box">
-              <dt class="res-dt">Total room(s)</dt>
-              <dd class="res-dd">01</dd>
+              <dt class="res-dt">Total Room(s)</dt>
+              <dd class="res-dd">02</dd>
             </div>
             <div class="res-info-box">
               <dt class="res-dt">Paid Amount</dt>
-              <dd class="res-dd">1,600.00</dd>
+              <dd class="res-dd">4,800.00</dd>
             </div>
           </div>
         
