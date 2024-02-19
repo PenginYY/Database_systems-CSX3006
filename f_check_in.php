@@ -130,18 +130,23 @@
         <form action="#">
           <div class="reservation-details">
          
-            <div class="column1">
+            <div class="column4">
               <div class="res-info-box">
                 <dt class="res-dt">Reservation No.</dt>
                 <dd class="res-dd">000001</dd>
               </div>
               <div class="res-info-box">
+                <dt class="res-dt">Email</dt>
+                <dd class="res-dd">chayapat@gmail.com</dd>
+              </div>
+            </div>
+
+            <div class="res-info-box">
                 <dt class="res-dt">Customer Name</dt>
                 <dd class="res-dd">Chayapat Pangpond</dd>
               </div>
-            </div>
             
-            <div class="column2">
+            <div class="column4">
               <div class="res-info-box">
                 <dt class="res-dt">Agent</dt>
                 <dd class="res-dd">Agoda</dd>
@@ -156,10 +161,18 @@
               </div>
             </div>
             
-            <div class="column1">
+            <div class="column4">
               <div class="res-info-box">
                 <dt class="res-dt">Total Room(s)</dt>
                 <dd class="res-dd">01</dd>
+              </div>
+              <div class="input-box">
+                <label for="room-n-a">Room No.</label>
+                <div class="column3">
+                  <input type="text" id="room-n-a" name="room-n" placeholder="001" required>
+                  <b>-</b>
+                  <input type="text" id="room-n-a" name="room-n" placeholder="001" required>
+                </div>
               </div>
               <div class="input-box">
                 <label for="paid-amount">Paid Amount</label>
