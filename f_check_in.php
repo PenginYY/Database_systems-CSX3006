@@ -30,10 +30,10 @@
 
       <ul class="navbar-right">
         <li>
-          <a style="color:#d73938;" href="check_in.php">customer check-in</a>
+          <a style="color:#d73938;" href="./f_check_in.php">customer check-in</a>
         </li>
         <li>
-          <a href="check_out.php">customer check-out</a>
+          <a href="./f_check_out.php">customer check-out</a>
         </li>
       </ul>
     </nav>
@@ -54,6 +54,12 @@
         <a href="./f_check_in-inhouse.php" class="radio__label" for="inhouse">IN-HOUSE</a>
       </div>
     </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Check the radio button corresponding to the current page
+      document.getElementById("waitinglist").checked = true;
+    });
+    </script>
     
     <!-- Check-in Body -->
     <div class="reservation-body">
@@ -78,7 +84,38 @@
               <a href="#popup-waitinglist" class="reservation-button-red">Select</a>
             </td>
           </tr>
+          <tr class="res-tr">
+            <td class="res-td" style="text-align: left;"> 000002 </td>
+            <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Esther Howard </a></td>
+            <td class="res-td" style="text-align: center;"> Booking.com </td>
+            <td class="res-td" style="text-align: center;"> 04/11/23 </td>
+            <td class="res-td" style="text-align: center;"> 06/11/23 </td>
+            <td class="res-td" style="text-align: center;">
+              <a href="#popup-waitinglist" class="reservation-button-red">Select</a>
+            </td>
+          </tr>
+          <tr class="res-tr">
+            <td class="res-td" style="text-align: left;"> 000003 </td>
+            <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Brooklyn Simmons </a></td>
+            <td class="res-td" style="text-align: center;"> Walk-in </td>
+            <td class="res-td" style="text-align: center;"> 04/11/23 </td>
+            <td class="res-td" style="text-align: center;"> 05/11/23 </td>
+            <td class="res-td" style="text-align: center;">
+              <a href="#popup-waitinglist" class="reservation-button-red">Select</a>
+            </td>
+          </tr>
+          <tr class="res-tr">
+            <td class="res-td" style="text-align: left;"> 000004 </td>
+            <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Savannah Nguyen </a></td>
+            <td class="res-td" style="text-align: center;"> Walk-in </td>
+            <td class="res-td" style="text-align: center;"> 04/11/23 </td>
+            <td class="res-td" style="text-align: center;"> 11/11/23 </td>
+            <td class="res-td" style="text-align: center;">
+              <a href="#popup-waitinglist" class="reservation-button-red">Select</a>
+            </td>
+          </tr>
         </tbody>
+
       </table>
     </div>
   </div>
@@ -121,7 +158,7 @@
             
             <div class="column1">
               <div class="res-info-box">
-                <dt class="res-dt">Total room(s)</dt>
+                <dt class="res-dt">Total Room(s)</dt>
                 <dd class="res-dd">01</dd>
               </div>
               <div class="input-box">

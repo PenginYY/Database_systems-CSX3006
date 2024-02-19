@@ -24,7 +24,7 @@
         /></a>
         <ul class="navbar-left">
           <li>
-            <a href="account_manager.php"
+            <a href="mg_account_manager.php"
               ><h1>online hotel management system</h1></a
             >
           </li>
@@ -32,10 +32,10 @@
         <!-- To select other features -->
         <ul class="navbar-right">
           <li>
-            <a href="./account_manager.php">account manager</a>
+            <a href="./mg_account_manager.php" style="color: #d73938;">account manager</a>
           </li>
           <li>
-            <a href="./customer_list.php">customer list</a>
+            <a href="./mg_customer_list.php">customer list</a>
           </li>
         </ul>
       </nav>
@@ -49,11 +49,11 @@
         <div style="display: flex; margin-top: 30px;">
           <div class="hotel-info-manager" style="margin-right: 20px;">
             <!-- link to edit page -->
-            <a href="./hotel_info.php" class="mg-button-red">Hotel Info</button></a>
+            <a href="./mg_hotel_info.php" class="mg-button-red">Hotel Info</button></a>
           </div>
           <div class="add-new-account-manager">
             <!-- link to edit page -->
-            <a href="./add_new_account_manager.php" class="reservation-button-red">Add</button>
+            <a href="./mg_add_new_account_manager.php" class="reservation-button-red">Add</button>
             </a>
           </div>
         </div>
@@ -76,11 +76,42 @@
               <td class="res-td" style="text-align: left;"> chayapat@gmail.com </td>
               <td class="res-td" style="text-align: left;"> Reservation Staff </td>
               <td class="res-td" style="text-align: center;"> 
+                <a href="./mg_edit_account_manager.php" class="reservation-button-edit">
+                  <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Esther Howard </a></td>
+              <td class="res-td" style="text-align: left;"> Howard@gmail.com </td>
+              <td class="res-td" style="text-align: left;"> Front Desk Staff </td>
+              <td class="res-td" style="text-align: center;"> 
                 <a href="./edit_account_manager" class="reservation-button-edit">
                   <i class="fa-regular fa-pen-to-square"></i>
                 </a>
               </td>
             </tr>
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Brooklyn Simmons </a></td>
+              <td class="res-td" style="text-align: left;"> Brooklyn@gmail.com </td>
+              <td class="res-td" style="text-align: left;"> Customer </td>
+              <td class="res-td" style="text-align: center;"> 
+                <a href="./edit_account_manager" class="reservation-button-edit">
+                  <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Savannah Nguyen </a></td>
+              <td class="res-td" style="text-align: left;"> Savannah@gmail.com </td>
+              <td class="res-td" style="text-align: left;"> Customer </td>
+              <td class="res-td" style="text-align: center;"> 
+                <a href="./edit_account_manager" class="reservation-button-edit">
+                  <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+              </td>
+            </tr>
+
           </tbody>
         </table>
       </div>

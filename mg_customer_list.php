@@ -18,12 +18,12 @@
     <!-- Customer List -->
     <div class="navbar">
       <nav class="navbar-container">
-        <a href="customer_list.php"
+        <a href="mg_customer_list.php"
           ><img src="./logo/Assumption_University(logo).png" alt="logo"
         /></a>
         <ul class="navbar-left">
           <li>
-            <a href="customer_list.php"
+            <a href="mg_customer_list.php"
               ><h1>online hotel management system</h1></a
             >
           </li>
@@ -31,10 +31,10 @@
 
         <ul class="navbar-right">
           <li>
-            <a href="./account_manager.php">account manager</a>
+            <a href="./mg_account_manager.php">account manager</a>
           </li>
           <li>
-            <a href="./customer_list.php">customer list</a>
+            <a href="./mg_customer_list.php" style="color: #d73938;">customer list</a>
           </li>
         </ul>
       </nav>
@@ -84,7 +84,7 @@
               <td class="res-td" style="text-align: center;">Agoda</td>
               <td class="res-td" style="text-align: center;">04/11/23</td>
               <td class="res-td" style="text-align: center;">05/11/23</td>
-              <td class="res-td" style="text-align: center;">Checked-out</td>
+              <td class="res-td" style="text-align: center;">Checked-Out</td>
             </tr>
             <tr class="res-tr">
               <td class="res-td" style="text-align: left;">00002</td>
@@ -101,6 +101,14 @@
               <td class="res-td" style="text-align: center;">04/11/23</td>
               <td class="res-td" style="text-align: center;">05/11/23</td>
               <td class="res-td" style="text-align: center;">Waiting</td>
+            </tr>
+            <tr class="res-tr">
+              <td class="res-td" style="text-align: left;">00004</td>
+              <td class="res-td" style="text-align: left;">Savannah Nguyen</td>
+              <td class="res-td" style="text-align: center;">Walk-in</td>
+              <td class="res-td" style="text-align: center;">04/11/23</td>
+              <td class="res-td" style="text-align: center;">11/11/23</td>
+              <td class="res-td" style="text-align: center;">In-house</td>
             </tr>
           </tbody>
         </table>
