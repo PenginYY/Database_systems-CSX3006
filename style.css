@@ -502,6 +502,16 @@ select {
   column-gap: 30px;
 }
 
+.reservation-details .column3 {
+  display: flex;
+  column-gap: 10px;
+}
+
+.reservation-details .column4 {
+  display: flex;
+  column-gap: 3px;
+}
+
 .popup-box .container form .reservation-details .input-box {
   width: 100%;
   margin-top: 5px;
