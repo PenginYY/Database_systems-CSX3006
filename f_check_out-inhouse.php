@@ -106,18 +106,23 @@
         <div class="title"><h3>Customer Check-out</h3></div>
         <div class="reservation-details">
         
-          <div class="column1">
+          <div class="column4">
             <div class="res-info-box">
               <dt class="res-dt">Reservation No.</dt>
               <dd class="res-dd">000002</dd>
             </div>
             <div class="res-info-box">
-              <dt class="res-dt">Customer Name</dt>
-              <dd class="res-dd">Esther Howard</dd>
+              <dt class="res-dt">Email</dt>
+              <dd class="res-dd">esther@gmail.com</dd>
             </div>
           </div>
+
+          <div class="res-info-box">
+            <dt class="res-dt">Customer Name</dt>
+            <dd class="res-dd">Esther Howard</dd>
+          </div>
           
-          <div class="column2">
+          <div class="column4">
             <div class="res-info-box">
               <dt class="res-dt">Agent</dt>
               <dd class="res-dd">Booking.com</dd>
@@ -132,10 +137,14 @@
             </div>
           </div>
           
-          <div class="column1">
+          <div class="column4">
             <div class="res-info-box">
               <dt class="res-dt">Total Room(s)</dt>
               <dd class="res-dd">02</dd>
+            </div>
+            <div class="res-info-box">
+              <dt class="res-dt">Room No.</dt>
+              <dd class="res-dd">002 - 003</dd>
             </div>
             <div class="res-info-box">
               <dt class="res-dt">Paid Amount</dt>

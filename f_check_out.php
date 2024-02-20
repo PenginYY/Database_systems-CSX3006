@@ -114,12 +114,17 @@
               <dd class="res-dd">000001</dd>
             </div>
             <div class="res-info-box">
-              <dt class="res-dt">Customer Name</dt>
-              <dd class="res-dd">Chayapat Pangpond</dd>
+              <dt class="res-dt">Email</dt>
+              <dd class="res-dd">chayapat@gmail.com</dd>
             </div>
           </div>
+
+          <div class="res-info-box">
+            <dt class="res-dt">Customer Name</dt>
+            <dd class="res-dd">Chayapat Pangpond</dd>
+          </div>
           
-          <div class="column2">
+          <div class="column4">
             <div class="res-info-box">
               <dt class="res-dt">Agent</dt>
               <dd class="res-dd">Agoda</dd>
@@ -134,10 +139,14 @@
             </div>
           </div>
           
-          <div class="column1">
+          <div class="column4">
             <div class="res-info-box">
               <dt class="res-dt">Total Room(s)</dt>
               <dd class="res-dd">01</dd>
+            </div>
+            <div class="res-info-box">
+              <dt class="res-dt">Room No.</dt>
+              <dd class="res-dd">001 - 001</dd>
             </div>
             <div class="res-info-box">
               <dt class="res-dt">Paid Amount</dt>
