@@ -183,7 +183,7 @@
           </div>
           <div class="popup-edit-button">
             <a href="#" class="reservation-button-black">Delete</a> <!--need to change href to delete database-->
-            <a href="add.php" class="reservation-button-red">Check-in</a>
+            <a href="#" class="reservation-button-red">Check-in</a>
             <a href="#" class="reservation-button-black">Cancel</a>
           </div>
         </form>
