@@ -86,7 +86,7 @@
 
       <div class="popup-delete-acc" id="popup-delete-acc">
         <div class="overlay-acc">
-            <div class="popup-acc-content">
+            <div class="popup-acc-content" style="text-align: center;">
                 <h3>Are you certain to delete this account?</h3>
                 <div class="controls">
                   <a href="./c_index.php"><button type="submit" name="submit" class="yes-btn">yes</button></a>

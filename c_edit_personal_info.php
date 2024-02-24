@@ -122,7 +122,7 @@
           <td class="sub-head" style="padding-bottom: 0px;">
             <label for="relationship">relationship</label>
             <p class="body">
-              <select id="relationships" name="relationships" style="font-size: 50px; ">
+              <select id="relationships" name="relationships" style="font-size: 15px; ">
               <option value="parent">Parent</option>
               <option value="sibling">Sibling</option>
               <option value="relative">Relative</option>
