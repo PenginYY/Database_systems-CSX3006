@@ -51,7 +51,7 @@
         <div class="radio-days">
           <input class="radio__input" type="radio" value="day1" name="days" id="day1">
           <label class="radio__label" for="day1"> YESTERDAY </label>
-          <input class="radio__input" type="radio" value="day2" name="days" id="day2">
+          <input class="radio__input" type="radio" value="day2" name="days" id="day2" checked>
           <label class="radio__label" for="day2"> TODAY </label>
           <input class="radio__input" type="radio" value="day3" name="days" id="day3">
           <label class="radio__label" for="day3"> TOMORROW </label>
