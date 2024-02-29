@@ -21,28 +21,30 @@
       </nav>
     </div>
 
-    <div class="login-form">
-      <div class="fill-info">
-        <h1>Login</h1>
-        <label for="email"><b>Email</b></label>
-        <input
-          type="email"
-          id="email"
-          placeholder="John.Smith@gmail.com"
-          required
-        />
+    <form action="#" method="POST">
+      <div class="login-form">
+        <div class="fill-info">
+          <h1>Login</h1>
+          <label for="email"><b>Email</b></label>
+          <input
+            type="email"
+            id="email"
+            placeholder="John.Smith@gmail.com"
+            required
+          />
 
-        <label for="password"><b>Password</b></label>
-        <input type="password" id="password" placeholder="xxxxxxxx" required />
+          <label for="password"><b>Password</b></label>
+          <input type="password" id="password" placeholder="xxxxxxxx" required />
 
-        <a href="./c_personal_info.php">
-          <button type="submit" name="submit" class="button">Login</button>
-        </a>
+          <a href="./c_personal_info.php">
+            <button type="submit" name="submit" class="button">Login</button>
+          </a>
 
-        <p class="account">
-          Don't have an account? <a href="./c_signup.php"> Sign up</a>
-        </p>
+          <p class="account">
+            Don't have an account? <a href="./c_signup.php"> Sign up</a>
+          </p>
+        </div>
       </div>
-    </div>
+    </form>
   </body>
 </html>

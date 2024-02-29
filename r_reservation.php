@@ -44,7 +44,7 @@
       <!-- Reservation Head -->
       <div class="reservation-header">
         <div class="radio-days">
-          <input class="radio__input" type="radio" value="day1" id="day1" name="days">
+          <input class="radio__input" type="radio" value="day1" id="day1" name="days" checked>
           <label class="radio__label" for="day1"> 4 NOVEMBER 2023 </label>
           <input class="radio__input" type="radio" value="day2" id="day2" name="days">
           <label class="radio__label" for="day2"> 5 NOVEMBER 2023 </label>
@@ -132,12 +132,12 @@
               
               <div class="column1">
                 <div class="input-box">
-                  <label for="res-number-a">Reservation No.</label>
+                  <dt class="res-dt">Reservation No.</dt>
                   <dd class="res-dd">000001</dd>
                 </div>
-                <div class="input-box">
-                  <label for="total-guest-a">Total Room(s)</label>
-                  <input type="text" id="total-guest-a" name="total-guest" placeholder="Enter total room(s)" required>
+                <div class="res-info-box">
+                  <dt class="res-dt">Email</dt>
+                  <dd class="res-dd">chayapat@gmail.com</dd>
                 </div>
               </div>
               
@@ -145,10 +145,22 @@
                 <label for="cus-name-a">Customer Name</label>
                 <input type="text" id="cus-name-a" name="cus-name" placeholder="Enter customer name" required>
               </div>
-              <div class="res-info-box">
-                <dt class="res-dt">Email</dt>
-                <dd class="res-dd">chayapat@gmail.com</dd>
+
+              <div class="column2">
+                <div class="input-box">
+                  <label for="total-guest-a">Total Room(s)</label>
+                  <input type="text" id="total-guest-a" name="total-guest" placeholder="Enter total room(s)" required>
+                </div>
+                <div class="input-box">
+                  <label for="room-n-a">Room No.</label>
+                  <div class="column3">
+                    <input type="text" id="room-n-a" name="room-n" placeholder="---" required>
+                    <b>-</b>
+                    <input type="text" id="room-n-a" name="room-n" placeholder="---" required>
+                  </div>
+                </div>
               </div>
+              
               
               <div class="column2">
                 <div class="input-box">
@@ -188,9 +200,9 @@
                   <label for="res-number-e">Reservation No.</label>
                   <dd class="res-dd">000001</dd>
                 </div>
-                <div class="input-box">
-                  <label for="total-guest-e">Total Room(s)</label>
-                  <input type="text" id="total-guest-e" name="total-guest" placeholder="1" required>
+                <div class="res-info-box">
+                  <dt class="res-dt">Email</dt>
+                  <dd class="res-dd">chayapat@gmail.com</dd>
                 </div>
               </div>
               
@@ -198,10 +210,22 @@
                 <label for="cus-name-e">Customer Name</label>
                 <input type="text" id="cus-name-e" name="cus-name" placeholder="Chayapat Pangpon" required>
               </div>
-              <div class="res-info-box">
-                <dt class="res-dt">Email</dt>
-                <dd class="res-dd">chayapat@gmail.com</dd>
+
+              <div class="column2">
+                <div class="input-box">
+                  <label for="total-guest-e">Total Room(s)</label>
+                  <input type="text" id="total-guest-e" name="total-guest" placeholder="1" required>
+                </div>
+                <div class="input-box">
+                  <label for="room-n-a">Room No.</label>
+                  <div class="column3">
+                    <input type="text" id="room-n-a" name="room-n" placeholder="001" required>
+                    <b>-</b>
+                    <input type="text" id="room-n-a" name="room-n" placeholder="001" required>
+                  </div>
+                </div>
               </div>
+              
               
               <div class="column2">
                 <div class="input-box">
@@ -221,7 +245,7 @@
             </div>
             <div class="popup-edit-button">
               <a href="#" class="reservation-button-black">Delete</a> <!--need to change href to delete database-->
-              <a href="add.php" class="reservation-button-red"> Add </a>
+              <a href="#" class="reservation-button-red">Edit</a>
               <a href="#" class="reservation-button-black">Cancel</a>
             </div>
           </form>
@@ -242,8 +266,8 @@
                   <dd class="res-dd">000001</dd>
                 </div>
                 <div class="res-info-box">
-                  <dt class="res-dt">Total Room(s)</dt>
-                  <dd class="res-dd">1</dd>
+                  <dt class="res-dt">Email</dt>
+                  <dd class="res-dd">chayapat@gmail.com</dd>
                 </div>
               </div>
               
@@ -251,11 +275,17 @@
                 <dt class="res-dt">Customer Name</dt>
                 <dd class="res-dd">Chayapat Pangpon</dd>
               </div>
-              <div class="res-info-box">
-                <dt class="res-dt">Email</dt>
-                <dd class="res-dd">chayapat@gmail.com</dd>
+              <div class="column2">
+                <div class="res-info-box">
+                    <dt class="res-dt">Total Room(s)</dt>
+                    <dd class="res-dd">1</dd>
+                </div>
+                <div class="res-info-box">
+                  <dt class="res-dt">Room No.</dt>
+                  <dd class="res-dd">001 - 001</dd>
+                </div>
               </div>
-              
+
               <div class="column2">
                 <div class="res-info-box">
                   <dt class="res-dt">Agent</dt>
