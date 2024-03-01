@@ -21,7 +21,7 @@
       </nav>
     </div>
 
-    <form action="c_login_db.php" method="POST">
+    <form action="c_login_db.php" method="post">
       <div class="login-form">
         <div class="fill-info">
           <h1>Login</h1>
@@ -37,9 +37,7 @@
           <label for="password"><b>Password</b></label>
           <input type="password" id="password" name="password" placeholder="xxxxxxxx" required />
 
-          <a href="./c_personal_info.php">
-            <button type="submit" name="submit" class="button">Login</button>
-          </a>
+          <button type="submit" name="submit" class="button">Login</button>
 
           <p class="account">
             Don't have an account? <a href="./c_signup.php"> Sign up</a>

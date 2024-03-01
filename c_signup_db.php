@@ -1,10 +1,9 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
-  // Create connection
-  $conn = mysqli_connect('localhost', 'root', '', 'Hotel') or die('Connection failed: ' . $conn->connect_error);
+require('./DB_connect.php');
 
-  
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+
   if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['surname'])) {
     $email = $_POST['email'];
     $userPassword = $_POST['password'];

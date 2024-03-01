@@ -151,7 +151,7 @@
         <div class="edit-personal-info" style="margin-left: 85%;">
             <a href="./c_personal_info.php">
                 <button type="submit" name="submit" class="button">Done</button>
-                </a>
+            </a>
         </div>
       </div>
     </div>

@@ -1,3 +1,7 @@
+<?php session_start();
+$conn = mysqli_connect('localhost', 'root', '', 'Hotel')
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,14 +45,19 @@
           <th class="head">address</th>
         </tr>
 
+        <?php
+        if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $query1 = mysqli_query("select * from employee where employee_id=$id", $conn);
+        }
+        ?>
         <tr>
-          <td class="sub-head">name<p class="body">Brooklyn</p></td>
-          <td class="sub-head">Address (City / State / Country)<p class="body">123 cute city, thailand koh lan nakorn 
-            sithammarat rattanakosin road, 22980</p></td>
+          <td class="sub-head">name<p class="body"><?php echo $_SESSION['name']; ?></p></td>
+          <td class="sub-head">Address (City / State / Country)<p class="body"><?php echo $_POST['address']; ?></p></td>
         </tr>
 
         <tr>
-          <td class="sub-head">surmane<p class="body">Simmons</p></td>
+          <td class="sub-head">surmane<p class="body"><?php echo $_POST['surname']; ?></p></td>
           <th class="head">emergency contact</th>
         </tr>
 
