@@ -12,13 +12,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     $surname = $_POST['surname'];
     $address = $_POST['address'];
 
-    $sql = "INSERT INTO `Account` (`Email`, `Password`, `Name`, `Surname`, `Address`) VALUES ('$email', '$userPassword', '$name', '$surname', '$address')";
+    $sql = "INSERT INTO `Account` (`email`,`password`, `name`, `surname`, `address`) VALUES ('$email', '$userPassword', '$name', '$surname', '$address')";
 
-    $result = mysqli_query($conn, $sql);
+    $result = $conn->query($sql);
 
     if ($result) {
       header("Location: http://localhost:3000/c_index.php");
-      exit();
+      exit;
     } else {
       echo $result;
     }

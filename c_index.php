@@ -21,7 +21,7 @@
       </nav>
     </div>
 
-    <form action="#" method="POST">
+    <form action="c_login_db.php" method="POST">
       <div class="login-form">
         <div class="fill-info">
           <h1>Login</h1>
@@ -29,12 +29,13 @@
           <input
             type="email"
             id="email"
+            name="email"
             placeholder="John.Smith@gmail.com"
             required
           />
 
           <label for="password"><b>Password</b></label>
-          <input type="password" id="password" placeholder="xxxxxxxx" required />
+          <input type="password" id="password" name="password" placeholder="xxxxxxxx" required />
 
           <a href="./c_personal_info.php">
             <button type="submit" name="submit" class="button">Login</button>
