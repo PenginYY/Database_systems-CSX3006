@@ -46,18 +46,22 @@ $conn = mysqli_connect('localhost', 'root', '', 'Hotel')
         </tr>
 
         <?php
-        if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $query1 = mysqli_query("select * from employee where employee_id=$id", $conn);
-        }
+        $email = $_SESSION['email'];
+        $sql = "SELECT * FROM `Account` WHERE email = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $row = mysqli_fetch_array($result);
         ?>
         <tr>
-          <td class="sub-head">name<p class="body"><?php echo $_SESSION['name']; ?></p></td>
-          <td class="sub-head">Address (City / State / Country)<p class="body"><?php echo $_POST['address']; ?></p></td>
+          <td class="sub-head">name<p class="body"><?php echo $row['name']; ?></p></td>
+          <td class="sub-head">Address (City / State / Country)<p class="body"><?php echo $row['address']; ?></p></td>
         </tr>
 
         <tr>
-          <td class="sub-head">surmane<p class="body"><?php echo $_POST['surname']; ?></p></td>
+          <td class="sub-head">surmane<p class="body"><?php echo $row['surname']; ?></p></td>
           <th class="head">emergency contact</th>
         </tr>
 
