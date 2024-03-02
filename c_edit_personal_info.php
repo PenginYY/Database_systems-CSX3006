@@ -146,14 +146,14 @@
               </p>
             </td>
 
-        </tr>
-      </table>
+          </tr>
+        </table>
 
           <div class="edit-personal-info">
             <button type="submit" name="submit" class="button">Done</button>
           </div>
         </div>
       </div>
-    </div>
+    </form>
 </body>
 </html>

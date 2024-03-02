@@ -44,7 +44,7 @@
       <!-- Reservation Head -->
       <div class="reservation-header">
         <div class="radio-days">
-          <input class="radio__input" type="radio" value="day1" id="day1" name="days">
+          <input class="radio__input" type="radio" value="day1" id="day1" name="days" checked>
           <label class="radio__label" for="day1"> 4 NOVEMBER 2023 </label>
           <input class="radio__input" type="radio" value="day2" id="day2" name="days">
           <label class="radio__label" for="day2"> 5 NOVEMBER 2023 </label>
