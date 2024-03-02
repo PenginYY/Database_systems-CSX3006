@@ -1,5 +1,5 @@
 <?php session_start();
-$conn = mysqli_connect('localhost', 'root', '', 'Hotel')
+require './DB_connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -47,31 +47,39 @@ $conn = mysqli_connect('localhost', 'root', '', 'Hotel')
 
         <?php
         $email = $_SESSION['email'];
-        $sql = "SELECT * FROM `Account` WHERE email = ?";
-        $stmt = $conn->prepare($sql);
+        $sql_account = "SELECT * FROM `Account` WHERE email = ?";
+        $stmt_account = $conn->prepare($sql_account);
+        $stmt_account->bind_param("s", $email);
+        $stmt_account->execute();
+        $result_account = $stmt_account->get_result();
+        $row_account = mysqli_fetch_array($result_account);
+
+
+        $email = $_SESSION['email'];
+        $sql_customer = "SELECT * FROM `customer` WHERE email = ?";
+        $stmt = $conn->prepare($sql_customer);
         $stmt->bind_param("s", $email);
         $stmt->execute();
-        $result = $stmt->get_result();
-
-        $row = mysqli_fetch_array($result);
+        $result_customer = $stmt->get_result();
+        $row_customer = mysqli_fetch_array($result_customer);
         ?>
         <tr>
-          <td class="sub-head">name<p class="body"><?php echo $row['name']; ?></p></td>
-          <td class="sub-head">Address (City / State / Country)<p class="body"><?php echo $row['address']; ?></p></td>
+          <td class="sub-head">name<p class="body"><?php echo $row_account['name']; ?></p></td>
+          <td class="sub-head">Address (City / State / Country)<p class="body"><?php echo $row_account['address']; ?></p></td>
         </tr>
 
         <tr>
-          <td class="sub-head">surmane<p class="body"><?php echo $row['surname']; ?></p></td>
+          <td class="sub-head">surmane<p class="body"><?php echo $row_account['surname']; ?></p></td>
           <th class="head">emergency contact</th>
         </tr>
 
         <tr>
           <th class="head">date of birth</th>
-          <td class="sub-head">name<p class="body">Esther Howard</p></td>
+          <td class="sub-head">name<p class="body"><?php echo $row_customer['emergency_name']; ?></p></td>
         </tr>
 
         <tr>
-          <td class="sub-head">DD/MM/YYYY<p class="body">12 October 1987</p></td>
+          <td class="sub-head">DD/MM/YYYY<p class="body"><?php echo $row_account['birthdate']; ?></p></td>
           <td class="sub-head">telephone<p class="body">099-999-9999</p></td>
         </tr>
 
@@ -79,12 +87,12 @@ $conn = mysqli_connect('localhost', 'root', '', 'Hotel')
         <th class="head">Phone number</th>
         <td class="sub-head">
           <label for="relationship">relationship</label>
-          <p class="body">Parent</p>
+          <p class="body"><?php echo $row_customer['relationship']; ?></p>
         </td>
         </tr>
 
         <tr>
-        <td class="sub-head">TEL.XXX-XXX-XXXX<p class="body">088-888-8888</p></td>
+        <td class="sub-head">TEL.XXX-XXX-XXXX<p class="body"><?php echo $row_account['phone']; ?></p></td>
         </tr>
       </table>
 
@@ -102,13 +110,12 @@ $conn = mysqli_connect('localhost', 'root', '', 'Hotel')
             <div class="popup-acc-content" style="text-align: center;">
                 <h3>Are you certain to delete this account?</h3>
                 <div class="controls">
-                  <a href="./c_index.php"><button type="submit" name="submit" class="yes-btn">yes</button></a>
-                  <a href="#"><button type="submit" name="submit" class="no-btn">no</button></a>
+                  <button type="submit" name="delete" class="yes-btn">yes</button>
+                  <a href="#"><button type="submit" name="cancel" class="no-btn">no</button></a>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </body>
 </html>
