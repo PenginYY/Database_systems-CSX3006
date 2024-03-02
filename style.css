@@ -189,6 +189,7 @@ input:focus:-ms-input-placeholder {
 .sub-head {
   font-size: 18px;
   padding-bottom: 25px;
+  padding-bottom: 0px;
   text-transform: capitalize;
 }
 
