@@ -178,7 +178,7 @@ input:focus:-ms-input-placeholder {
 }
 
 .head {
-  width: 55%;
+  width: 12%;
   text-align: left;
   font-size: 22px;
   margin-top: 40px;
@@ -189,6 +189,7 @@ input:focus:-ms-input-placeholder {
 .sub-head {
   font-size: 18px;
   padding-bottom: 25px;
+  padding-bottom: 0px;
   text-transform: capitalize;
 }
 
