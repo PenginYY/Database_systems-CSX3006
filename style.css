@@ -156,8 +156,12 @@ input:focus:-ms-input-placeholder {
   background-color: #d73938;
 }
 
+.table-customer-info {
+  width: 100%;
+}
+
 .account-info {
-  width: 70%;
+  width: 80%;
   text-align: -webkit-center;
   height: auto;
   margin: auto;
@@ -178,7 +182,7 @@ input:focus:-ms-input-placeholder {
 }
 
 .head {
-  width: 12%;
+  width: 55%;
   text-align: left;
   font-size: 22px;
   margin-top: 40px;
@@ -189,7 +193,6 @@ input:focus:-ms-input-placeholder {
 .sub-head {
   font-size: 18px;
   padding-bottom: 25px;
-  padding-bottom: 0px;
   text-transform: capitalize;
 }
 

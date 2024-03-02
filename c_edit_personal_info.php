@@ -1,4 +1,25 @@
-<?php session_start(); ?>
+<?php session_start(); 
+require './DB_connect.php';
+
+    //Account table
+    $email = $_SESSION['email'];
+    $sql_account = "SELECT * FROM `Account` WHERE email = ?";
+    $stmt_account = $conn->prepare($sql_account);
+    $stmt_account->bind_param("s", $email);
+    $stmt_account->execute();
+    $result_account = $stmt_account->get_result();
+    $row_account = mysqli_fetch_array($result_account);
+        
+    //Customer table
+    $sql_customer = "SELECT * FROM `customer` WHERE email = ?";
+    $stmt = $conn->prepare($sql_customer);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result_customer = $stmt->get_result();
+    $row_customer = mysqli_fetch_array($result_customer);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,29 +54,10 @@
       </nav>
     </div>
 
-    <?php
-      //Account table
-        $email = $_SESSION['email'];
-        $sql_account = "SELECT * FROM `Account` WHERE email = ?";
-        $stmt_account = $conn->prepare($sql_account);
-        $stmt_account->bind_param("s", $email);
-        $stmt_account->execute();
-        $result_account = $stmt_account->get_result();
-        $row_account = mysqli_fetch_array($result_account);
-      
-      //Customer table
-        $sql_customer = "SELECT * FROM `customer` WHERE email = ?";
-        $stmt = $conn->prepare($sql_customer);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result_customer = $stmt->get_result();
-        $row_customer = mysqli_fetch_array($result_customer);
-        ?>
-
-    <form action="./c_edit_personal_db.php" method="POST">
+    <form action="./c_db_edit_personal.php" method="POST" class="table-customer-info">
       <h1 class="title_customer">personal information</h1>
       <div class="account-info">
-        <table>
+        <table class="table-customer-info">
           <tr>
             <th class="head">customer name</th>
             <th class="head">address</th>
@@ -126,7 +128,7 @@
             <td class="sub-head">
               <label for="phone">telephone</label>
               <p class="body">
-              <input type="tel" id="phone" name="rel-phone" placeholder="<?php echo $row_customer['emergency_phone'];?>" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+              <input type="tel" id="phone" name="rel-phone" value="<?php echo $row_customer['emergency_phone'];?>" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
               </p>
           </tr>
 
@@ -165,3 +167,4 @@
     </form>
 </body>
 </html>
+

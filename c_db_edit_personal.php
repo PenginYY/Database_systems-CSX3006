@@ -32,7 +32,8 @@ if(isset($_POST['submit'])){
     $result_cus = $stmt->get_result();
 
     if($result_acc && $result_cus){
-        echo "<script>alert('Update Successful')</script>";
+        header("Location: http://localhost:3000/c_personal_info.php");
+        exit;
     } else {
         echo "Something went wrong";
     }
