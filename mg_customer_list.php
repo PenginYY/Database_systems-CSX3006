@@ -41,17 +41,17 @@
     </div>
 
     <!-- Account Info -->
-    <div class="reservation">
-      <div class="reservation-title">
+    <div class="list-container">
+      <div class="list-title">
         <h2>CUSTOMER LIST</h2>
       </div>
       
       <!-- Customer Head -->
-      <div class="reservation-header">
+      <div class="list-header">
         <div class="radio-days">
           <input class="radio__input" type="radio" value="day1" name="days" id="day1">
           <label class="radio__label" for="day1"> YESTERDAY </label>
-          <input class="radio__input" type="radio" value="day2" name="days" id="day2">
+          <input class="radio__input" type="radio" value="day2" name="days" id="day2" checked>
           <label class="radio__label" for="day2"> TODAY </label>
           <input class="radio__input" type="radio" value="day3" name="days" id="day3">
           <label class="radio__label" for="day3"> TOMORROW </label>
@@ -65,50 +65,50 @@
       </div>
 
       <!-- Customer Body -->
-      <div class="reservation-body">
-        <table class="res-table">
-          <thead class="res-thead">
-            <tr class="res-tr">
-              <th class="res-th" style="text-align: left;">Reservation No.</th>
-              <th class="res-th" style="text-align: left;">Customer Name</th>
-              <th class="res-th" style="text-align: center;">Agent</th>
-              <th class="res-th" style="text-align: center;">Arrive</th>
-              <th class="res-th" style="text-align: center;">Depart</th>
-              <th class="res-th" style="text-align: center;">Status</th>
+      <div class="list-body">
+        <table class="list-table">
+          <thead class="list-thead">
+            <tr class="list-tr">
+              <th class="list-th" style="text-align: left;">Reservation No.</th>
+              <th class="list-th" style="text-align: left;">Customer Name</th>
+              <th class="list-th" style="text-align: center;">Agent</th>
+              <th class="list-th" style="text-align: center;">Arrive</th>
+              <th class="list-th" style="text-align: center;">Depart</th>
+              <th class="list-th" style="text-align: center;">Status</th>
             </tr>
           </thead>
-          <tbody class="res-tbody">
-            <tr class="res-tr">
-              <td class="res-td" style="text-align: left;">00001</td>
-              <td class="res-td" style="text-align: left;">Chayapat Pangpond</td>
-              <td class="res-td" style="text-align: center;">Agoda</td>
-              <td class="res-td" style="text-align: center;">04/11/23</td>
-              <td class="res-td" style="text-align: center;">05/11/23</td>
-              <td class="res-td" style="text-align: center;">Checked-Out</td>
+          <tbody class="list-tbody">
+            <tr class="list-tr">
+              <td class="list-td" style="text-align: left;">00001</td>
+              <td class="list-td" style="text-align: left;">Chayapat Pangpond</td>
+              <td class="list-td" style="text-align: center;">Agoda</td>
+              <td class="list-td" style="text-align: center;">04/11/23</td>
+              <td class="list-td" style="text-align: center;">05/11/23</td>
+              <td class="list-td" style="text-align: center;">Checked-Out</td>
             </tr>
-            <tr class="res-tr">
-              <td class="res-td" style="text-align: left;">00002</td>
-              <td class="res-td" style="text-align: left;">Esther Howard</td>
-              <td class="res-td" style="text-align: center;">Booking.com</td>
-              <td class="res-td" style="text-align: center;">04/11/23</td>
-              <td class="res-td" style="text-align: center;">06/11/23</td>
-              <td class="res-td" style="text-align: center;">In-house</td>
+            <tr class="list-tr">
+              <td class="list-td" style="text-align: left;">00002</td>
+              <td class="list-td" style="text-align: left;">Esther Howard</td>
+              <td class="list-td" style="text-align: center;">Booking.com</td>
+              <td class="list-td" style="text-align: center;">04/11/23</td>
+              <td class="list-td" style="text-align: center;">06/11/23</td>
+              <td class="list-td" style="text-align: center;">In-house</td>
             </tr>
-            <tr class="res-tr">
-              <td class="res-td" style="text-align: left;">00003</td>
-              <td class="res-td" style="text-align: left;">Brooklyn Simmons</td>
-              <td class="res-td" style="text-align: center;">Walk-in</td>
-              <td class="res-td" style="text-align: center;">04/11/23</td>
-              <td class="res-td" style="text-align: center;">05/11/23</td>
-              <td class="res-td" style="text-align: center;">Waiting</td>
+            <tr class="list-tr">
+              <td class="list-td" style="text-align: left;">00003</td>
+              <td class="list-td" style="text-align: left;">Brooklyn Simmons</td>
+              <td class="list-td" style="text-align: center;">Walk-in</td>
+              <td class="list-td" style="text-align: center;">04/11/23</td>
+              <td class="list-td" style="text-align: center;">05/11/23</td>
+              <td class="list-td" style="text-align: center;">Waiting</td>
             </tr>
-            <tr class="res-tr">
-              <td class="res-td" style="text-align: left;">00004</td>
-              <td class="res-td" style="text-align: left;">Savannah Nguyen</td>
-              <td class="res-td" style="text-align: center;">Walk-in</td>
-              <td class="res-td" style="text-align: center;">04/11/23</td>
-              <td class="res-td" style="text-align: center;">11/11/23</td>
-              <td class="res-td" style="text-align: center;">In-house</td>
+            <tr class="list-tr">
+              <td class="list-td" style="text-align: left;">00004</td>
+              <td class="list-td" style="text-align: left;">Savannah Nguyen</td>
+              <td class="list-td" style="text-align: center;">Walk-in</td>
+              <td class="list-td" style="text-align: center;">04/11/23</td>
+              <td class="list-td" style="text-align: center;">11/11/23</td>
+              <td class="list-td" style="text-align: center;">In-house</td>
             </tr>
           </tbody>
         </table>

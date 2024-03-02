@@ -20,8 +20,8 @@
         </ul>
       </nav>
     </div>
-
-    <!-- <form action="connect.php" method="POST"> -->
+    
+    <form action="./c_db_signup.php" method="POST">
       <div class="signup-form">
         <div class="fill-info">
           <h1>Sign up</h1><br>
@@ -69,12 +69,12 @@
             placeholder="Robert Robertson, 1234 NW Bobcat Lane, St. Robert, MO 65584-5678"
           />
 
-          <a href="./c_personal_info.php"><input type="submit" name="submit" class="button" value="Sign up"/></a>
+          <input type="submit" name="submit" class="button" value="Sign up"/>
           <p class="account">
             Already have an account? <a href="c_index.php">Login</a>
           </p>
         </div>
       </div>
-    <!-- </form> -->
+    </form>
   </body>
 </html>

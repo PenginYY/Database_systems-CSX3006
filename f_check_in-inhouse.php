@@ -40,13 +40,13 @@
   </div>
 
   <!-- Check-in -->
-  <div class="reservation">
-    <div class="reservation-title">
+  <div class="list-container">
+    <div class="list-title">
       <h2>CUSTOMER CHECK-IN</h2>
     </div>
 
     <!-- Check-in Head -->
-    <div class="reservation-header">
+    <div class="list-header">
         <div class="radio-days">
         <input class="radio__input" type="radio" value="waitinglist" id="waitinglist" name="wait_in" checked>
         <a href="./f_check_in.php" class="radio__label" for="waitinglist">WAITING LIST</a>
@@ -54,34 +54,28 @@
         <a href="./f_check_in-inhouse.php" class="radio__label" for="inhouse">IN-HOUSE</a>
       </div>
     </div>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Check the radio button corresponding to the current page
-      document.getElementById("inhouse").checked = true;
-    });
-    </script>
     
     <!-- Check-in Body -->
-    <div class="reservation-body">
-      <table class="res-table">
-        <thead class="res-thead">
-          <tr class="res-tr">
-            <th class="res-th" style="text-align: left;"> Reservation No. </th>
-            <th class="res-th" style="text-align: left;"> Customer Name </th>
-            <th class="res-th" style="text-align: center;"> Agent </th>
-            <th class="res-th" style="text-align: center;"> Arrive </th>
-            <th class="res-th" style="text-align: center;"> Depart </th>
-            <th class="res-th" style="text-align: center;"> Paid Amount </th>
+    <div class="list-body">
+      <table class="list-table">
+        <thead class="list-thead">
+          <tr class="list-tr">
+            <th class="list-th" style="text-align: left;"> Reservation No. </th>
+            <th class="list-th" style="text-align: left;"> Customer Name </th>
+            <th class="list-th" style="text-align: center;"> Agent </th>
+            <th class="list-th" style="text-align: center;"> Arrive </th>
+            <th class="list-th" style="text-align: center;"> Depart </th>
+            <th class="list-th" style="text-align: center;"> Paid Amount </th>
           </tr>
         </thead>
-        <tbody class="res-tbody">
-          <tr class="res-tr">
-            <td class="res-td" style="text-align: left;"> 000001 </td>
-            <td class="res-td" style="text-align: left;"><a href="#popup-in-house" style="text-decoration: none; color: black;"> Chayapat Pangpon </a></td>
-            <td class="res-td" style="text-align: center;"> Agoda </td>
-            <td class="res-td" style="text-align: center;"> 04/11/23 </td>
-            <td class="res-td" style="text-align: center;"> 05/11/23 </td>
-            <td class="res-td" style="text-align: center;"> 1600 BAHT </td>
+        <tbody class="list-tbody">
+          <tr class="list-tr">
+            <td class="list-td" style="text-align: left;"> 000001 </td>
+            <td class="list-td" style="text-align: left;"><a href="#popup-in-house" style="text-decoration: none; color: black;"> Chayapat Pangpon </a></td>
+            <td class="list-td" style="text-align: center;"> Agoda </td>
+            <td class="list-td" style="text-align: center;"> 04/11/23 </td>
+            <td class="list-td" style="text-align: center;"> 05/11/23 </td>
+            <td class="list-td" style="text-align: center;"> 1600 BAHT </td>
           </tr>
         </tbody>
       </table>
@@ -94,38 +88,51 @@
       <div class="container">
         <div class="title"><h3>Customer Check-in</h3></div>
         <form action="#">
-          <div class="reservation-details">
+          <div class="list-details">
          
-            <div class="column1">
-              <div class="res-info-box">
-                <dt class="res-dt">Reservation No.</dt>
-                <dd class="res-dd">000001</dd>
+            <div class="column4">
+              <div class="list-info-box">
+                <dt class="list-dt">Reservation No.</dt>
+                <dd class="list-dd">000001</dd>
               </div>
-              <div class="res-info-box">
-                <dt class="res-dt">Customer Name</dt>
-                <dd class="res-dd">Chayapat Pangpond</dd>
-              </div>
-            </div>
-            
-            <div class="column2">
-              <div class="res-info-box">
-                <dt class="res-dt">Agent</dt>
-                <dd class="res-dd">Agoda</dd>
-              </div>
-              <div class="res-info-box">
-                <dt class="res-dt">Arriving Date</dt>
-                <dd class="res-dd">04/11/23</dd>
-              </div>
-              <div class="res-info-box">
-                <dt class="res-dt">Departure Date</dt>
-                <dd class="res-dd">05/11/23</dd>
+              <div class="list-info-box">
+                <dt class="list-dt">Email</dt>
+                <dd class="list-dd">chayapat@gmail.com</dd>
               </div>
             </div>
             
-            <div class="column1">
-              <div class="res-info-box">
-                <dt class="res-dt">Total Room(s)</dt>
-                <dd class="res-dd">01</dd>
+            <div class="list-info-box">
+              <dt class="list-dt">Customer Name</dt>
+              <dd class="list-dd">Chayapat Pangpond</dd>
+            </div>
+
+            <div class="column4">
+              <div class="list-info-box">
+                <dt class="list-dt">Agent</dt>
+                <dd class="list-dd">Agoda</dd>
+              </div>
+              <div class="list-info-box">
+                <dt class="list-dt">Arriving Date</dt>
+                <dd class="list-dd">04/11/23</dd>
+              </div>
+              <div class="list-info-box">
+                <dt class="list-dt">Departure Date</dt>
+                <dd class="list-dd">05/11/23</dd>
+              </div>
+            </div>
+            
+            <div class="column4">
+              <div class="list-info-box">
+                <dt class="list-dt">Total Room(s)</dt>
+                <dd class="list-dd">01</dd>
+              </div>
+              <div class="input-box">
+                <label for="room-n-a">Room No.</label>
+                <div class="column3">
+                  <input type="text" id="room-n-a" name="room-n" placeholder="001" required>
+                  <b>-</b>
+                  <input type="text" id="room-n-a" name="room-n" placeholder="001" required>
+                </div>
               </div>
               <div class="input-box">
                 <label for="paid-amount">Paid Amount</label>
