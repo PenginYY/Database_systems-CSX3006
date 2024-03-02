@@ -34,15 +34,23 @@
     </div>
 
     <?php
+      //Account table
         $email = $_SESSION['email'];
-        $sql = "SELECT * FROM `Account` WHERE email = ?";
-        $stmt = $conn->prepare($sql);
+        $sql_account = "SELECT * FROM `Account` WHERE email = ?";
+        $stmt_account = $conn->prepare($sql_account);
+        $stmt_account->bind_param("s", $email);
+        $stmt_account->execute();
+        $result_account = $stmt_account->get_result();
+        $row_account = mysqli_fetch_array($result_account);
+      
+      //Customer table
+        $sql_customer = "SELECT * FROM `customer` WHERE email = ?";
+        $stmt = $conn->prepare($sql_customer);
         $stmt->bind_param("s", $email);
         $stmt->execute();
-        $result = $stmt->get_result();
-
-        $row = mysqli_fetch_array($result);
-    ?>
+        $result_customer = $stmt->get_result();
+        $row_customer = mysqli_fetch_array($result_customer);
+        ?>
 
     <form action="./c_edit_personal_db.php" method="POST">
       <h1 class="title_customer">personal information</h1>
@@ -60,7 +68,7 @@
               <input type="text"
               id="name"
               name="name"
-              value=<?php echo $row['name']; ?>
+              value="<?php echo $row_account['name']; ?>"
               >
             </p>
           </td>
@@ -73,7 +81,7 @@
                 type="text"
                 id="address"
                 name="address"
-                value=<?php echo $row['address']; ?>
+                value="<?php echo $row_account['address']; ?>"
               />
             </p>
             </td>
@@ -86,7 +94,7 @@
                 <input type="text"
                 id="surname"
                 name="surname"
-                value=<?php echo $row['surname']; ?>
+                value="<?php echo $row_account['surname']; ?>"
                 >
                 </p>
             </td>
@@ -101,7 +109,7 @@
               <input type="text"
                 id="name"
                 name="rel-name"
-                value="Esther Howard"
+                value="<?php echo $row_customer['emergency_name'];?>"
                 >
               </p>
             </td>
@@ -118,7 +126,7 @@
             <td class="sub-head">
               <label for="phone">telephone</label>
               <p class="body">
-              <input type="tel" id="phone" name="rel-phone" placeholder="099-999-9999" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+              <input type="tel" id="phone" name="rel-phone" placeholder="<?php echo $row_customer['emergency_phone'];?>" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
               </p>
           </tr>
 
@@ -142,7 +150,7 @@
             <td class="sub-head">
               <label for="telephone">TEL.XXX-XXX-XXXX</label>
               <p class="body">
-              <input type="tel" id="phone" name="cus-phone" placeholder="099-999-9999" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+              <input type="tel" id="phone" name="cus-phone" placeholder="<?php echo $row_account['phone'];?>" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
               </p>
             </td>
 

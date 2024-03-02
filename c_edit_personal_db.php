@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
     $relationship = $_POST['relationships'];
     
     //Update account table
-    $sql_account = "UPDATE Account SET name=$name, surname=$surname, address=$address WHERE email= ? ";
+    $sql_account = "UPDATE Account SET name=$name, surname=$surname, address=$address, birthdate=$dob, phone=$cusPhone WHERE email= ? ";
 
     $stmt = $conn->prepare($sql_account);
     $stmt->bind_param("s", $_SESSION['email']);

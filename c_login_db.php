@@ -22,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
             exit;
         } else {
             header("Location: http://localhost:3000/c_index.php");
-            echo "Email or password wrong!";
         }
     }
 }
