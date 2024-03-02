@@ -36,23 +36,27 @@
     <div class="account-info">
 
     <!-- Table -->
-    <table>
+    <table action="./mg_db_add_new_account_manager.php" method="POST">
           <tr>
+            <!-- Name Title -->
             <th class="head">name</th>
+            <!-- Address Title -->
             <th class="head">address</th>
           </tr>
 
           <tr>
+            <!-- Name Input Slot -->
             <td class="sub-head" style="padding-bottom: 0px;">
               <label for="name">Name</label>
               <p class="body">
               <input type="text"
               id="name"
-              name="name"
+              name="firstName"
               >
             </p>
           </td>
-
+  
+          <!-- Address Input Slot -->
             <td class="sub-head" style="padding-bottom: 0px;">
             <label for="address">Address (City / State / Country)</label>
             <p class="body">
@@ -67,20 +71,24 @@
           </tr>
 
           <tr>
+            <!-- Surname Input Slot -->
             <td class="sub-head">surname<p class="body">
               <input type="text"
                 id="name"
-                name="name"
+                name="lastName"
                 >
               </p>
           </tr>
 
           <tr>
+            <!-- DOB Title -->
             <th class="head">date of birth</th>
+            <!-- Email Title -->
             <th class="head">Email</th>
           </tr>
 
           <tr>
+            <!-- DOB Input Slot -->
             <td class="sub-head" style="padding-bottom: 0px;">
               <label for="dob">DD/MM/YYYY</label>
               <p class="body">
@@ -90,6 +98,7 @@
                 >
               </p>
             </td>
+            <!-- Email Input Slot -->
             <td class="sub-head" style="padding-bottom: 0px;">
               <p class="body">
               <input type="text"
@@ -101,20 +110,24 @@
           </tr>
 
           <tr>
+            <!-- Phonenumber Title -->
             <th class="head">Phone number</th>
+
+            <!-- Role Title -->
             <td class="head">
               <label for="relationship">Role</label>
+              <!-- Roles options -->
               <p class="body">
-                <select id="relationships" name="relationships" style="font-size: 50px; ">
-                <option value="customer">Customer</option>
+                <select id="role" name="role" style="font-size: 50px; ">
                 <option value="reservation">Reservation Staff</option>
-                <option value="frontDesk">Front Desk Staff</option>
+                <option value="front">Front Desk Staff</option>
                 </select>
               </p>
             </td>
           </tr>
 
           <tr>
+            <!-- Telephone Input Slot -->
             <td class="sub-head" style="padding-bottom: 0px;">
               <label for="telephone">TEL.XXX-XXX-XXXX</label>
               <p class="body">
@@ -131,7 +144,7 @@
 
         <!-- link to edit page -->
         <a href="./mg_account_manager.php">
-        <button type="submit" name="submit" class="button">Add</button>
+        <input type="submit" name="submit" class="button">Add</input>
         </a>
       </div>
     </div>
