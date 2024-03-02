@@ -1,3 +1,7 @@
+<?php session_start();
+$conn = mysqli_connect('localhost', 'root', '', 'Hotel')
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,14 +45,23 @@
           <th class="head">address</th>
         </tr>
 
+        <?php
+        $email = $_SESSION['email'];
+        $sql = "SELECT * FROM `Account` WHERE email = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $row = mysqli_fetch_array($result);
+        ?>
         <tr>
-          <td class="sub-head">name<p class="body">Brooklyn</p></td>
-          <td class="sub-head">Address (City / State / Country)<p class="body">123 cute city, thailand koh lan nakorn 
-            sithammarat rattanakosin road, 22980</p></td>
+          <td class="sub-head">name<p class="body"><?php echo $row['name']; ?></p></td>
+          <td class="sub-head">Address (City / State / Country)<p class="body"><?php echo $row['address']; ?></p></td>
         </tr>
 
         <tr>
-          <td class="sub-head">surmane<p class="body">Simmons</p></td>
+          <td class="sub-head">surmane<p class="body"><?php echo $row['surname']; ?></p></td>
           <th class="head">emergency contact</th>
         </tr>
 
@@ -86,7 +99,7 @@
 
       <div class="popup-delete-acc" id="popup-delete-acc">
         <div class="overlay-acc">
-            <div class="popup-acc-content">
+            <div class="popup-acc-content" style="text-align: center;">
                 <h3>Are you certain to delete this account?</h3>
                 <div class="controls">
                   <a href="./c_index.php"><button type="submit" name="submit" class="yes-btn">yes</button></a>

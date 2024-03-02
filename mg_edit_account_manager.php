@@ -109,7 +109,7 @@
             <td class="head">
               <label for="relationship">Role</label>
               <p class="body">
-                <select id="relationships" name="relationships" style="font-size: 50px; ">
+                <select id="relationships" name="relationships" style="font-size: 15px; ">
                 <option value="customer">Customer</option>
                 <option value="reservation">Reservation Staff</option>
                 <option value="frontDesk">Front Desk Staff</option>
