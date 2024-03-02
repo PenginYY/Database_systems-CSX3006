@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
     $relationship = $_POST['relationships'];
     
     //Update account table
-    $sql_account = "UPDATE Account SET name=$name, surname=$surname, address=$address WHERE email= ? ";
+    $sql_account = "UPDATE Account SET name=$name, surname=$surname, address=$address, birthdate=$dob, phone=$cusPhone WHERE email= ? ";
 
     $stmt = $conn->prepare($sql_account);
     $stmt->bind_param("s", $_SESSION['email']);
@@ -32,7 +32,8 @@ if(isset($_POST['submit'])){
     $result_cus = $stmt->get_result();
 
     if($result_acc && $result_cus){
-        echo "<script>alert('Update Successful')</script>";
+        header("Location: http://localhost:3000/c_personal_info.php");
+        exit;
     } else {
         echo "Something went wrong";
     }

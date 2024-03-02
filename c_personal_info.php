@@ -1,5 +1,23 @@
 <?php session_start();
 require './DB_connect.php';
+
+    $email = $_SESSION['email'];
+    $sql_account = "SELECT * FROM `Account` WHERE email = ?";
+    $stmt_account = $conn->prepare($sql_account);
+    $stmt_account->bind_param("s", $email);
+    $stmt_account->execute();
+    $result_account = $stmt_account->get_result();
+    $row_account = mysqli_fetch_array($result_account);
+
+
+    $email = $_SESSION['email'];
+    $sql_customer = "SELECT * FROM `customer` WHERE email = ?";
+    $stmt = $conn->prepare($sql_customer);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result_customer = $stmt->get_result();
+    $row_customer = mysqli_fetch_array($result_customer);
+
 ?>
 
 <!DOCTYPE html>
@@ -39,30 +57,12 @@ require './DB_connect.php';
     <!-- Personal information -->
     <h1 class="title_customer">personal information</h1>
     <div class="account-info">
-      <table>
+      <table class="table-customer-info">
         <tr>
           <th class="head">customer name</th>
           <th class="head">address</th>
         </tr>
 
-        <?php
-        $email = $_SESSION['email'];
-        $sql_account = "SELECT * FROM `Account` WHERE email = ?";
-        $stmt_account = $conn->prepare($sql_account);
-        $stmt_account->bind_param("s", $email);
-        $stmt_account->execute();
-        $result_account = $stmt_account->get_result();
-        $row_account = mysqli_fetch_array($result_account);
-
-
-        $email = $_SESSION['email'];
-        $sql_customer = "SELECT * FROM `customer` WHERE email = ?";
-        $stmt = $conn->prepare($sql_customer);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result_customer = $stmt->get_result();
-        $row_customer = mysqli_fetch_array($result_customer);
-        ?>
         <tr>
           <td class="sub-head">name<p class="body"><?php echo $row_account['name']; ?></p></td>
           <td class="sub-head">Address (City / State / Country)<p class="body"><?php echo $row_account['address']; ?></p></td>
