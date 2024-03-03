@@ -2,7 +2,7 @@
 require './DB_connect.php';
 
     $email = $_SESSION['email'];
-    $sql_account = "SELECT * FROM `Account` WHERE email = ?";
+    $sql_account = "SELECT * FROM `account` WHERE email = ?";
     $stmt_account = $conn->prepare($sql_account);
     $stmt_account->bind_param("s", $email);
     $stmt_account->execute();
@@ -64,12 +64,12 @@ require './DB_connect.php';
         </tr>
 
         <tr>
-          <td class="sub-head">name<p class="body"><?php echo $row_account['name']; ?></p></td>
+          <td class="sub-head">name<p class="body"><?php echo $row_account['firstname']; ?></p></td>
           <td class="sub-head">Address (City / State / Country)<p class="body"><?php echo $row_account['address']; ?></p></td>
         </tr>
 
         <tr>
-          <td class="sub-head">surmane<p class="body"><?php echo $row_account['surname']; ?></p></td>
+          <td class="sub-head">surmane<p class="body"><?php echo $row_account['lastname']; ?></p></td>
           <th class="head">emergency contact</th>
         </tr>
 
@@ -80,14 +80,14 @@ require './DB_connect.php';
 
         <tr>
           <td class="sub-head">DD/MM/YYYY<p class="body"><?php echo $row_account['birthdate']; ?></p></td>
-          <td class="sub-head">telephone<p class="body">099-999-9999</p></td>
+          <td class="sub-head">telephone<p class="body"><?php echo $row_customer['emergency_phone']; ?></p></td>
         </tr>
 
         <tr>
         <th class="head">Phone number</th>
         <td class="sub-head">
           <label for="relationship">relationship</label>
-          <p class="body"><?php echo $row_customer['relationship']; ?></p>
+          <p class="body"><?php echo $row_customer['emergency_relationship']; ?></p>
         </td>
         </tr>
 

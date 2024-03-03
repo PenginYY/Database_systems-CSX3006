@@ -17,21 +17,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     $rel_phone = null;
     $rel_relationship = null;
 
-   //Insert new account to Account table
-   $sql_account = "INSERT INTO `Account` (`email`,`password`, `name`, `surname`, `address`) VALUES ('$email', '$userPassword', '$name', '$surname', '$address')";
+    $sql_account = "INSERT INTO `account`(`email`, `password`, `firstname`, `lastname`, `address`, `birthdate`, `phone`) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-  //  //Insert new account to Customer table
-  //  $sql_customer = "INSERT INTO `Account` (`email`,`emergency_name`, `emergency_phone`, `relationship`) VALUES ('$email', '$rel_name', '$rel_phone', '$rel_relationship')";
+    $stmt1 = $conn->prepare($sql_account);
+    $stmt1->bind_param("sssssss", $email, $userPassword, $name, $surname, $address, $dob, $phone);
 
-   $result_acc = $conn->query($sql_account);
-  //  $result_cus = $conn->query($sql_customer);
-
-   // Check for errors
-   if ($result_acc) {
-     header("Location: http://localhost:3000/c_index.php");
-     exit;
+    if (!$stmt1->execute()) {
+        $error = "Error inserting account: " . $stmt1->error;
     } else {
-        echo "Unexpected error during signup.";
+        // Account inserted successfully
+        $sql_customer = "INSERT INTO `customer`(`email`, `emergency_name`, `emergency_phone`, `emergency_relationship`) VALUES (?, ?, ?, ?)";
+
+        $stmt2 = $conn->prepare($sql_customer);
+        $stmt2->bind_param("ssss", $email, $rel_name, $rel_phone, $rel_relationship);
+
+        if (!$stmt2->execute()) {
+            $error = "Error inserting customer: " . $stmt2->error;
+        }
     }
+
+    if (isset($error)) {
+        echo $error;
+        exit;
+    }
+
+    // Both insertions successful, redirect to success page
+    header("Location: http://localhost:3000/c_index.php");
+    exit;
+
 }
 ?>

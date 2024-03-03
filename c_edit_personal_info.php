@@ -70,7 +70,7 @@ require './DB_connect.php';
               <input type="text"
               id="name"
               name="name"
-              value="<?php echo $row_account['name']; ?>"
+              value="<?php echo $row_account['firstname']; ?>"
               >
             </p>
           </td>
@@ -96,7 +96,7 @@ require './DB_connect.php';
                 <input type="text"
                 id="surname"
                 name="surname"
-                value="<?php echo $row_account['surname']; ?>"
+                value="<?php echo $row_account['lastname']; ?>"
                 >
                 </p>
             </td>
@@ -128,7 +128,7 @@ require './DB_connect.php';
             <td class="sub-head">
               <label for="phone">telephone</label>
               <p class="body">
-              <input type="tel" id="phone" name="rel-phone" value="<?php echo $row_customer['emergency_phone'];?>" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+              <input type="tel" id="phone" name="rel-phone" value="<?php echo $row_customer['emergency_phone'];?>" pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
               </p>
           </tr>
 
@@ -152,7 +152,7 @@ require './DB_connect.php';
             <td class="sub-head">
               <label for="telephone">TEL.XXX-XXX-XXXX</label>
               <p class="body">
-              <input type="tel" id="phone" name="cus-phone" placeholder="<?php echo $row_account['phone'];?>" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+              <input type="tel" id="phone" name="cus-phone" placeholder="<?php echo $row_account['phone'];?>" pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
               </p>
             </td>
 
