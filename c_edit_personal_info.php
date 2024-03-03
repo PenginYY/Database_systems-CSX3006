@@ -140,6 +140,8 @@ require './DB_connect.php';
                 <select id="relationships" name="relationships" style="font-size: 15px; ">
                 <option value="parent">Parent</option>
                 <option value="sibling">Sibling</option>
+                <option value="sibling">Significant Other</option>
+                <option value="sibling">Daughter/Son</option>
                 <option value="relative">Relative</option>
                 <option value="friend">Friend</option>
                 <option value="other">Other</option>
