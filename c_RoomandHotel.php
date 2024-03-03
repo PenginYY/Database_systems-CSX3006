@@ -1,3 +1,41 @@
+<?php
+session_start();
+
+require './DB_connect.php';
+
+  //Query reservation data
+  //Show reservation number, total room
+  $email = $_SESSION['email'];
+  $sql_reservation = "SELECT * FROM `reservation` WHERE email = ?";
+  $stmt_reservation = $conn->prepare($sql_reservation);
+  $stmt_reservation->bind_param("s", $email);
+  $stmt_reservation->execute();
+  $result_reservation = $stmt_reservation->get_result();
+  $row_reservation = mysqli_fetch_array($result_reservation);
+
+  //Query account data
+  //Show customer name
+  $sql_account = "SELECT * FROM `account` WHERE email = ?";
+  $stmt_account = $conn->prepare($sql_account);
+  $stmt_account->bind_param("s", $email);
+  $stmt_account->execute();
+  $result_account = $stmt_account->get_result();
+  $row_account = mysqli_fetch_array($result_account);
+
+
+  //Query reservation data
+  //Show room number
+  $rev_no = $row_reservation['reservation_no'];
+  $sql_reserved_room = "SELECT * FROM `reserved_room` WHERE reservation_no = ?";
+  $stmt_reserved_room = $conn->prepare($sql_reserved_room);
+  $stmt_reserved_room->bind_param("i", $rev_no); 
+  $stmt_reserved_room->execute();
+  $result_reserved_room = $stmt_reserved_room->get_result();
+  $row_reserved_room = mysqli_fetch_array($result_reserved_room);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,13 +86,21 @@
         <h3 class="head">Room Information</h3>
         <table class="room-info">
           <tr>
-            <th class="head">resevation number</th>
+            <th class="head">reservation number</th>
             <th class="head">Total room</th>
           </tr>
 
           <tr>
-            <td class="sub-head">000005</td>
-            <td class="sub-head">3</td>
+            <td class="sub-head">
+              <?php 
+              $formatted_rev_no = sprintf("%06d", $rev_no);
+              echo $formatted_rev_no;?>
+            </td>
+            <td class="sub-head">
+              <?php $rev_no = $row_reservation['total_room'];
+              $formatted_rev_no = sprintf("%04d", $rev_no);
+              echo $formatted_rev_no;?>
+              </td>
           </tr>
 
           <tr>
@@ -62,7 +108,7 @@
           </tr>
 
           <tr>
-            <td class="sub-head">Brooklyn Simmons</td>
+            <td class="sub-head"><?php echo $row_account['firstname'], " ", $row_account['lastname'];?></td>
           </tr>
 
           <tr>
@@ -70,7 +116,10 @@
           </tr>
 
           <tr>
-            <td class="sub-head">123, 124, 125</td>
+            <td class="sub-head">
+              <!-- must show all the room customer reserved for -->
+              <?php echo strval($row_reserved_room['room_no']);?>
+            </td>
           </tr>
 
           <tr>
@@ -97,7 +146,7 @@
             </tr>
 
             <tr>
-              <td class="sub-head">cute.hotel@gmail.com</td>
+              <td class="sub-head">Bangkok.hotel@gmail.com</td>
             </tr>
 
             <tr>
@@ -113,8 +162,7 @@
             </tr>
 
             <tr>
-              <td class="sub-head">123 cute city, thailand koh lan nakorn 
-sithammarat rattanakosin road, 22980</td>
+              <td class="sub-head">99/9 Phra Khanong, Bangkok, Thailand 10260</td>
             </tr>
 
             <tr>
@@ -122,7 +170,7 @@ sithammarat rattanakosin road, 22980</td>
             </tr>
 
             <tr>
-              <td class="sub-head"><a href="#" style="color:black;">WWW.CUTE-HOTEL.COM</a></td>
+              <td class="sub-head"><a href="#" style="color:black;">WWW.INFO@HOTEL.CO</a></td>
             </tr>
           </table>
       </div>
