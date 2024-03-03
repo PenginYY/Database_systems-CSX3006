@@ -64,35 +64,51 @@ require './DB_connect.php';
         </tr>
 
         <tr>
-          <td class="sub-head">name<p class="body"><?php echo $row_account['firstname']; ?></p></td>
-          <td class="sub-head">Address (City / State / Country)<p class="body"><?php echo $row_account['address']; ?></p></td>
+          <td class="sub-head">name<p class="body">
+            <?php echo $row_account['firstname']; ?></p>
+          </td>
+          <td class="sub-head">Address (City / State / Country)
+            <p class="body"><?php echo $row_account['address']; ?></p>
+          </td>
         </tr>
 
         <tr>
-          <td class="sub-head">surmane<p class="body"><?php echo $row_account['lastname']; ?></p></td>
+          <td class="sub-head">surmane
+            <p class="body"><?php echo $row_account['lastname']; ?></p>
+          </td>
           <th class="head">emergency contact</th>
         </tr>
 
         <tr>
           <th class="head">date of birth</th>
-          <td class="sub-head">name<p class="body"><?php echo $row_customer['emergency_name']; ?></p></td>
+          <td class="sub-head">name
+            <p class="body"><?php echo $row_customer['emergency_name']; ?></p>
+            </td>
         </tr>
 
         <tr>
-          <td class="sub-head">YYYY/MM/DD<p class="body"><?php echo $row_account['birthdate']; ?></p></td>
-          <td class="sub-head">telephone<p class="body"><?php echo $row_customer['emergency_phone']; ?></p></td>
+          <td class="sub-head">YYYY/MM/DD
+            <p class="body"><?php echo $row_account['birthdate']; ?></p>
+          </td>
+          <td class="sub-head">telephone<p class="body">
+            <?php echo $row_customer['emergency_phone']; ?></p>
+          </td>
         </tr>
 
         <tr>
         <th class="head">Phone number</th>
         <td class="sub-head">
           <label for="relationship">relationship</label>
-          <p class="body"><?php echo $row_customer['emergency_relationship']; ?></p>
+          <p class="body">
+            <?php echo $row_customer['emergency_relationship']; ?>
+          </p>
         </td>
         </tr>
 
         <tr>
-        <td class="sub-head">TEL.XXX-XXX-XXXX<p class="body"><?php echo $row_account['phone']; ?></p></td>
+        <td class="sub-head">TEL.XXX-XXX-XXXX
+          <p class="body"><?php echo $row_account['phone']; ?></p>
+        </td>
         </tr>
       </table>
 
