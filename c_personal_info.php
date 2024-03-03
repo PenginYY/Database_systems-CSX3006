@@ -79,7 +79,7 @@ require './DB_connect.php';
         </tr>
 
         <tr>
-          <td class="sub-head">DD/MM/YYYY<p class="body"><?php echo $row_account['birthdate']; ?></p></td>
+          <td class="sub-head">YYYY/MM/DD<p class="body"><?php echo $row_account['birthdate']; ?></p></td>
           <td class="sub-head">telephone<p class="body"><?php echo $row_customer['emergency_phone']; ?></p></td>
         </tr>
 
