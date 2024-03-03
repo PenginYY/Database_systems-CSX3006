@@ -121,7 +121,7 @@ require './DB_connect.php';
             <td class="sub-head">
               <label for="birthday">DD/MM/YYYY</label>
               <p class="body">
-              <input type="date" id="birthday" name="birthday">
+              <input type="date" id="birthday" name="birthday" value="<?php echo $row_account['birthdate']; ?>">
               </p>
             </td>
 
