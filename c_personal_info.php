@@ -1,21 +1,21 @@
 <?php session_start();
 require './DB_connect.php';
 
+    //Query account data
     $email = $_SESSION['email'];
-    $sql_account = "SELECT * FROM `Account` WHERE email = ?";
+    $sql_account = "SELECT * FROM `account` WHERE email = ?";
     $stmt_account = $conn->prepare($sql_account);
     $stmt_account->bind_param("s", $email);
     $stmt_account->execute();
     $result_account = $stmt_account->get_result();
     $row_account = mysqli_fetch_array($result_account);
 
-
-    $email = $_SESSION['email'];
+    //Query customer data
     $sql_customer = "SELECT * FROM `customer` WHERE email = ?";
-    $stmt = $conn->prepare($sql_customer);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result_customer = $stmt->get_result();
+    $stmt_customer = $conn->prepare($sql_customer);
+    $stmt_customer->bind_param("s", $email);
+    $stmt_customer->execute();
+    $result_customer = $stmt_customer->get_result();
     $row_customer = mysqli_fetch_array($result_customer);
 
 ?>
@@ -64,12 +64,12 @@ require './DB_connect.php';
         </tr>
 
         <tr>
-          <td class="sub-head">name<p class="body"><?php echo $row_account['name']; ?></p></td>
+          <td class="sub-head">name<p class="body"><?php echo $row_account['firstname']; ?></p></td>
           <td class="sub-head">Address (City / State / Country)<p class="body"><?php echo $row_account['address']; ?></p></td>
         </tr>
 
         <tr>
-          <td class="sub-head">surmane<p class="body"><?php echo $row_account['surname']; ?></p></td>
+          <td class="sub-head">surmane<p class="body"><?php echo $row_account['lastname']; ?></p></td>
           <th class="head">emergency contact</th>
         </tr>
 
@@ -80,14 +80,14 @@ require './DB_connect.php';
 
         <tr>
           <td class="sub-head">DD/MM/YYYY<p class="body"><?php echo $row_account['birthdate']; ?></p></td>
-          <td class="sub-head">telephone<p class="body">099-999-9999</p></td>
+          <td class="sub-head">telephone<p class="body"><?php echo $row_customer['emergency_phone']; ?></p></td>
         </tr>
 
         <tr>
         <th class="head">Phone number</th>
         <td class="sub-head">
           <label for="relationship">relationship</label>
-          <p class="body"><?php echo $row_customer['relationship']; ?></p>
+          <p class="body"><?php echo $row_customer['emergency_relationship']; ?></p>
         </td>
         </tr>
 
@@ -105,17 +105,20 @@ require './DB_connect.php';
         </a>
       </div>
 
+      <form action="./c_db_delete_account.php" method="POST">
       <div class="popup-delete-acc" id="popup-delete-acc">
         <div class="overlay-acc">
             <div class="popup-acc-content" style="text-align: center;">
                 <h3>Are you certain to delete this account?</h3>
                 <div class="controls">
                   <button type="submit" name="delete" class="yes-btn">yes</button>
-                  <a href="#"><button type="submit" name="cancel" class="no-btn">no</button></a>
+                  <button type="submit" name="cancel" class="no-btn">no</button>
             </div>
           </div>
         </div>
       </div>
+      </form>
+
     </div>
   </body>
 </html>
