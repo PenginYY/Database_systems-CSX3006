@@ -1,3 +1,25 @@
+<?php session_start(); 
+require './DB_connect.php';
+
+    //Account table
+    $email = $_SESSION['email'];
+    $sql_account = "SELECT * FROM `Account` WHERE email = ?";
+    $stmt_account = $conn->prepare($sql_account);
+    $stmt_account->bind_param("s", $email);
+    $stmt_account->execute();
+    $result_account = $stmt_account->get_result();
+    $row_account = mysqli_fetch_array($result_account);
+        
+    //Customer table
+    $sql_customer = "SELECT * FROM `customer` WHERE email = ?";
+    $stmt = $conn->prepare($sql_customer);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result_customer = $stmt->get_result();
+    $row_customer = mysqli_fetch_array($result_customer);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,128 +54,119 @@
       </nav>
     </div>
 
-    <h1 class="title_customer">personal information</h1>
-    <div class="account-info">
-      <table>
-        <tr>
-          <th class="head">customer name</th>
-          <th class="head">address</th>
-        </tr>
+    <form action="./c_db_edit_personal.php" method="POST" class="table-customer-info">
+      <h1 class="title_customer">personal information</h1>
+      <div class="account-info">
+        <table class="table-customer-info">
+          <tr>
+            <th class="head">customer name</th>
+            <th class="head">address</th>
+          </tr>
 
-        <tr>
-          <td class="sub-head" style="padding-bottom: 0px;">
-            <label for="name">Name</label>
-            <p class="body">
-            <input type="text"
-            id="name"
-            name="name"
-            value="Brooklyn"
-            >
-          </p>
-        </td>
-        
-          <td class="sub-head" style="padding-bottom: 0px;">
-          <label for="address">Address (City / State / Country)</label>
-          <p class="body">
-            <input
-              style="width: 400px; height: 50px;"
-              type="text"
-              id="address"
-              name="address"
-              value="123 cute city, thailand koh lan nakorn sithammarat rattanakosin road, 22980"
-            />
-          </p>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="sub-head" style="padding-bottom: 0px;">
-              <label for="surname">surname</label>
+          <tr>
+            <td class="sub-head">
+              <label for="name">Name</label>
               <p class="body">
               <input type="text"
-              id="surname"
-              name="surname"
-              value="Simmons"
-              >
-              </p>
-          </td>
-          <th class="head">emergency call</th>
-        </tr>
-
-        <tr>
-          <th class="head">date of birth</th>
-          <td class="sub-head" style="padding-bottom: 0px;">
-            <label for="name">name</label>
-            <p class="body">
-            <input type="text"
               id="name"
               name="name"
-              value="Esther Howard"
+              value="<?php echo $row_account['firstname']; ?>"
               >
             </p>
           </td>
-        </tr>
-
-        <tr>
-          <td class="sub-head" style="padding-bottom: 0px;">
-            <label for="dob">DD/MM/YYYY</label>
+          
+            <td class="sub-head">
+            <label for="address">Address (City / State / Country)</label>
             <p class="body">
-            <input type="text"
-              id="dob"
-              name="dob"
-              value="12 October 1987"
-              >
+              <input
+                style="width: 400px; height: 50px;"
+                type="text"
+                id="address"
+                name="address"
+                value="<?php echo $row_account['address']; ?>"
+              />
             </p>
-          </td>
+            </td>
+          </tr>
 
-          <td class="sub-head" style="padding-bottom: 0px;">
-            <label for="telephone">telephone</label>
-            <p class="body">
-            <input type="text"
-              id="telephone"
-              name="telephone"
-              value="099-999-9999"
-              >
-            </p>
-        </tr>
+          <tr>
+            <td class="sub-head">
+                <label for="surname">surname</label>
+                <p class="body">
+                <input type="text"
+                id="surname"
+                name="surname"
+                value="<?php echo $row_account['lastname']; ?>"
+                >
+                </p>
+            </td>
+            <th class="head">emergency call</th>
+          </tr>
 
-        <tr>
-          <th class="head">Phone number</th>
-          <td class="sub-head" style="padding-bottom: 0px;">
-            <label for="relationship">relationship</label>
-            <p class="body">
-              <select id="relationships" name="relationships" style="font-size: 15px; ">
-              <option value="parent">Parent</option>
-              <option value="sibling">Sibling</option>
-              <option value="relative">Relative</option>
-              <option value="friend">Friend</option>
-              <option value="other">Other</option>
-              </select>
-            </p>
-          </td>
-        </tr>
+          <tr>
+            <th class="head">date of birth</th>
+            <td class="sub-head">
+              <label for="name">name</label>
+              <p class="body">
+              <input type="text"
+                id="name"
+                name="rel-name"
+                value="<?php echo $row_customer['emergency_name'];?>"
+                >
+              </p>
+            </td>
+          </tr>
 
-        <tr>
-          <td class="sub-head" style="padding-bottom: 0px;">
-            <label for="telephone">TEL.XXX-XXX-XXXX</label>
-            <p class="body">
-            <input type="text"
-              id="telephone"
-              name="telephone"
-              value="088-888-8888"
-              >
-            </p>
-          </td>
+          <tr>
+            <td class="sub-head">
+              <label for="birthday">DD/MM/YYYY</label>
+              <p class="body">
+              <input type="date" id="birthday" name="birthday" value="<?php echo $row_account['birthdate']; ?>">
+              </p>
+            </td>
 
-        </tr>
-      </table>
+            <td class="sub-head">
+              <label for="phone">telephone</label>
+              <p class="body">
+              <input type="tel" id="phone" name="rel-phone" value="<?php echo $row_customer['emergency_phone'];?>">
+              </p>
+          </tr>
 
-        <div class="edit-personal-info" style="margin-left: 85%;">
-            <a href="./c_personal_info.php">
-                <button type="submit" name="submit" class="button">Done</button>
-                </a>
+          <tr>
+            <th class="head">Phone number</th>
+            <td class="sub-head">
+              <label for="relationship">relationship</label>
+              <p class="body">
+                <select id="relationships" name="relationships" style="font-size: 15px; ">
+                <option value="parent">Parent</option>
+                <option value="sibling">Sibling</option>
+                <option value="sibling">Significant Other</option>
+                <option value="sibling">Daughter/Son</option>
+                <option value="relative">Relative</option>
+                <option value="friend">Friend</option>
+                <option value="other">Other</option>
+                </select>
+              </p>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="sub-head">
+              <label for="telephone">TEL.XXX-XXX-XXXX</label>
+              <p class="body">
+              <input type="tel" id="phone" name="cus-phone" value="<?php echo $row_account['phone'];?>">
+              </p>
+            </td>
+
+          </tr>
+        </table>
+
+          <div class="edit-personal-info">
+            <button type="submit" name="submit" class="button">Done</button>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
 </body>
 </html>
+

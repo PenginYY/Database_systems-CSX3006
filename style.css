@@ -156,8 +156,12 @@ input:focus:-ms-input-placeholder {
   background-color: #d73938;
 }
 
+.table-customer-info {
+  width: 100%;
+}
+
 .account-info {
-  width: 70%;
+  width: 80%;
   text-align: -webkit-center;
   height: auto;
   margin: auto;
@@ -313,17 +317,17 @@ select {
 }
 
 /*reservation*/
-.reservation {
+.list-container {
   width: 60%;
 }
 /*reservation title*/
-.reservation-title {
+.list-title {
   margin-top: 30px;
   font-weight: bold;
 }
 
 /*reservation header*/
-.reservation-header {
+.list-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -367,48 +371,48 @@ select {
 }
 
 /*reservation body*/
-.reservation-body {
+.list-body {
   margin-top: 30px;
   font-size: h3;
   overflow: auto;
 }
 
-.reservation-body::-webkit-scrollbar {
+.list-body::-webkit-scrollbar {
   width: 0.5rem;
   height: 0.5rem;
 }
 
-.reservation-body::-webkit-scrollbar-thumb {
+.list-body::-webkit-scrollbar-thumb {
   border-radius: 0.5rem;
   background-color: #0004;
   visibility: hidden;
 }
 
-.reservation-body:hover::-webkit-scrollbar-thumb {
+.list-body:hover::-webkit-scrollbar-thumb {
   visibility: visible;
 }
 
 /*reservation table*/
-.reservation-body .res-table {
+.list-body .list-table {
   width: 100%;
 }
 
 /*.reservation-body*/
-.res-table,
-.res-th,
-.res-td {
+.list-table,
+.list-th,
+.list-td {
   border-collapse: collapse;
   padding: 1rem;
 }
 
 /*.reservation-body*/
-.res-th {
+.list-th {
   position: sticky;
   top: 0;
 }
 
 @media (max-width: 1000px) {
-  .res-td:not(:first-of-type) {
+  .list-td:not(:first-of-type) {
     min-width: 12.5rem;
   }
 }
@@ -492,38 +496,38 @@ select {
   border-radius: 5px;
 }
 
-.reservation-details .column1 {
+.list-details .column1 {
   display: flex;
   column-gap: 70px;
 }
 
-.reservation-details .column2 {
+.list-details .column2 {
   display: flex;
   column-gap: 30px;
 }
 
-.reservation-details .column3 {
+.list-details .column3 {
   display: flex;
   column-gap: 10px;
 }
 
-.reservation-details .column4 {
+.list-details .column4 {
   display: flex;
   column-gap: 3px;
 }
 
-.popup-box .container form .reservation-details .input-box {
+.popup-box .container form .list-details .input-box {
   width: 100%;
   margin-top: 5px;
 }
 
-form .reservation-details .input-box label {
+form .list-details .input-box label {
   display: block;
   font-size: h2;
   font-weight: bold;
 }
 
-form .reservation-details .input-box input {
+form .list-details .input-box input {
   position: relative;
   height: 30px;
   width: 100%;
@@ -535,24 +539,24 @@ form .reservation-details .input-box input {
   transition: all 0.3s ease;
 }
 
-.reservation-details .res-info-box {
+.list-details .list-info-box {
   width: 100%;
   margin-top: 5px;
   margin-bottom: 30px;
 }
 
-.reservation-details .res-info-box .res-dt {
+.list-details .list-info-box .list-dt {
   font-size: h2;
   font-weight: bold;
 }
 
-.reservation-details .res-dd {
+.list-details .list-dd {
   margin-left: 10px;
   font-size: h2;
 }
 
-.reservation-details .input-box input:focus,
-.reservation-details .input-box input:valid {
+.list-details .input-box input:focus,
+.list-details .input-box input:valid {
   border-color: #303030;
 }
 

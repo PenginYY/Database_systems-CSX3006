@@ -40,13 +40,13 @@
   </div>
 
   <!-- Check-in -->
-  <div class="reservation">
-    <div class="reservation-title">
+  <div class="list-container">
+    <div class="list-title">
       <h2>CUSTOMER CHECK-OUT</h2>
     </div>
 
     <!-- Check-in Head -->
-    <div class="reservation-header">
+    <div class="list-header">
       <div class="radio-days">
         <input class="radio__input" type="radio" value="waitinglist" id="waitinglist" name="wait_in" checked>
         <a href="./f_check_out.php" class="radio__label" for="waitinglist">WAITING LIST</a>
@@ -54,43 +54,37 @@
         <a href="./f_check_out.php" class="radio__label" for="inhouse">IN-HOUSE</a>
       </div>
     </div>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Check the radio button corresponding to the current page
-      document.getElementById("inhouse").checked = true;
-    });
-    </script>
     
     <!-- Check-in Body -->
-    <div class="reservation-body">
-      <table class="res-table">
-        <thead class="res-thead">
-          <tr class="res-tr">
-            <th class="res-th" style="text-align: left;"> Reservation No. </th>
-            <th class="res-th" style="text-align: left;"> Customer Name </th>
-            <th class="res-th" style="text-align: center;"> Agent </th>
-            <th class="res-th" style="text-align: center;"> Arrive </th>
-            <th class="res-th" style="text-align: center;"> Depart </th>
+    <div class="list-body">
+      <table class="list-table">
+        <thead class="list-thead">
+          <tr class="list-tr">
+            <th class="list-th" style="text-align: left;"> Reservation No. </th>
+            <th class="list-th" style="text-align: left;"> Customer Name </th>
+            <th class="list-th" style="text-align: center;"> Agent </th>
+            <th class="list-th" style="text-align: center;"> Arrive </th>
+            <th class="list-th" style="text-align: center;"> Depart </th>
           </tr>
         </thead>
-        <tbody class="res-tbody">
-          <tr class="res-tr">
-            <td class="res-td" style="text-align: left;"> 000002 </td>
-            <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Esther Howard </a></td>
-            <td class="res-td" style="text-align: center;"> Booking.com </td>
-            <td class="res-td" style="text-align: center;"> 04/11/23 </td>
-            <td class="res-td" style="text-align: center;"> 06/11/23 </td>
-            <td class="res-td" style="text-align: center;">
+        <tbody class="list-tbody">
+          <tr class="list-tr">
+            <td class="list-td" style="text-align: left;"> 000002 </td>
+            <td class="list-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Esther Howard </a></td>
+            <td class="list-td" style="text-align: center;"> Booking.com </td>
+            <td class="list-td" style="text-align: center;"> 04/11/23 </td>
+            <td class="list-td" style="text-align: center;"> 06/11/23 </td>
+            <td class="list-td" style="text-align: center;">
               <a href="#popup-waitinglist" class="reservation-button-red">Select</a>
             </td>
           </tr>
-          <tr class="res-tr">
-            <td class="res-td" style="text-align: left;"> 000004 </td>
-            <td class="res-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Savannah Nguyen </a></td>
-            <td class="res-td" style="text-align: center;"> Walk-in </td>
-            <td class="res-td" style="text-align: center;"> 04/11/23 </td>
-            <td class="res-td" style="text-align: center;"> 11/11/23 </td>
-            <td class="res-td" style="text-align: center;">
+          <tr class="list-tr">
+            <td class="list-td" style="text-align: left;"> 000004 </td>
+            <td class="list-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Savannah Nguyen </a></td>
+            <td class="list-td" style="text-align: center;"> Walk-in </td>
+            <td class="list-td" style="text-align: center;"> 04/11/23 </td>
+            <td class="list-td" style="text-align: center;"> 11/11/23 </td>
+            <td class="list-td" style="text-align: center;">
               <a href="#popup-waitinglist" class="reservation-button-red">Select</a>
             </td>
           </tr>
@@ -104,51 +98,51 @@
     <div class="popup-box">
       <div class="container">
         <div class="title"><h3>Customer Check-out</h3></div>
-        <div class="reservation-details">
+        <div class="list-details">
         
           <div class="column4">
-            <div class="res-info-box">
-              <dt class="res-dt">Reservation No.</dt>
-              <dd class="res-dd">000002</dd>
+            <div class="list-info-box">
+              <dt class="list-dt">Reservation No.</dt>
+              <dd class="list-dd">000002</dd>
             </div>
-            <div class="res-info-box">
-              <dt class="res-dt">Email</dt>
-              <dd class="res-dd">esther@gmail.com</dd>
+            <div class="list-info-box">
+              <dt class="list-dt">Email</dt>
+              <dd class="list-dd">esther@gmail.com</dd>
             </div>
           </div>
 
-          <div class="res-info-box">
-            <dt class="res-dt">Customer Name</dt>
-            <dd class="res-dd">Esther Howard</dd>
+          <div class="list-info-box">
+            <dt class="list-dt">Customer Name</dt>
+            <dd class="list-dd">Esther Howard</dd>
           </div>
           
           <div class="column4">
-            <div class="res-info-box">
-              <dt class="res-dt">Agent</dt>
-              <dd class="res-dd">Booking.com</dd>
+            <div class="list-info-box">
+              <dt class="list-dt">Agent</dt>
+              <dd class="list-dd">Booking.com</dd>
             </div>
-            <div class="res-info-box">
-              <dt class="res-dt">Arriving Date</dt>
-              <dd class="res-dd">04/11/23</dd>
+            <div class="list-info-box">
+              <dt class="list-dt">Arriving Date</dt>
+              <dd class="list-dd">04/11/23</dd>
             </div>
-            <div class="res-info-box">
-              <dt class="res-dt">Departure Date</dt>
-              <dd class="res-dd">06/11/23</dd>
+            <div class="list-info-box">
+              <dt class="list-dt">Departure Date</dt>
+              <dd class="listvvvvvvvvvvvvvvvvvvvv-dd">06/11/23</dd>
             </div>
           </div>
           
           <div class="column4">
-            <div class="res-info-box">
-              <dt class="res-dt">Total Room(s)</dt>
-              <dd class="res-dd">02</dd>
+            <div class="list-info-box">
+              <dt class="list-dt">Total Room(s)</dt>
+              <dd class="list-dd">02</dd>
             </div>
-            <div class="res-info-box">
-              <dt class="res-dt">Room No.</dt>
-              <dd class="res-dd">002 - 003</dd>
+            <div class="list-info-box">
+              <dt class="list-dt">Room No.</dt>
+              <dd class="list-dd">002 - 003</dd>
             </div>
-            <div class="res-info-box">
-              <dt class="res-dt">Paid Amount</dt>
-              <dd class="res-dd">4,800.00</dd>
+            <div class="list-info-box">
+              <dt class="list-dt">Paid Amount</dt>
+              <dd class="list-dd">4,800.00</dd>
             </div>
           </div>
         
