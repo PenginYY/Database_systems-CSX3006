@@ -177,7 +177,7 @@ require './DB_connect.php';
             </tr>
       </table>
         <div class="edit-personal-info">
-          <p class="account"><a href="#">delete account</a></p> 
+        <a href="./mg_account_manager.php"><p class="account">cancel</p> </a>
           <!-- link to edit page -->
           <button type="submit" name="submit" class="button">Done</button>
           </a>
