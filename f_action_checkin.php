@@ -6,7 +6,7 @@ $reservation_no = $_POST['reservation_no'];
 // Include database connection file
 require_once "DB_connect.php";
 
-// SQL query with multiple statements
+// SQL query to insert the paid amount and insert the reservation_no into the in_house table
 $query = "INSERT INTO paid(reservation_no, amount) VALUES ($reservation_no, $paidamount);
           INSERT INTO in_house(reservation_no) VALUES ($reservation_no);";
 
