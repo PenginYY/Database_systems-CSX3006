@@ -118,13 +118,8 @@ VALUES
     ('sherman@gmail.com',   'qwerty123',   'Sherman',   'Peabody',  null, null, null),    /* customer1 Sherman Peabody */
     ('chayapat@gmail.com',  'qwerty123',   'Chayapat',  'Pangpon',  null, null, null),    /* customer2 Chayapat Pangpon */
     ('esther@gmail.com',    'qwerty123',   'Esther',    'Howard',   null, null, null),    /* customer3 Esther Howard */
-    ('brooklyn@gmail.com',  'qwerty123',   'Brooklyn',  'Simmons',  null, null, null),    /* customer4 Brooklyn Simmons */
-    ('savannah@gmail.com',  'qwerty123',   'Savannah',  'Nguyen',   null, null, null),    /* customer5 Savannah Nguyen */
-    ('somsak@gmail.com',    'qwerty123',   'Somsak',    'Arthit',   null, null, null),    /* customer6 Somsak Arthit */
-    ('mali@gmail.com',      'qwerty123',   'Mali',      'Kittisak', null, null, null),    /* customer7 Mali Kittisak */
-    ('forrest@gmail.com',   'qwerty123',   'Forrest',   'Gump',     null, null, null),    /* customer8 Forrest Gump */
-    ('jack@gmail.com',      'qwerty123',   'Jack',      'Sparrow',  null, null, null);    /* customer9 Jack Sparrow */
-  /*('abc@gmail.com', 'qwerty123', 'First', 'Last', '123 Party Rd. Muang Rayong Rayong 21150 Thailand', '2000-10-29', '0123456789');*/
+    ('forrest@gmail.com',   'qwerty123',   'Forrest',   'Gump',     null, null, null),    /* customer4 Forrest Gump */
+    ('jack@gmail.com',      'qwerty123',   'Jack',      'Sparrow',  null, null, null);    /* customer5 Jack Sparrow */
 
 /*
 INSERT INTO employee
@@ -149,12 +144,8 @@ VALUES
     ('sherman@gmail.com', 'Mr.Hector Peabody', '0987654321', 'Parent'), /* customer1 Sherman Peabody */
     ('chayapat@gmail.com', null, null, null), /* customer2 Chayapat Pangpon */
     ('esther@gmail.com',   null, null, null), /* customer3 Esther Howard */
-    ('brooklyn@gmail.com', null, null, null), /* customer4 Brooklyn Simmons */
-    ('savannah@gmail.com', null, null, null), /* customer5 Savannah Nguyen */
-    ('somsak@gmail.com',   null, null, null), /* customer6 Somsak Arthit */
-    ('mali@gmail.com',     null, null, null), /* customer7 Mali Kittisak */
-    ('forrest@gmail.com',  null, null, null), /* customer8 Forrest Gump */
-    ('jack@gmail.com',     null, null, null); /* customer9 Jack Sparrow */
+    ('forrest@gmail.com',  null, null, null), /* customer4 Forrest Gump */
+    ('jack@gmail.com',     null, null, null); /* customer5 Jack Sparrow */
 
 /*
 INSERT INTO reservation
@@ -162,37 +153,41 @@ INSERT INTO reservation
 */
 INSERT INTO reservation(email, agent, total_room, arrive_date, depart_date)
 VALUES
-    ('sherman@gmail.com',   'Walk-in',     2, '2024-03-03', '2024-03-05'), /*  1 TotalRoom: 2 */
-    ('chayapat@gmail.com',  'Agoda',       1, '2024-03-03', '2024-03-05'), /*  2 TotalRoom: 1 */
-    ('esther@gmail.com',    'Booking.com', 2, '2024-03-04', '2024-03-05'), /*  3 TotalRoom: 2 */
-    ('brooklyn@gmail.com',  'Walk-in',     3, '2024-03-05', '2024-03-06'), /*  4 TotalRoom: 3 */
-    ('savannah@gmail.com',  'Walk-in',     1, '2024-03-05', '2024-03-06'), /*  5 TotalRoom: 1 */
-    ('somsak@gmail.com',    'Walk-in',     4, '2024-03-05', '2024-03-06'), /*  6 TotalRoom: 4 */
-    ('mali@gmail.com',      'Walk-in',     1, '2024-03-06', '2024-03-07'), /*  7 TotalRoom: 1 */
-    ('forrest@gmail.com',   'Walk-in',     1, '2024-03-06', '2024-03-07'), /*  8 TotalRoom: 1 */
-    ('jack@gmail.com',      'Walk-in',     3, '2024-03-06', '2024-03-07'), /*  9 TotalRoom: 3 */
-    ('jack@gmail.com',      'Walk-in',     2, '2024-03-06', '2024-03-08'); /* 10 TotalRoom: 2 */
-
+    ('sherman@gmail.com',   'Walk-in',     2, '2024-03-03', '2024-03-04'), /* 1 TotalRoom: 2 */
+    ('chayapat@gmail.com',  'Agoda',       1, '2024-03-04', '2024-03-05'), /* 2 TotalRoom: 1 */
+    ('esther@gmail.com',    'Booking.com', 2, '2024-03-05', '2024-03-06'), /* 3 TotalRoom: 2 */
+    ('forrest@gmail.com',   'Walk-in',     1, '2024-03-05', '2024-03-07'), /* 4 TotalRoom: 1 */
+    ('jack@gmail.com',      'Walk-in',     3, '2024-03-06', '2024-03-07'), /* 5 TotalRoom: 3 */
+    ('jack@gmail.com',      'Walk-in',     2, '2024-03-06', '2024-03-08'); /* 6 TotalRoom: 2 */
 
 /*
-INSERT INTO paid
+INSERT INTO reserved_room
+*/
+INSERT INTO reserved_room(reservation_no, room_no)
+VALUES
+    (1, 101), (1, 102),              /* 1 TotalRoom: 2 */
+    (2, 103),                        /* 2 TotalRoom: 1 */
+    (3, 104), (3, 105),              /* 3 TotalRoom: 2 */
+    (4, 106),                        /* 4 TotalRoom: 1 */
+    (5, 107), (5, 108), (5, 109),    /* 5 TotalRoom: 3 */
+    (6, 201), (6, 202);              /* 6 TotalRoom: 2 */
+
+/* -------------------------------------------------------------------------------------- */
+/*
+INSERT INTO paid  (This is all dates. INSERT & DELETE on currentDate is below.)
 */
 INSERT INTO paid(reservation_no, amount)
 VALUES
-    ( 1, 3200), /*  1 TotalRoom: 2 */
-    ( 2, 1600), /*  2 TotalRoom: 1 */
-    ( 3, 3200), /*  3 TotalRoom: 2 */
-    ( 4, 4800), /*  4 TotalRoom: 3 */
-    ( 5, 1600), /*  5 TotalRoom: 1 */
-    ( 6, 6400), /*  6 TotalRoom: 4 */
-    ( 7, 1600), /*  7 TotalRoom: 1 */
-    ( 8, 1600), /*  8 TotalRoom: 1 */
-    ( 9, 4800), /*  9 TotalRoom: 3 */
-    (10, 3200); /* 10 TotalRoom: 2 */
+    (1, 3200), /* 1 TotalRoom: 2 */
+    (2, 1600), /* 2 TotalRoom: 1 */
+    (3, 3200), /* 3 TotalRoom: 2 */
+    (4, 1600), /* 4 TotalRoom: 1 */
+    (5, 4800), /* 5 TotalRoom: 3 */
+    (6, 3200); /* 6 TotalRoom: 2 */
 
 
 /*
-INSERT INTO in_house
+INSERT INTO in_house (This is all dates. INSERT & DELETE on currentDate is below.)
 */
 INSERT INTO in_house(reservation_no)
 VALUES
@@ -201,25 +196,85 @@ VALUES
     (3),
     (4),
     (5),
-    (6),
-    (7),
-    (8),
-    (9),
-    (10);
+    (6);
 
+/* -------------------------------------- */
 
-/*
-INSERT INTO reserved_room
-*/
-INSERT INTO reserved_room(reservation_no, room_no)
+/* Populate the Database - INSERT & DELETE on CURDATE() (paid & in_house)*/
+/* CURDATE() = '2024-03-03' */
+INSERT INTO paid(reservation_no, amount)
 VALUES
-    ( 1, 101), ( 1, 102),                       /*  1 TotalRoom: 2 */
-    ( 2, 103),                                  /*  2 TotalRoom: 1 */
-    ( 3, 104), ( 3, 105),                       /*  3 TotalRoom: 2 */
-    ( 4, 106), ( 4, 107), ( 4, 108),            /*  4 TotalRoom: 3 */
-    ( 5, 109),                                  /*  5 TotalRoom: 1 */
-    ( 6, 201), ( 6, 202), ( 6, 203), ( 6, 204), /*  6 TotalRoom: 4 */
-    ( 7, 110),                                  /*  7 TotalRoom: 1 */
-    ( 8, 205),                                  /*  8 TotalRoom: 1 */
-    ( 9, 206), ( 9, 207), ( 9, 208),            /*  9 TotalRoom: 3 */
-    (10, 209), (10, 210);                       /* 10 TotalRoom: 2 */
+    ( 1, 3200); /*  1 TotalRoom: 2 */
+INSERT INTO in_house(reservation_no)
+VALUES
+    (1);
+
+/* CURDATE() = '2024-03-04' */
+INSERT INTO paid(reservation_no, amount)
+VALUES
+    (2, 1600), /* 2 TotalRoom: 1 */
+INSERT INTO in_house(reservation_no)
+VALUES
+    (2);
+DELETE FROM in_house WHERE depart_date = CURDATE();
+
+/* CURDATE() = '2024-03-05' */
+INSERT INTO paid(reservation_no, amount)
+VALUES
+    (3, 3200), /* 3 TotalRoom: 2 */
+    (4, 1600); /* 4 TotalRoom: 1 */
+INSERT INTO in_house(reservation_no)
+VALUES
+    (3),
+    (4);
+DELETE FROM in_house WHERE depart_date = CURDATE();
+
+/* CURDATE() = '2024-03-06' */
+INSERT INTO paid(reservation_no, amount)
+VALUES
+    (5, 4800), /* 5 TotalRoom: 3 */
+    (6, 3200); /* 6 TotalRoom: 2 */
+INSERT INTO in_house(reservation_no)
+VALUES
+    (5),
+    (6);
+DELETE FROM in_house WHERE depart_date = CURDATE();
+
+/* CURDATE() = '2024-03-07' */
+DELETE FROM in_house WHERE depart_date = CURDATE();
+
+/* CURDATE() = '2024-03-08' */
+DELETE FROM in_house WHERE depart_date = CURDATE();
+
+/* -------------------------------------------------------------------------------------- */
+
+/* Query */
+/* Query - General Manager */
+/* Query - Customer */
+/* Query - Reservation Staff */
+
+
+/* Query - Front Desk Staff */
+/* checkin_waiting */
+SELECT reservation_no, email, firstname, lastname, agent, total_room, arrive_date, depart_date
+FROM reservation JOIN customer USING(email) JOIN account USING(email)
+WHERE arrive_date >= CURDATE() AND reservation_no NOT IN (SELECT reservation_no FROM in_house)
+ORDER BY arrive_date ASC;
+
+/* checkin_inhouse */
+SELECT reservation_no, email, firstname, lastname, agent, total_room, arrive_date, depart_date
+FROM reservation JOIN customer USING(email) JOIN account USING(email)
+WHERE reservation_no IN (SELECT reservation_no FROM in_house)
+ORDER BY arrive_date ASC;
+
+/* checkout_waiting */
+SELECT reservation_no, email, firstname, lastname, agent, total_room, arrive_date, depart_date
+FROM reservation JOIN customer USING(email) JOIN account USING(email)
+WHERE depart_date = CURDATE() AND reservation_no IN (SELECT reservation_no FROM in_house)
+ORDER BY arrive_date ASC;
+
+/* checkout_inhouse */
+SELECT reservation_no, email, firstname, lastname, agent, total_room, arrive_date, depart_date
+FROM reservation JOIN customer USING(email) JOIN account USING(email)
+WHERE depart_date > CURDATE() AND reservation_no IN (SELECT reservation_no FROM in_house)
+ORDER BY arrive_date ASC;
