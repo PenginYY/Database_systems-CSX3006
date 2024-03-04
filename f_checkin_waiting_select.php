@@ -87,9 +87,8 @@
 
     // Close database connection
     mysqli_close($conn);
-
-    // Redirect or display appropriate message
     ?>
+    <!-- Display form for inserting paid amount and insert to in_house-->
     <br><br>
     <form action="f_action_checkin.php" method="post">
         <label for="paidamount"> Paid Amount: </label>
