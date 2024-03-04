@@ -255,7 +255,8 @@ DELETE FROM in_house WHERE depart_date = CURDATE();
 
 
 /* Query - Front Desk Staff */
-    /* f_checkin_waiting */
+    /* f_checkin_waiting
+       Fetch reservations waiting to check-in (depart_date is today and future dates) */
         SELECT reservation_no, email, firstname, lastname, agent, arrive_date, depart_date
         FROM reservation JOIN customer USING(email) JOIN account USING(email)
         WHERE arrive_date >= CURDATE() AND reservation_no NOT IN (SELECT reservation_no FROM in_house)
@@ -282,6 +283,18 @@ DELETE FROM in_house WHERE depart_date = CURDATE();
         WHERE reservation_no IN (SELECT reservation_no FROM in_house)
         ORDER BY arrive_date ASC;
         /* f_checkin_inhouse_select */
+            /*Same as f_checkin_waiting_select for
+              Fecth the selected reservation information
+              and
+              Fecth room numbers associated with the selected reservation */
+            /* Fecth paid amount associated with the selected reservation */
+            SELECT amount
+            FROM paid
+            WHERE reservation_no = $reservation_no;
+        /* f_action_update */
+            /* UPDATE the paid amount */
+            UPDATE paid SET amount = $paidamount
+            WHERE reservation_no = $reservation_no;
 
 
 /* checkout_waiting */

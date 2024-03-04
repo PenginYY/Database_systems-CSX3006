@@ -17,12 +17,12 @@
   <!-- Check-in Navbar -->
   <div class="navbar">
     <nav class="navbar-container">
-      <a href="f_checkin_waiting.php">
+      <a href="f_checkin_inhouse.php">
         <img src="./logo/Assumption_University(logo).png" alt="logo"/>
       </a>
       <ul class="navbar-left">
         <li>
-          <a href="f_checkin_waiting.php">
+          <a href="f_checkin_inhouse.php">
             <h1>online hotel management system</h1>
           </a>
         </li>
@@ -30,7 +30,7 @@
 
       <ul class="navbar-right">
         <li>
-          <a style="color:#d73938;" href="f_checkin_waiting.php">customer check-in</a>
+          <a style="color:#d73938;" href="f_checkin_inhouse.php">customer check-in</a>
         </li>
         <li>
           <a href="f_checkout_waiting.php">customer check-out</a>
@@ -67,7 +67,7 @@
     echo "Depart:           " . $row['depart_date'] . "<br><br>";
     echo "Total Room:       " . $row['total_room'] . "<br><br>";
 
-    /* Fecth room numbers associated with the selected reservation */
+    // Fecth room numbers associated with the selected reservation
     $query = "SELECT room_no
                 FROM reservation JOIN reserved_room USING(reservation_no)
                 WHERE reservation_no = $reservation_no
@@ -85,18 +85,23 @@
         $first = false;
     }
 
+    // Fetch paid amount associated with the selected reservation
+    $query = "SELECT amount FROM paid WHERE reservation_no = $reservation_no;";
+    $result = mysqli_query($conn, $query);
+    $paidamount = mysqli_fetch_assoc($result)['amount'];
+
     // Close database connection
     mysqli_close($conn);
     ?>
-    <!-- Display form for inserting paid amount and insert to in_house-->
+    <!-- Display form for updating paid amount -->
     <br><br>
-    <form action="f_action_checkin.php" method="post">
+    <form action="f_action_update.php" method="post">
         <label for="paidamount"> Paid Amount: </label>
-        <input type="text" name="paidamount" placeholder="1600" style="width: 65px;">
+        <input type="text" name="paidamount" placeholder="<?php echo $paidamount; ?>" style="width: 65px;">
         <input type='hidden' name='reservation_no' value='<?php echo $reservation_no; ?>'>
-        <button class="reservation-button-red">Check-in</button>
+        <button class="reservation-button-red">Update</button>
     </form>
-    <a href="f_checkin_waiting.php" class="reservation-button-black">Cancel</a>
+    <a href="f_checkin_inhouse.php" class="reservation-button-black">Cancel</a>
   </div>
 
 </body>

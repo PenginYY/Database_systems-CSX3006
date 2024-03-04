@@ -58,96 +58,56 @@
     <!-- Check-in Body -->
     <div class="list-body">
       <table class="list-table">
+        <!-- Table headers -->
         <thead class="list-thead">
           <tr class="list-tr">
             <th class="list-th" style="text-align: left;"> Reservation No. </th>
+            <th class="list-th" style="text-align: left;"> Email </th>
             <th class="list-th" style="text-align: left;"> Customer Name </th>
             <th class="list-th" style="text-align: center;"> Agent </th>
             <th class="list-th" style="text-align: center;"> Arrive </th>
             <th class="list-th" style="text-align: center;"> Depart </th>
-            <th class="list-th" style="text-align: center;"> Paid Amount </th>
           </tr>
         </thead>
         <tbody class="list-tbody">
-          <tr class="list-tr">
-            <td class="list-td" style="text-align: left;"> 000001 </td>
-            <td class="list-td" style="text-align: left;"><a href="#popup-in-house" style="text-decoration: none; color: black;"> Chayapat Pangpon </a></td>
-            <td class="list-td" style="text-align: center;"> Agoda </td>
-            <td class="list-td" style="text-align: center;"> 04/11/23 </td>
-            <td class="list-td" style="text-align: center;"> 05/11/23 </td>
-            <td class="list-td" style="text-align: center;"> 1600 BAHT </td>
-          </tr>
+          <?php
+          // Include database connection file
+          require_once "DB_connect.php";
+
+          // Fetch reservations from the database
+          $query = "SELECT reservation_no, email, firstname, lastname, agent, total_room, arrive_date, depart_date
+                    FROM reservation JOIN customer USING(email) JOIN account USING(email)
+                    WHERE reservation_no IN (SELECT reservation_no FROM in_house)
+                    ORDER BY arrive_date ASC;";
+          $result = mysqli_query($conn, $query);
+
+          // Loop through the results and display each reservation
+          while ($row = mysqli_fetch_assoc($result)) {
+            $formatted_reservation_no = sprintf("%06d", $row['reservation_no']);
+            echo "<tr class='list-tr'>";
+            echo "<td class='list-td' style='text-align: left;'>" . $formatted_reservation_no . "</td>";
+            echo "<td class='list-td' style='text-align: left;'>" . $row['email'] . "</td>";
+            echo "<td class='list-td' style='text-align: left;'>" . $row['firstname'] . " " . $row['lastname'] . "</td>";
+            echo "<td class='list-td' style='text-align: center;'>" . $row['agent'] . "</td>";
+            echo "<td class='list-td' style='text-align: center;'>" . $row['arrive_date'] . "</td>";
+            echo "<td class='list-td' style='text-align: center;'>" . $row['depart_date'] . "</td>";
+            echo "<td class='list-td' style='text-align: center;'>";
+            // Form to submit the selected reservation's reservation_no
+            echo "<form action='f_checkin_inhouse_select.php' method='post'>";
+            echo "<input type='hidden' name='reservation_no' value='" . $row['reservation_no'] . "'>";
+            echo "<button type='submit' class='reservation-button-red'>Select</button>";
+            echo "</form>";
+            echo "</td>";
+            echo "</tr>";
+          }
+
+          // Close database connection
+          mysqli_close($conn);
+          ?>
         </tbody>
       </table>
     </div>
-  </div>
 
-  <!-- Select In-House -->
-  <div class="overlay" id="popup-in-house">
-    <div class="popup-box">
-      <div class="container">
-        <div class="title"><h3>Customer Check-in</h3></div>
-        <form action="#">
-          <div class="list-details">
-         
-            <div class="column4">
-              <div class="list-info-box">
-                <dt class="list-dt">Reservation No.</dt>
-                <dd class="list-dd">000001</dd>
-              </div>
-              <div class="list-info-box">
-                <dt class="list-dt">Email</dt>
-                <dd class="list-dd">chayapat@gmail.com</dd>
-              </div>
-            </div>
-            
-            <div class="list-info-box">
-              <dt class="list-dt">Customer Name</dt>
-              <dd class="list-dd">Chayapat Pangpond</dd>
-            </div>
-
-            <div class="column4">
-              <div class="list-info-box">
-                <dt class="list-dt">Agent</dt>
-                <dd class="list-dd">Agoda</dd>
-              </div>
-              <div class="list-info-box">
-                <dt class="list-dt">Arriving Date</dt>
-                <dd class="list-dd">04/11/23</dd>
-              </div>
-              <div class="list-info-box">
-                <dt class="list-dt">Departure Date</dt>
-                <dd class="list-dd">05/11/23</dd>
-              </div>
-            </div>
-            
-            <div class="column4">
-              <div class="list-info-box">
-                <dt class="list-dt">Total Room(s)</dt>
-                <dd class="list-dd">01</dd>
-              </div>
-              <div class="input-box">
-                <label for="room-n-a">Room No.</label>
-                <div class="column3">
-                  <input type="text" id="room-n-a" name="room-n" placeholder="001" required>
-                  <b>-</b>
-                  <input type="text" id="room-n-a" name="room-n" placeholder="001" required>
-                </div>
-              </div>
-              <div class="input-box">
-                <label for="paid-amount">Paid Amount</label>
-                <input type="text" id="paid-amount" name="paid-amount" placeholder="1,600.00" required>
-              </div>
-            </div>
-          
-          </div>
-          <div class="popup-add-button">
-            <a href="#" class="reservation-button-red">Done</a>
-            <a href="#" class="reservation-button-black">Cancel</a>
-          </div>
-        </form>
-      </div>
-    </div>
   </div>
 
 </body>
