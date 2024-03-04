@@ -1,14 +1,13 @@
 <?php
 session_start();
-
-require('./r_db.php');
+require_once('./DB_connect.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if(isset($_GET['reservation_id'])) {
-        $reservation_id = $_GET['reservation_id'];
+    if(isset($_GET['reservation_no'])) {
+        $reservation_no = $_GET['reservation_no'];
 
-        $stmt = $conn->prepare("DELETE FROM reservation WHERE reservation_id=?");
-        $stmt->bind_param("i", $reservation_id);
+        $stmt = $conn->prepare("DELETE FROM reservation WHERE reservation_no=?");
+        $stmt->bind_param("i", $reservation_no);
 
         if ($stmt->execute()) {
             echo "Record deleted successfully";
@@ -18,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $stmt->close();
     } else {
-        echo "Reservation ID is not provided.";
+        echo "Reservation number is not provided.";
     }
 } else {
     echo "Invalid request method.";

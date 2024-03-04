@@ -1,22 +1,17 @@
 <?php
 session_start();
-
-require('./r_db.php');
+require_once('./DB_connect.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if(isset($_GET['email'])) {
-        $rev_no = $_POST['reservation_no'];
+    if(isset($_GET['reservation_no'])) {
+        $reservation_no = $_GET['reservation_no']; // Corrected to use 'reservation_no' from the URL parameter
         $agent = $_POST['agent'];
-        $email = $_GET['email'];
         $total_room = $_POST['total_room'];
         $arrive_date = $_POST['arrive_date'];
         $depart_date = $_POST['depart_date'];
-        $room_no = $_POST['room_no'];
 
-
-        $stmt = $conn->prepare("UPDATE reservation SET reservation_no = ?, email = ?, agent = ?, total_room= ?, arrive_date = ?, depart_date = ? WHERE email= ?");
-
-        $stmt->bind_param("ississ", $rev_no, $agent, $total_room, $arrive_date, $depart_date, $email);
+        $stmt = $conn->prepare("UPDATE reservation SET agent = ?, total_room = ?, arrive_date = ?, depart_date = ? WHERE reservation_no = ?");
+        $stmt->bind_param("ssssi", $agent, $total_room, $arrive_date, $depart_date, $reservation_no);
 
         if ($stmt->execute()) {
             echo "Record updated successfully";

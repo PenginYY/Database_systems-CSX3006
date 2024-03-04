@@ -1,15 +1,28 @@
 <?php
-session_start();
-
 require_once './DB_connect.php';
+
 //Query reservation data & customer data
-$sql_customer_data = "SELECT * FROM `account` AS a, `reservation` AS r
-WHERE a.email=r.email";
+$sql_customer_data = "SELECT * FROM `account` AS a, `reservation` AS r WHERE a.email=r.email";
 $stmt_customer_data = $conn->prepare($sql_customer_data);
 $stmt_customer_data->execute();
 $result_customer_data = $stmt_customer_data->get_result();
+$rowcount = mysqli_num_rows($result_customer_data);
 
+function getNextReservationID() {
+  global $conn;
+  $query = "SELECT reservation_no FROM reservation ORDER BY reservation_no DESC LIMIT 1";
+  $result = mysqli_query($conn, $query);
+
+  if ($result && mysqli_num_rows($result) > 0) {
+      $row = mysqli_fetch_assoc($result);
+      $next_id = $row["reservation_no"] + 1;
+  } else {
+      return "000001";
+  }
+  return sprintf('%06d', $next_id);
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -77,7 +90,7 @@ $result_customer_data = $stmt_customer_data->get_result();
       // Format the date like "Month Day, Year" (e.g., March 4, 2024)
       const formatDate = (date) => {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return date.toLocaleDateString('en-US', options);
+        return date.toLocaleDateString('en-UK', options);
       }
 
       currentDateElement.textContent = formatDate(today);
@@ -120,13 +133,11 @@ $result_customer_data = $stmt_customer_data->get_result();
           </thead>
           <tbody class="list-tbody">
             <?php
-            $rowcount = mysqli_num_rows($result_customer_data);
               while($rowcount > 0 && $row_customer_data = mysqli_fetch_array($result_customer_data)){
             ?>
-              <td class="list-td" style="text-align: left;"><?php echo $row_customer_data['reservation_no'];?></td>
-
+              <td class="list-td" style="text-align: left;"><?php echo str_pad($row_customer_data['reservation_no'], 6, '0', STR_PAD_LEFT);?></td>
               <td class="list-td" style="text-align: left;">
-                <a href="r_reservation.php? reservation_id=<?php echo $row_customer_data["email"];?>#popup-info"><?php echo $row_customer_data['firstname'], " ", $row_customer_data['lastname'];?></a>
+                <a href="r_reservation.php?email=<?php echo $row_customer_data["email"];?>#popup-info"><?php echo $row_customer_data['firstname'], " ", $row_customer_data['lastname'];?></a>
               </td>
               <td class="list-td" style="text-align: center;"><?php echo $row_customer_data['agent'];?></td>
               <td class="list-td" style="text-align: center;"><?php echo date('d/m/y', strtotime($row_customer_data['arrive_date']));?></td>
@@ -152,18 +163,60 @@ $result_customer_data = $stmt_customer_data->get_result();
           <div class="title"><h3>Add Reservation</h3></div>
           <form action="r_add_db.php" method="post">
             <div class="list-details">
-              <div class="column3">
+              
+              <div class="column2">
                 <div class="input-box">
-                <label for="rev_no">Reservation No.</label>
-                <input type="text" id="rev_no" name="rev_no" placeholder="Enter reservation number">
+                  <dt class="list-dt">Reservation No.</dt>
+                  <dd class="list-dd"><?php echo getNextReservationID();?></dd>
                 </div>
-
+                <!--
                 <div class="input-box">
-                <label for="email">Customer Email</label>
-                <input type="text" id="email" name="email" placeholder="Enter customer email" required>
+                  <label for="cus-email-a">Customer Email</label>
+                  <input type="text" id="cus-email-a" name="email" placeholder="Enter customer email" required>
                 </div>
+              -->
+                <div class="input-box">
+                  <select id="email" name="email" required>
+                      <option value="">Select customer email</option>
+                      <?php
+                      // Establish a database connection
+                      require_once('./DB_connect.php');
 
+                      // Prepare SQL query to select customer emails that don't have reservations
+                      $sql = "SELECT a.email FROM account a LEFT JOIN reservation r ON a.email = r.email WHERE r.email IS NULL";
+
+                      // Execute the query
+                      $result = $conn->query($sql);
+
+                      // Check if there are any rows returned
+                      if ($result->num_rows > 0) {
+                          // Loop through each row and create an option for the select dropdown
+                          while ($row = $result->fetch_assoc()) {
+                              echo "<option value='" . $row['email'] . "'>" . $row['email'] . "</option>";
+                          }
+                      } else {
+                          // If no customers without reservations are found, display a default option
+                          echo "<option value='' disabled>No customers without reservations found</option>";
+                      }
+
+                      // Close the database connection
+                      $conn->close();
+                      ?>
+                  </select>
+                </div>
               </div>
+
+              
+              <!--
+              <div class="input-box">
+                <label for="cus-name-a">Customer Name</label>
+                <div class="column3">
+                  <input type="text" id="cus-name-a" name="firstname" placeholder="Enter first name" required>
+                  <input type="text" id="cus-name-a" name="lastname" placeholder="Enter last name" required>
+                </div>
+              </div>
+              -->
+
               <div class="column2">
                 <div class="input-box">
                   <label for="total-guest-a">Total Room(s)</label>
@@ -201,19 +254,20 @@ $result_customer_data = $stmt_customer_data->get_result();
       </div>
     </div>
 
-    
+
     <?php
+     require_once('./DB_connect.php');
      $email = isset($_GET["email"]) ? $_GET["email"] : null;
      if ($email) {
       $stmt = $conn->prepare("SELECT * FROM `reservation` AS r, `account` AS a WHERE a.email = ? AND r.email=a.email");
-      $stmt->bind_param("i", $email);
+      $stmt->bind_param("s", $email);
       $stmt->execute();
       $result = $stmt->get_result();
   
       if ($result->num_rows > 0) {
           $editResult = $result->fetch_assoc();
       } else {
-          echo "Reservation ID not found: " . $_GET["email"];
+          echo "email not found: " . $_GET["email"];
       }
   
       $stmt->close();
@@ -224,12 +278,12 @@ $result_customer_data = $stmt_customer_data->get_result();
       <div class="popup-box">
         <div class="container">
           <div class="title"><h3>Edit Reservation</h3></div>
-          <form action="r_edit_db.php?reservation_id=<?php echo isset($editResult['reservation_no']) ? $editResult['reservation_no'] : ''; ?>" name="reservation_no" method="post">
+          <form action="r_edit_db.php?reservation_no=<?php echo isset($editResult['reservation_no']) ? $editResult['reservation_no'] : ''; ?>" name="reservation_form" method="post">
             <div class="list-details">
               <div class="column1">
                 <div class="input-box">
                   <label for="res-number-e">Reservation No.</label>
-                  <dd class="list-dd"><?php echo $editResult['reservation_no'];?></dd>
+                  <dd class="list-dd"><?php echo sprintf("%06d", $editResult['reservation_no']); ?></dd>
                 </div>
                 <div class="list-info-box">
                   <dt class="list-dt">Email</dt>
@@ -237,9 +291,12 @@ $result_customer_data = $stmt_customer_data->get_result();
                 </div>
               </div>
               
-              <div class="input-box">
-                <label for="cus-name-e">Customer Name</label>
-                <input type="text" id="cus-name-e" name="customer_name" value="<?php echo $editResult['firstname'],$editResult['lastname']; ?>">
+              <div class="list-info-box">
+                <dt class="list-dt">Customer Name</label>
+                <dd class="list-dd">
+                  <?php echo $editResult['firstname']; ?>
+                  <span style="margin-left: 15px;"><?php echo $editResult['lastname']; ?></span>
+                </dd>
               </div>
 
               <div class="column2">
@@ -247,13 +304,22 @@ $result_customer_data = $stmt_customer_data->get_result();
                   <label for="total-room-e">Total Room(s)</label>
                   <input type="text" id="total-room-e" name="total_room" value="<?php echo $editResult['total_room']; ?>">
                 </div>
+
+                <?php
+                $reservation_no = $editResult['reservation_no'];
+                $stmt_room = $conn->prepare("SELECT room_no FROM reserved_room WHERE reservation_no = ? LIMIT 1");
+                $stmt_room->bind_param("i", $reservation_no);
+                $stmt_room->execute();
+                $result_room = $stmt_room->get_result();
+                $row_room = $result_room->fetch_assoc();
+                $room_no = $row_room['room_no'];
+                ?>
                 <div class="input-box">
-                  <label for="room-n-a">Room No.</label>
-                  <div class="column3">
-                    <input type="text" id="room-n-a" name="room_no" value="<?php echo $editResult['room_no']; ?>">
-                  </div>
+                    <label for="room-n-a">Room No.</label>
+                    <input type="text" id="room-n-a" name="room_no" value="<?php echo $room_no; ?>">
                 </div>
               </div>
+
               <div class="column2">
                 <div class="input-box">
                   <label for="agent-e">Agent</label>
@@ -271,7 +337,7 @@ $result_customer_data = $stmt_customer_data->get_result();
 
             </div>
             <div class="popup-edit-button">
-              <a href="r_delete.php?reservation_id=<?php echo isset($editResult['email']) ? $editResult['email'] : ''; ?>" class="reservation-button-black">Delete</a>
+              <a href="r_delete.php?reservation_no=<?php echo isset($editResult['reservation_no']) ? $editResult['reservation_no'] : ''; ?>" class="reservation-button-black">Delete</a>
               <input type="submit" value="Edit" class="reservation-button-red">
               <a href="r_reservation.php" class="reservation-button-black">Cancel</a>
             </div>
@@ -282,18 +348,18 @@ $result_customer_data = $stmt_customer_data->get_result();
 
 
     <?php
-     require_once('./r_db.php');
-     $reservation_id = isset($_GET["reservation_id"]) ? $_GET["reservation_id"] : null;
-     if ($reservation_id) {
-      $stmt = $conn->prepare("SELECT * FROM reservation WHERE reservation_id = ?");
-      $stmt->bind_param("i", $reservation_id);
+     require_once('./DB_connect.php');
+     $email = isset($_GET["email"]) ? $_GET["email"] : null;
+     if ($email) {
+      $stmt = $conn->prepare("SELECT * FROM `reservation` AS r, `account` AS a WHERE a.email = ? AND r.email=a.email");
+      $stmt->bind_param("s", $email);
       $stmt->execute();
       $result = $stmt->get_result();
   
       if ($result->num_rows > 0) {
           $readResult = $result->fetch_assoc();
       } else {
-          echo "Reservation ID not found: " . $_GET["reservation_id"];
+          echo "email not found: " . $_GET["email"];
       }
   
       $stmt->close();
@@ -307,7 +373,7 @@ $result_customer_data = $stmt_customer_data->get_result();
               <div class="column1">
                 <div class="list-info-box">
                   <dt class="list-dt">Reservation No.</dt>
-                  <dd class="list-dd"><?php echo $readResult['reservation_id'];?></dd>
+                  <dd class="list-dd"><?php echo sprintf("%06d", $readResult['reservation_no']); ?></dd>
                 </div>
                 <div class="list-info-box">
                   <dt class="list-dt">Email</dt>
@@ -325,13 +391,19 @@ $result_customer_data = $stmt_customer_data->get_result();
                   <dt class="list-dt">Total Room(s)</dt>
                   <dd class="list-dd"><?php echo $readResult['total_room']; ?></dd>
                 </div>
+
+                <?php
+                $reservation_no = $editResult['reservation_no'];
+                $stmt_room = $conn->prepare("SELECT room_no FROM reserved_room WHERE reservation_no = ? LIMIT 1");
+                $stmt_room->bind_param("i", $reservation_no);
+                $stmt_room->execute();
+                $result_room = $stmt_room->get_result();
+                $row_room = $result_room->fetch_assoc();
+                $room_no = $row_room['room_no'];
+                ?>
                 <div class="list-info-box">
                   <dt class="list-dt">Room No.</dt>
-                  <div class="column3">
-                    <dd class="list-dd"><?php echo $readResult['sta_room_no']; ?></dd>
-                    <b>-</b>
-                    <dd class="list-dd"><?php echo $readResult['end_room_no']; ?></dd>
-                  </div>
+                    <input type="text" id="room-n-a" name="room_no" value="<?php echo $room_no; ?>">
                 </div>
               </div>
               <div class="column2">
