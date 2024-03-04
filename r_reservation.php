@@ -104,27 +104,15 @@ $result = display_data();
             <?php
               while($row = mysqli_fetch_assoc($result)){
             ?>
-              <td class="list-td" style="text-align: left;"><?php echo $row['reservation_id'];?></td>
-              <!--
-              <form id="reservation_view" action="r_select_db.php" method="post">
-                <input type="hidden" name=reservation_id value=<?php echo $row['reservation_id'];?>>
-                <input type="hidden" name=customer_name value=<?php echo $row['customer_name'];?>>
-                <td class="list-td" style="text-align: left;">
-                    <a href="#" onclick="document.getElementById('reservation_view').submit(); return false;"><?php echo $row['customer_name'];?></a>
-                </td>
-              </form>
-              -->
+              <td class="list-td" style="text-align: left;"><?php echo $row['reservation_no'];?></td>
               <td class="list-td" style="text-align: left;">
-                <a href="r_reservation.php?reservation_id=<?php echo $row["reservation_id"];?>#popup-info"><?php echo $row['customer_name'];?></a>
+                <a href="r_reservation.php?reservation_id=<?php echo $row["reservation_no"];?>#popup-info"><?php echo $row['customer_name'];?></a>
               </td>
               <td class="list-td" style="text-align: center;"><?php echo $row['agent'];?></td>
               <td class="list-td" style="text-align: center;"><?php echo date('d/m/y', strtotime($row['arrive_date']));?></td>
               <td class="list-td" style="text-align: center;"><?php echo date('d/m/y', strtotime($row['depart_date']));?></td>
-              <!--<td class="list-td" style="text-align: center;"> 
-                <a href="#popup-edit" class="reservation-button-edit">
-                  <i class="fa-regular fa-pen-to-square"></i></a></td>-->
               <td class="list-td" style="text-align: center;"> 
-                <a class="reservation-button-edit" href="r_reservation.php?reservation_id=<?php echo $row["reservation_id"];?>#popup-edit">
+                <a class="reservation-button-edit" href="r_reservation.php?reservation_id=<?php echo $row["reservation_no"];?>#popup-edit">
                     <i class="fa-regular fa-pen-to-square"></i>
                 </a>
               </td>
