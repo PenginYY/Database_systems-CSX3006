@@ -32,108 +32,127 @@
       </nav>
     </div>
 
-    <h1 class="title_customer">add personal information</h1>
-    <div class="account-info">
+    <form action="./mg_db_add_new_account_manager.php" method="POST">
+      <h1 class="title_customer">add personal information</h1>
+      <div class="account-info">
 
-    <!-- Table -->
-    <table>
-          <tr>
-            <th class="head">name</th>
-            <th class="head">address</th>
-          </tr>
+      <!-- Table -->
+      <table class="table-customer-info">
+            <tr>
+              <!-- Name Title -->
+              <th class="head">name</th>
+              <!-- Address Title -->
+              <th class="head">address</th>
+            </tr>
 
-          <tr>
-            <td class="sub-head" style="padding-bottom: 0px;">
-              <label for="name">Name</label>
-              <p class="body">
-              <input type="text"
-              id="name"
-              name="name"
-              >
-            </p>
-          </td>
-
-            <td class="sub-head" style="padding-bottom: 0px;">
-            <label for="address">Address (City / State / Country)</label>
-            <p class="body">
-              <input
-                style="width: 400px; height: 50px;"
-                type="text"
-                id="address"
-                name="address"
-              />
-            </p>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="sub-head">surname<p class="body">
-              <input type="text"
-                id="name"
-                name="name"
-                >
-              </p>
-          </tr>
-
-          <tr>
-            <th class="head">date of birth</th>
-            <th class="head">Email</th>
-          </tr>
-
-          <tr>
-            <td class="sub-head" style="padding-bottom: 0px;">
-              <label for="dob">DD/MM/YYYY</label>
-              <p class="body">
-              <input type="text"
-                id="dob"
-                name="dob"
+            <tr>
+              <!-- Name Input Slot -->
+              <td class="sub-head" style="padding-bottom: 0px;">
+                <label for="firstname">Name</label>
+                <p class="body">
+                <input type="text"
+                id="firstname"
+                name="firstname"
                 >
               </p>
             </td>
-            <td class="sub-head" style="padding-bottom: 0px;">
+    
+            <!-- Address Input Slot -->
+              <td class="sub-head" style="padding-bottom: 0px;">
+              <label for="address">Address (City / State / Country)</label>
               <p class="body">
-              <input type="text"
-                id="email"
-                name="email"
-                >
+                <input
+                  style="width: 400px; height: 50px;"
+                  type="text"
+                  id="address"
+                  name="address"
+                />
               </p>
-            </td>
-          </tr>
+              </td>
+            </tr>
 
-          <tr>
-            <th class="head">Phone number</th>
-            <td class="head">
-              <label for="relationship">Role</label>
-              <p class="body">
-                <select id="relationships" name="relationships" style="font-size: 15px; ">
-                <option value="customer">Customer</option>
-                <option value="reservation">Reservation Staff</option>
-                <option value="frontDesk">Front Desk Staff</option>
-                </select>
-              </p>
-            </td>
-          </tr>
+            <tr>
+              <!-- Surname Input Slot -->
+              <td class="sub-head">surname<p class="body">
+                <input type="text"
+                  id="lastname"
+                  name="lastname"
+                  >
+                </p>
+                <!-- Email Input Slot -->
+                <td class="head">Email<p class="body">
+                <input type="text"
+                  id="email"
+                  name="email"
+                  >
+                </p>
 
-          <tr>
-            <td class="sub-head" style="padding-bottom: 0px;">
-              <label for="telephone">TEL.XXX-XXX-XXXX</label>
-              <p class="body">
-              <input type="text"
-                id="telephone"
-                name="telephone"
-                >
-              </p>
-            </td>
-        </table>
+            </tr>
 
-      <div class="edit-account-manager-info">
-        <p class="account"><a href="#">delete account</a></p> 
+            <tr>
+              <!-- DOB Title -->
+              <th class="head">date of birth</th>
+              <!-- Password Title -->
+              <th class="head">Password</th>
+            </tr>
 
-        <!-- link to edit page -->
-        <a href="./mg_account_manager.php">
-        <button type="submit" name="submit" class="button">Add</button>
-        </a>
+            <tr>
+              <!-- DOB Input Slot -->
+              <td class="sub-head" style="padding-bottom: 0px;">
+                <label for="birthdate">DD/MM/YYYY</label>
+                <p class="body">
+                <input type="date"
+                  id="birthdate"
+                  name="birthdate"
+                  >
+                </p>
+              </td>
+              <!-- Password Input Slot -->
+              <td class="sub-head" style="padding-bottom: 0px;">
+                <p class="body">
+                <input type="text"
+                  id="password"
+                  name="password"
+                  >
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <!-- Phonenumber Title -->
+              <th class="head">Phone number</th>
+
+              <!-- Role Title -->
+              <td class="head">
+                <label for="role">Role</label>
+                <!-- Roles options -->
+                <p class="body">
+                  <select id="role" name="role" style="font-size: 50px; ">
+                  <option value="Reservation Staff">Reservation Staff</option>
+                  <option value="Front Desk Staff">Front Desk Staff</option>
+                  </select>
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <!-- Telephone Input Slot -->
+              <td class="sub-head" style="padding-bottom: 0px;">
+                <label for="phone">TEL.XXX-XXX-XXXX</label>
+                <p class="body">
+                <input type="text"
+                  id="phone"
+                  name="phone"
+                  >
+                </p>
+              </td>
+          </table>
+
+        <div class="edit-account-manager-info">
+          <!-- link to edit page -->
+          <input type="submit" name="submit" class="button"></input>
+        </div>
       </div>
-    </div>
+    </form>
   </body>
 </html>

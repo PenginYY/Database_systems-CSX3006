@@ -56,13 +56,6 @@
           <td><p class="body">www.hotel.com</p></td>
         </tr>
       </table>
-
-      <div class="edit-hotel-info" style="text-align: right;">
-        <!-- link to edit page -->
-        <a href="./mg_edit_hotel_info.php">
-        <button type="submit" name="submit" class="reservation-button-red">Edit</button>
-        </a>
-      </div>
     </div>
   </body>
 </html>
