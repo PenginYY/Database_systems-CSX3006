@@ -1,7 +1,7 @@
 <?php
 require './DB_connect.php';
 
-//Query account table
+//Query account and employee table
 $sql_accounts = "SELECT *
                  FROM `account` AS a, `employee` AS e WHERE a.email= e.email ORDER BY a.firstname ASC";
     $stmt_accounts = $conn->prepare($sql_accounts);

@@ -72,22 +72,40 @@ $result_accounts = $conn->query($sql_customers);
       
       <!-- Customer Head -->
       <div class="list-header">
-        <div class="radio-days">
-          <input class="radio__input" type="radio" value="day1" name="days" id="day1">
-          <label class="radio__label" for="day1"> YESTERDAY </label>
-          <input class="radio__input" type="radio" value="day2" name="days" id="day2" checked>
-          <label class="radio__label" for="day2"> TODAY </label>
-          <input class="radio__input" type="radio" value="day3" name="days" id="day3">
-          <label class="radio__label" for="day3"> TOMORROW </label>
-        </div>
-          <!-- Search Form -->
-        <form class="search" action="mg_customer_list.php" method="GET">
-          <div class="search-container">
-          <input class="search-input" type="search" placeholder="Search" name="search">
-          <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-          </div>
-        </form>
+      <div class="radio-days">
+        <input class="radio__input" type="radio" value="day1" id="day1" name="days" checked>
+        <label class="radio__label" for="day1"><span id="currentDate"></span></label>
+
+        <input class="radio__input" type="radio" value="day2" id="day2" name="days">
+        <label class="radio__label" for="day2"><span id="nextDate"></span></label>
+
+        <input class="radio__input" type="radio" value="day3" id="day3" name="days">
+        <label class="radio__label" for="day3"><span id="nextNextDate"></span></label>
       </div>
+    </div>
+
+    <script>
+      const today = new Date();
+      const currentDateElement = document.getElementById('currentDate');
+      const nextDateElement = document.getElementById('nextDate');
+      const nextNextDateElement = document.getElementById('nextNextDate');
+
+      // Format the date like "Month Day, Year" (e.g., March 4, 2024)
+      const formatDate = (date) => {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return date.toLocaleDateString('en-US', options);
+      }
+
+      currentDateElement.textContent = formatDate(today);
+
+      // Add one day to get the next date
+      const tomorrow = new Date(today.getTime() + (24 * 60 * 60 * 1000));
+      nextDateElement.textContent = formatDate(tomorrow);
+
+      // Add two days to get the day after tomorrow
+      const dayAfterTomorrow = new Date(tomorrow.getTime() + (24 * 60 * 60 * 1000));
+      nextNextDateElement.textContent = formatDate(dayAfterTomorrow);
+    </script>
 
       <!-- Customer Body -->
       <div class="list-body">
