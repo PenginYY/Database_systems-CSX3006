@@ -1,5 +1,4 @@
 <?php
-session_start();
 require './DB_connect.php';
 
 if(isset($_POST['delete'])) {
