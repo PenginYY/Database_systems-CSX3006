@@ -12,9 +12,9 @@ if(isset($_POST['delete'])) {
         $error = "Error delete customer: " . $stmt->error;
     }
 
+    session_destroy();
     header("Location: http://localhost:3000/c_index.php");
     exit;
-    session_destroy();
 } else {
     header("Location: http://localhost:3000/c_personal_info.php");
     exit;

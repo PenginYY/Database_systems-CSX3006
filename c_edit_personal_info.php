@@ -1,22 +1,14 @@
 <?php session_start(); 
 require './DB_connect.php';
 
-    //Account table
-    $email = $_SESSION['email'];
-    $sql_account = "SELECT * FROM `Account` WHERE email = ?";
-    $stmt_account = $conn->prepare($sql_account);
-    $stmt_account->bind_param("s", $email);
-    $stmt_account->execute();
-    $result_account = $stmt_account->get_result();
-    $row_account = mysqli_fetch_array($result_account);
-        
-    //Customer table
-    $sql_customer = "SELECT * FROM `customer` WHERE email = ?";
-    $stmt = $conn->prepare($sql_customer);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result_customer = $stmt->get_result();
-    $row_customer = mysqli_fetch_array($result_customer);
+//Show data from Account table and Customer table
+$email = $_SESSION['email'];
+$sql_customer_data = "SELECT * FROM `account` AS a, `customer` AS c WHERE a.email = ? AND a.email=c.email";
+$stmt_customer_data = $conn->prepare($sql_customer_data);
+$stmt_customer_data->bind_param("s", $email);
+$stmt_customer_data->execute();
+$result_customer_data = $stmt_customer_data->get_result();
+$row_customer_data = mysqli_fetch_array($result_customer_data);
 ?>
 
 
@@ -50,6 +42,9 @@ require './DB_connect.php';
           <li>
             <a href="./c_RoomandHotel.php">room & hotel info</a>
           </li>
+          <li>
+            <a href="./c_db_logout.php">Logout</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -70,7 +65,7 @@ require './DB_connect.php';
               <input type="text"
               id="name"
               name="name"
-              value="<?php echo $row_account['firstname']; ?>"
+              value="<?php echo $row_customer_data['firstname']; ?>"
               >
             </p>
           </td>
@@ -83,7 +78,7 @@ require './DB_connect.php';
                 type="text"
                 id="address"
                 name="address"
-                value="<?php echo $row_account['address']; ?>"
+                value="<?php echo $row_customer_data['address']; ?>"
               />
             </p>
             </td>
@@ -96,11 +91,11 @@ require './DB_connect.php';
                 <input type="text"
                 id="surname"
                 name="surname"
-                value="<?php echo $row_account['lastname']; ?>"
+                value="<?php echo $row_customer_data['lastname']; ?>"
                 >
                 </p>
             </td>
-            <th class="head">emergency call</th>
+            <th class="head">emergency contact</th>
           </tr>
 
           <tr>
@@ -111,7 +106,7 @@ require './DB_connect.php';
               <input type="text"
                 id="name"
                 name="rel-name"
-                value="<?php echo $row_customer['emergency_name'];?>"
+                value="<?php echo $row_customer_data['emergency_name'];?>"
                 >
               </p>
             </td>
@@ -121,14 +116,14 @@ require './DB_connect.php';
             <td class="sub-head">
               <label for="birthday">DD/MM/YYYY</label>
               <p class="body">
-              <input type="date" id="birthday" name="birthday" value="<?php echo $row_account['birthdate']; ?>">
+              <input type="date" id="birthday" name="birthday" value="<?php echo $row_customer_data['birthdate']; ?>">
               </p>
             </td>
 
             <td class="sub-head">
               <label for="phone">telephone</label>
               <p class="body">
-              <input type="tel" id="phone" name="rel-phone" value="<?php echo $row_customer['emergency_phone'];?>">
+              <input type="tel" id="phone" name="rel-phone" value="<?php echo $row_customer_data['emergency_phone'];?>">
               </p>
           </tr>
 
@@ -154,7 +149,7 @@ require './DB_connect.php';
             <td class="sub-head">
               <label for="telephone">TEL.XXX-XXX-XXXX</label>
               <p class="body">
-              <input type="tel" id="phone" name="cus-phone" value="<?php echo $row_account['phone'];?>">
+              <input type="tel" id="phone" name="cus-phone" value="<?php echo $row_customer_data['phone'];?>">
               </p>
             </td>
 
