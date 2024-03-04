@@ -3,29 +3,20 @@ session_start();
 
 require './DB_connect.php';
 
-  //Query reservation data
-  //Show reservation number, total room
+  //Query reservation data and account data
+  //Show reservation number, total room, customer name
   $email = $_SESSION['email'];
-  $sql_reservation = "SELECT * FROM `reservation` WHERE email = ?";
-  $stmt_reservation = $conn->prepare($sql_reservation);
-  $stmt_reservation->bind_param("s", $email);
-  $stmt_reservation->execute();
-  $result_reservation = $stmt_reservation->get_result();
-  $row_reservation = mysqli_fetch_array($result_reservation);
-
-  //Query account data
-  //Show customer name
-  $sql_account = "SELECT * FROM `account` WHERE email = ?";
-  $stmt_account = $conn->prepare($sql_account);
-  $stmt_account->bind_param("s", $email);
-  $stmt_account->execute();
-  $result_account = $stmt_account->get_result();
-  $row_account = mysqli_fetch_array($result_account);
+  $sql_customer_data = "SELECT * FROM `reservation` AS r, `account` AS a WHERE r.email=a.email AND a.email = ?";
+  $stmt_customer_data = $conn->prepare($sql_customer_data);
+  $stmt_customer_data->bind_param("s", $email);
+  $stmt_customer_data->execute();
+  $result_customer_data = $stmt_customer_data->get_result();
+  $row_customer_data = mysqli_fetch_array($result_customer_data);
 
 
   //Query reservation data
   //Show room number
-  $rev_no = $row_reservation['reservation_no'];
+  $rev_no = $row_customer_data['reservation_no'];
   $sql_reserved_room = "SELECT * FROM `reserved_room` WHERE reservation_no = ?";
   $stmt_reserved_room = $conn->prepare($sql_reserved_room);
   $stmt_reserved_room->bind_param("i", $rev_no); 
@@ -73,6 +64,9 @@ require './DB_connect.php';
           <li>
             <a href="./c_RoomandHotel.php" style="color: #d73938;">room & hotel info</a>
           </li>
+          <li>
+            <a href="./c_db_logout.php">Logout</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -96,24 +90,29 @@ require './DB_connect.php';
               echo $formatted_rev_no;?>
             </td>
             <td class="sub-head">
-              <?php $rev_no = $row_reservation['total_room'];
+              <?php $rev_no = $row_customer_data['total_room'];
               $formatted_rev_no = sprintf("%04d", $rev_no);
               echo $formatted_rev_no;?>
-              </td>
+            </td>
           </tr>
 
           <tr>
             <th class="head">customer name</th>
+            <th class="head">check-in date</th>
           </tr>
 
           <tr>
             <td class="sub-head">
-              <?php echo $row_account['firstname'], " ", $row_account['lastname'];?>
+              <?php echo $row_customer_data['firstname'], " ", $row_customer_data['lastname'];?>
+            </td>
+            <td class="sub-head">
+              <?php echo $row_customer_data['arrive_date'];?>
             </td>
           </tr>
 
           <tr>
             <th class="head">room number</th>
+            <th class="head">check-out date</th>
           </tr>
 
           <tr>
@@ -126,6 +125,9 @@ require './DB_connect.php';
                 $rowcount-=1;
               }
               echo  implode(", ", $all_rooms);?>
+            </td>
+            <td class="sub-head">
+              <?php echo $row_customer_data['depart_date'];?>
             </td>
           </tr>
 
