@@ -1,23 +1,15 @@
 <?php
 require './DB_connect.php';
 
-    //Account table
-    $email = $_SESSION['email'];
-    $sql_account = "SELECT * FROM `account` WHERE email = ?";
-    $stmt_account = $conn->prepare($sql_account);
-    $stmt_account->bind_param("s", $email);
-    $stmt_account->execute();
-    $result_account = $stmt_account->get_result();
-    $row_account = mysqli_fetch_array($result_account);
-    
-    //Employee table
-    $sql_employee = "SELECT * FROM `employee` WHERE email = ?";
-    $stmt = $conn->prepare($sql_employee);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result_employee = $stmt->get_result();
-    $row_employee = mysqli_fetch_array($result_employee);
-
+$email = isset($_GET['email']);
+$sql_accounts = "SELECT *
+FROM `account` AS a, `employee` AS e WHERE a.email= e.email AND a.email= ? ORDER BY a.firstname ASC";
+$stmt_accounts = $conn->prepare($sql_accounts);
+$stmt1->bind_param("s",$email);
+$stmt_accounts->execute();
+$result_accounts = $stmt_accounts->get_result();
+$row_employee = mysqli_fetch_array($result_accounts);
+$rowcount = mysqli_num_rows($result_accounts);
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +67,7 @@ require './DB_connect.php';
             <input type="text"
             id="firstname"
             name="firstname"
-            value="<?php echo $row_account['firstname']; ?>"
+            value="<?php echo $row_employee['firstname']; ?>"
             >
             </p>
           </td>
@@ -89,7 +81,7 @@ require './DB_connect.php';
               type="text"
               id="address"
               name="address"
-              value="<?php echo $row_account['address']; ?>"
+              value="<?php echo $row_employee['address']; ?>"
               />
               </p>
             </td>
@@ -101,7 +93,7 @@ require './DB_connect.php';
               <input type="text"
               id="lastname"
               name="lastname"
-              value="<?php echo $row_account['lastname']; ?>"
+              value="<?php echo $row_employee['lastname']; ?>"
               >
               </p>
             <!-- Email Input Slot -->
@@ -109,7 +101,7 @@ require './DB_connect.php';
               <input type="text"
               id="email" 
               name="email"
-              value="<?php echo $row_account['email']; ?>"
+              value="<?php echo $row_employee['email']; ?>"
               >
               </p>
             </tr>
@@ -129,7 +121,7 @@ require './DB_connect.php';
                 <input type="date"
                 id="birthdate"
                 name="birthdate"
-                value="<?php echo $row_account['birthdate']; ?>"
+                value="<?php echo $row_employee['birthdate']; ?>"
                 >
                 </p>
               </td>
@@ -139,7 +131,7 @@ require './DB_connect.php';
                 <input type="text"
                   id="password"
                   name="password"
-                  value="<?php echo $row_account['password']; ?>"
+                  value="<?php echo $row_employee['password']; ?>"
                   >
                  </p>
               </td>
@@ -169,7 +161,7 @@ require './DB_connect.php';
                 <input type="text"
                 id="phone"
                 name="phone"
-                value="<?php echo $row_account['phone']; ?>"
+                value="<?php echo $row_employee['phone']; ?>"
                 >
                 </p>
               </td>

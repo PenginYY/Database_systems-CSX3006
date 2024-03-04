@@ -1,7 +1,7 @@
 <?php
 require './DB_connect.php';
 
-//Query account table
+//Query account and employee table
 $sql_accounts = "SELECT *
                  FROM `account` AS a, `employee` AS e WHERE a.email= e.email ORDER BY a.firstname ASC";
     $stmt_accounts = $conn->prepare($sql_accounts);
@@ -78,8 +78,8 @@ $sql_accounts = "SELECT *
           echo "<td class='list-td' style='text-align: left;'>{$row['email']}</td>";
           echo "<td class='list-td' style='text-align: left;'>{$row['role']}</td>";
           echo "<td class='list-td' style='text-align: center;'> 
-                <a href='./mg_edit_account_manager.php' class='reservation-button-edit'>
-                  <i class='fa-regular fa-pen-to-square'></i>
+                <a href='./mg_edit_account_manager.php' class='reservation-button-edit'><button type='type' style='font-size: 20px;''>
+                  <i class='fa-regular fa-pen-to-square'></i></button>
                 </a>
               </td>";
           echo "</tr>";
