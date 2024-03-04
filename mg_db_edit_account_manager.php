@@ -1,13 +1,6 @@
 <?php
 require('./DB_connect.php');
 
-function display_data() {
-    global $conn;
-    $query = "SELECT * FROM employee";
-    $result = mysqli_query($conn, $query);
-    return $result;
-}
-
 if (isset($_POST['submit'])) {
     // account table
     $email = $_POST['email'];
