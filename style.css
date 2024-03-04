@@ -338,6 +338,7 @@ select {
   overflow: hidden;
   border-radius: 8px;
   border: 1px solid #d73938;
+  height: 40px;
 }
 
 /*.reservation-header*/
