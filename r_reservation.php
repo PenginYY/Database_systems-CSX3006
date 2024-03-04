@@ -53,9 +53,47 @@ $result_customer_data = $stmt_customer_data->get_result();
       <div class="list-title">
         <h2>RESERVATIONS</h2>
       </div>
+      <div class="list-header">
+      <div class="radio-days">
+        <input class="radio__input" type="radio" value="day1" id="day1" name="days" checked>
+        <label class="radio__label" for="day1"><span id="currentDate"></span></label>
+
+        <input class="radio__input" type="radio" value="day2" id="day2" name="days">
+        <label class="radio__label" for="day2"><span id="nextDate"></span></label>
+
+        <input class="radio__input" type="radio" value="day3" id="day3" name="days">
+        <label class="radio__label" for="day3"><span id="nextNextDate"></span></label>
+      </div>
+
+      <a href="#popup-add" class="reservation-button-red">Add</a>
+    </div>
+
+    <script>
+      const today = new Date();
+      const currentDateElement = document.getElementById('currentDate');
+      const nextDateElement = document.getElementById('nextDate');
+      const nextNextDateElement = document.getElementById('nextNextDate');
+
+      // Format the date like "Month Day, Year" (e.g., March 4, 2024)
+      const formatDate = (date) => {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return date.toLocaleDateString('en-US', options);
+      }
+
+      currentDateElement.textContent = formatDate(today);
+
+      // Add one day to get the next date
+      const tomorrow = new Date(today.getTime() + (24 * 60 * 60 * 1000));
+      nextDateElement.textContent = formatDate(tomorrow);
+
+      // Add two days to get the day after tomorrow
+      const dayAfterTomorrow = new Date(tomorrow.getTime() + (24 * 60 * 60 * 1000));
+      nextNextDateElement.textContent = formatDate(dayAfterTomorrow);
+    </script>
+
 
       <!-- Reservation Head -->
-      <div class="list-header">
+      <!-- <div class="list-header">
         <div class="radio-days">
           <input class="radio__input" type="radio" value="day1" id="day1" name="days" checked>
           <label class="radio__label" for="day1"><span id="currentDate"></span></label>
@@ -64,34 +102,9 @@ $result_customer_data = $stmt_customer_data->get_result();
           <input class="radio__input" type="radio" value="day3" id="day3" name="days">
           <label class="radio__label" for="day3"><span id="nextNextDate"></span></label>
         </div>
-        
-        <a href="#popup-add" class="reservation-button-red">Add</a>
-      </div>
+         -->
 
-      <script>
-        function formatDate(date) {
-          const options = { day: 'numeric', month: 'long', year: 'numeric' };
-          return date.toLocaleDateString('en-UK', options).toUpperCase();
-        }
 
-        document.querySelectorAll('.radio__input').forEach(function(radio) {
-          radio.addEventListener('change', function() {
-              const currentDate = new Date();
-              if (this.value === 'day1') {
-                  document.getElementById('currentDate').textContent = formatDate(currentDate);
-              } else if (this.value === 'day2') {
-                  const nextDate = new Date(currentDate);
-                  nextDate.setDate(nextDate.getDate() + 1);
-                  document.getElementById('nextDate').textContent = formatDate(nextDate);
-              } else if (this.value === 'day3') {
-                  const nextNextDate = new Date(currentDate);
-                  nextNextDate.setDate(nextNextDate.getDate() + 2);
-                  document.getElementById('nextNextDate').textContent = formatDate(nextNextDate);
-              }
-            });
-          });
-      </script>
-      
       <!-- Reservation Body -->
       <div class="list-body">
         <table class="list-table">
