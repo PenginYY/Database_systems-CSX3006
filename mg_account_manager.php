@@ -3,11 +3,12 @@ session_start();
 require './DB_connect.php';
 
 //Query account table
-$sql_accounts = "SELECT a.*, e.role 
-                 FROM account a
-                 LEFT JOIN employee e ON a.email = e.email";
-$result_accounts = $conn->query($sql_accounts);
-
+$sql_accounts = "SELECT *
+                 FROM `account` AS a, `employee` AS e WHERE a.email= e.email";
+    $stmt_accounts = $conn->prepare($sql_accounts);
+    $stmt_accounts->execute();
+    $result_accounts = $stmt_accounts->get_result();
+    $rowcount = mysqli_num_rows($result_accounts);
 ?>
 
 <!DOCTYPE html>
@@ -61,28 +62,29 @@ $result_accounts = $conn->query($sql_accounts);
 
   <!-- Body -->
   <div class="reservation-body">
-    <table class="res-table">
-      <thead class="thead">
-        <tr class="res-tr">
-          <th class="res-th" style="text-align: left;"> Name </th>
-          <th class="res-th" style="text-align: left;"> Email </th>
-          <th class="res-th" style="text-align: left;"> Role </th>
-          <th class="res-td" style="text-align: center;"> Edit </th>
+    <table class="list-table">
+      <thead class="list-thead">
+        <tr class="list-tr">
+          <th class="list-th" style="text-align: left;"> Name </th>
+          <th class="list-th" style="text-align: left;"> Email </th>
+          <th class="list-th" style="text-align: left;"> Role </th>
+          <th class="list-td" style="text-align: center;"> Edit </th>
         </tr>
       </thead>
-      <tbody class="res-tbody">
+      <tbody class="list-tbody">
         <?php
-        while ($row = $result_accounts->fetch_assoc()) {
-          echo "<tr class='res-tr'>";
-          echo "<td class='res-td' style='text-align: left;'><a href='#popup-info' style='text-decoration: none; color: black;'>{$row['firstname']} {$row['lastname']}</a></td>";
-          echo "<td class='res-td' style='text-align: left;'>{$row['email']}</td>";
-          echo "<td class='res-td' style='text-align: left;'>{$row['role']}</td>";
-          echo "<td class='res-td' style='text-align: center;'> 
+        while ($rowcount > 0 && $row = mysqli_fetch_array($result_accounts)) {
+          echo "<tr class='list-tr'>";
+          echo "<td class='list-td' style='text-align: left;'><a href='#popup-info' style='text-decoration: none; color: black;'>{$row['firstname']} {$row['lastname']}</a></td>";
+          echo "<td class='list-td' style='text-align: left;'>{$row['email']}</td>";
+          echo "<td class='list-td' style='text-align: left;'>{$row['role']}</td>";
+          echo "<td class='list-td' style='text-align: center;'> 
                 <a href='./mg_edit_account_manager.php' class='reservation-button-edit'>
                   <i class='fa-regular fa-pen-to-square'></i>
                 </a>
               </td>";
           echo "</tr>";
+          $rowcount-=1;
         }
         ?>
       </tbody>

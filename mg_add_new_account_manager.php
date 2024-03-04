@@ -149,8 +149,7 @@
           </table>
 
         <div class="edit-account-manager-info">
-          <!-- link to edit page -->
-          <input type="submit" name="submit" class="button"></input>
+          <input type="submit" name="submit" class="button">
         </div>
       </div>
     </form>
