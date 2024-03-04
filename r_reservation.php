@@ -1,17 +1,14 @@
 <?php
 session_start();
 
-require_once 'r_db.php';
-
-$result = display_data();
-
-//Query account data & customer data
-$sql_customer_data = "SELECT * FROM `account` AS a, `reservation AS r WHERE a.email = ? AND a.email=r.email";
+require_once './DB_connect.php';
+//Query reservation data & customer data
+$sql_customer_data = "SELECT * FROM `account` AS a, `reservation` AS r
+WHERE a.email=r.email";
 $stmt_customer_data = $conn->prepare($sql_customer_data);
-$stmt_customer_data->bind_param("s", $email);
 $stmt_customer_data->execute();
 $result_customer_data = $stmt_customer_data->get_result();
-$row_customer_data = mysqli_fetch_array($result_customer_data);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,19 +107,20 @@ $row_customer_data = mysqli_fetch_array($result_customer_data);
           </thead>
           <tbody class="list-tbody">
             <?php
-            
-              //while($row = mysqli_fetch_assoc($result)){
-              while($row_customer_data){
+            $rowcount = mysqli_num_rows($result_customer_data);
+              while($rowcount > 0 && $row_customer_data = mysqli_fetch_array($result_customer_data)){
             ?>
-              <td class="list-td" style="text-align: left;"><?php echo $row['reservation_no'];?></td>
+              <td class="list-td" style="text-align: left;"><?php echo $row_customer_data['reservation_no'];?></td>
+
               <td class="list-td" style="text-align: left;">
-                <a href="r_reservation.php?reservation_id=<?php echo $row["reservation_no"];?>#popup-info"><?php echo $row['customer_name'];?></a>
+                <a href="r_reservation.php? reservation_id=<?php echo $row_customer_data["email"];?>#popup-info"><?php echo $row_customer_data['firstname'], " ", $row_customer_data['lastname'];?></a>
               </td>
-              <td class="list-td" style="text-align: center;"><?php echo $row['agent'];?></td>
-              <td class="list-td" style="text-align: center;"><?php echo date('d/m/y', strtotime($row['arrive_date']));?></td>
-              <td class="list-td" style="text-align: center;"><?php echo date('d/m/y', strtotime($row['depart_date']));?></td>
+              <td class="list-td" style="text-align: center;"><?php echo $row_customer_data['agent'];?></td>
+              <td class="list-td" style="text-align: center;"><?php echo date('d/m/y', strtotime($row_customer_data['arrive_date']));?></td>
+              <td class="list-td" style="text-align: center;"><?php echo date('d/m/y', strtotime($row_customer_data['depart_date']));?></td>
+
               <td class="list-td" style="text-align: center;"> 
-                <a class="reservation-button-edit" href="r_reservation.php?reservation_id=<?php echo $row["reservation_no"];?>#popup-edit">
+                <a class="reservation-button-edit" href="r_reservation.php?email=<?php echo $row_customer_data["email"];?>#popup-edit">
                     <i class="fa-regular fa-pen-to-square"></i>
                 </a>
               </td>
@@ -143,17 +141,15 @@ $row_customer_data = mysqli_fetch_array($result_customer_data);
             <div class="list-details">
               <div class="column3">
                 <div class="input-box">
-                  <dt class="list-dt">Reservation No.</dt>
-                  <dd class="list-dd"><?php echo getNextReservationID();?></dd>
+                <label for="rev_no">Reservation No.</label>
+                <input type="text" id="rev_no" name="rev_no" placeholder="Enter reservation number">
                 </div>
+
                 <div class="input-box">
                 <label for="email">Customer Email</label>
                 <input type="text" id="email" name="email" placeholder="Enter customer email" required>
-              </div>
-              </div>
-              <div class="input-box">
-                <label for="cus-name-a">Customer Name</label>
-                <input type="text" id="cus-name-a" name="customer_name" placeholder="Enter customer name" required>
+                </div>
+
               </div>
               <div class="column2">
                 <div class="input-box">
@@ -163,9 +159,7 @@ $row_customer_data = mysqli_fetch_array($result_customer_data);
                 <div class="input-box">
                   <label for="room-n-a">Room No.</label>
                   <div class="column3">
-                    <input type="text" id="room-n-a" name="sta_room_no" placeholder="---" required>
-                    <b>-</b>
-                    <input type="text" id="room-n-a" name="end_room_no" placeholder="---" required>
+                    <input type="text" id="room-n-a" name="room_no" placeholder="---" required>
                   </div>
                 </div>
               </div>
@@ -176,11 +170,11 @@ $row_customer_data = mysqli_fetch_array($result_customer_data);
                 </div>
                 <div class="input-box">
                   <label for="arr-date-a">Arriving Date</label>
-                  <input type="text" id="arr-date-a" name="arrive_date" placeholder="00/00/00" required>
+                  <input type="date" id="arr-date-a" name="arrive_date" placeholder="00/00/00" required>
                 </div>
                 <div class="input-box">
                   <label for="dep-date-a">Departure Date</label>
-                  <input type="text" id="dep-date-a" name="depart_date" placeholder="00/00/00" required>
+                  <input type="date" id="dep-date-a" name="depart_date" placeholder="00/00/00" required>
                 </div>
               </div>
 
@@ -196,18 +190,17 @@ $row_customer_data = mysqli_fetch_array($result_customer_data);
 
     
     <?php
-     require_once('./r_db.php');
-     $reservation_id = isset($_GET["reservation_id"]) ? $_GET["reservation_id"] : null;
-     if ($reservation_id) {
-      $stmt = $conn->prepare("SELECT * FROM reservation WHERE reservation_id = ?");
-      $stmt->bind_param("i", $reservation_id);
+     $email = isset($_GET["email"]) ? $_GET["email"] : null;
+     if ($email) {
+      $stmt = $conn->prepare("SELECT * FROM `reservation` AS r, `account` AS a WHERE a.email = ? AND r.email=a.email");
+      $stmt->bind_param("i", $email);
       $stmt->execute();
       $result = $stmt->get_result();
   
       if ($result->num_rows > 0) {
           $editResult = $result->fetch_assoc();
       } else {
-          echo "Reservation ID not found: " . $_GET["reservation_id"];
+          echo "Reservation ID not found: " . $_GET["email"];
       }
   
       $stmt->close();
@@ -218,12 +211,12 @@ $row_customer_data = mysqli_fetch_array($result_customer_data);
       <div class="popup-box">
         <div class="container">
           <div class="title"><h3>Edit Reservation</h3></div>
-          <form action="r_edit_db.php?reservation_id=<?php echo isset($editResult['reservation_id']) ? $editResult['reservation_id'] : ''; ?>" name="reservation_id" method="post">
+          <form action="r_edit_db.php?reservation_id=<?php echo isset($editResult['reservation_no']) ? $editResult['reservation_no'] : ''; ?>" name="reservation_no" method="post">
             <div class="list-details">
               <div class="column1">
                 <div class="input-box">
                   <label for="res-number-e">Reservation No.</label>
-                  <dd class="list-dd"><?php echo $editResult['reservation_id'];?></dd>
+                  <dd class="list-dd"><?php echo $editResult['reservation_no'];?></dd>
                 </div>
                 <div class="list-info-box">
                   <dt class="list-dt">Email</dt>
@@ -233,7 +226,7 @@ $row_customer_data = mysqli_fetch_array($result_customer_data);
               
               <div class="input-box">
                 <label for="cus-name-e">Customer Name</label>
-                <input type="text" id="cus-name-e" name="customer_name" value="<?php echo $editResult['customer_name']; ?>">
+                <input type="text" id="cus-name-e" name="customer_name" value="<?php echo $editResult['firstname'],$editResult['lastname']; ?>">
               </div>
 
               <div class="column2">
@@ -244,9 +237,7 @@ $row_customer_data = mysqli_fetch_array($result_customer_data);
                 <div class="input-box">
                   <label for="room-n-a">Room No.</label>
                   <div class="column3">
-                    <input type="text" id="room-n-a" name="sta_room_no" value="<?php echo $editResult['sta_room_no']; ?>">
-                    <b>-</b>
-                    <input type="text" id="room-n-a" name="end_room_no" value="<?php echo $editResult['end_room_no']; ?>">
+                    <input type="text" id="room-n-a" name="room_no" value="<?php echo $editResult['room_no']; ?>">
                   </div>
                 </div>
               </div>
@@ -257,17 +248,17 @@ $row_customer_data = mysqli_fetch_array($result_customer_data);
                 </div>
                 <div class="input-box">
                   <label for="arr-date-e">Arriving Date</label>
-                  <input type="text" id="arr-date-e" name="arrive_date" value="<?php echo $editResult['arrive_date']; ?>">
+                  <input type="date" id="arr-date-e" name="arrive_date" value="<?php echo $editResult['arrive_date']; ?>">
                 </div>
                 <div class="input-box">
                   <label for="dep-date-e">Departure Date</label>
-                  <input type="text" id="dep-date-e" name="depart_date" value="<?php echo $editResult['depart_date']; ?>">
+                  <input type="date" id="dep-date-e" name="depart_date" value="<?php echo $editResult['depart_date']; ?>">
                 </div>
               </div>
 
             </div>
             <div class="popup-edit-button">
-              <a href="r_delete.php?reservation_id=<?php echo isset($editResult['reservation_id']) ? $editResult['reservation_id'] : ''; ?>" class="reservation-button-black">Delete</a>
+              <a href="r_delete.php?reservation_id=<?php echo isset($editResult['email']) ? $editResult['email'] : ''; ?>" class="reservation-button-black">Delete</a>
               <input type="submit" value="Edit" class="reservation-button-red">
               <a href="r_reservation.php" class="reservation-button-black">Cancel</a>
             </div>
