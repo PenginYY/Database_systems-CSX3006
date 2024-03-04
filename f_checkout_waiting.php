@@ -14,15 +14,15 @@
   />
 </head>
 <body>
-  <!-- Check-in Navbar -->
+  <!-- Check-out Navbar -->
   <div class="navbar">
     <nav class="navbar-container">
-      <a href="check_in.php">
+      <a href="f_checkout_waiting.php">
         <img src="./logo/Assumption_University(logo).png" alt="logo"/>
       </a>
       <ul class="navbar-left">
         <li>
-          <a href="check_in.php">
+          <a href="f_checkout_waiting.php">
             <h1>online hotel management system</h1>
           </a>
         </li>
@@ -30,28 +30,28 @@
 
       <ul class="navbar-right">
         <li>
-          <a href="./f_check_in.php">customer check-in</a>
+          <a href="f_checkin_waiting.php">customer check-in</a>
         </li>
         <li>
-          <a style="color:#d73938;" href="./f_check_out.php">customer check-out</a>
+          <a style="color:#d73938;" href="f_checkout_waiting.php">customer check-out</a>
         </li>
       </ul>
     </nav>
   </div>
 
-  <!-- Check-in -->
+  <!-- Check-out -->
   <div class="list-container">
     <div class="list-title">
       <h2>CUSTOMER CHECK-OUT</h2>
     </div>
 
-    <!-- Check-in Head -->
+    <!-- Check-out Head - Radio (WAITING LIST | IN-HOUSE) -->
     <div class="list-header">
       <div class="radio-days">
-        <input class="radio__input" type="radio" value="waitinglist" id="waitinglist" name="wait_in" checked>
-        <a href="./f_check_out.php" class="radio__label" for="waitinglist">WAITING LIST</a>
-        <input class="radio__input" type="radio" value="inhouse" id="inhouse" name="wait_in">
-        <a href="./f_check_out-inhouse.php" class="radio__label" for="inhouse">IN-HOUSE</a>
+        <input class="radio__input" type="radio" value="checkoutwaiting" id="checkoutwaiting" name="checkout_radio" checked>
+        <a href="f_checkout_waiting.php" class="radio__label" for="checkoutwaiting">WAITING LIST</a>
+        <input class="radio__input" type="radio" value="checkoutinhouse" id="checkoutinhouse" name="checkout_radio">
+        <a href="f_checkout_inhouse.php" class="radio__label" for="checkoutinhouse">IN-HOUSE</a>
       </div>
     </div>
     

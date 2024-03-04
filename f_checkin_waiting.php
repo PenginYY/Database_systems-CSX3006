@@ -17,12 +17,12 @@
   <!-- Check-in Navbar -->
   <div class="navbar">
     <nav class="navbar-container">
-      <a href="check_in.php">
+      <a href="f_checkin_waiting.php">
         <img src="./logo/Assumption_University(logo).png" alt="logo"/>
       </a>
       <ul class="navbar-left">
         <li>
-          <a href="check_in.php">
+          <a href="f_checkin_waiting.php">
             <h1>online hotel management system</h1>
           </a>
         </li>
@@ -30,10 +30,10 @@
 
       <ul class="navbar-right">
         <li>
-          <a style="color:#d73938;" href="./f_check_in.php">customer check-in</a>
+          <a style="color:#d73938;" href="f_checkin_waiting.php">customer check-in</a>
         </li>
         <li>
-          <a href="./f_check_out.php">customer check-out</a>
+          <a href="f_checkout_waiting.php">customer check-out</a>
         </li>
       </ul>
     </nav>
@@ -45,13 +45,13 @@
       <h2>CUSTOMER CHECK-IN</h2>
     </div>
 
-    <!-- Check-in Head -->
+    <!-- Check-in Head - Radio (WAITING LIST | IN-HOUSE) -->
     <div class="list-header">
       <div class="radio-days">
-        <input class="radio__input" type="radio" value="waitinglist" id="waitinglist" name="wait_in" checked>
-        <a href="./f_check_in.php" class="radio__label" for="waitinglist">WAITING LIST</a>
-        <input class="radio__input" type="radio" value="inhouse" id="inhouse" name="wait_in">
-        <a href="./f_check_in-inhouse.php" class="radio__label" for="inhouse">IN-HOUSE</a>
+        <input class="radio__input" type="radio" value="checkinwaiting" id="checkinwaiting" name="checkin_radio" checked>
+        <a href="f_checkin_waiting.php" class="radio__label" for="checkinwaiting">WAITING LIST</a>
+        <input class="radio__input" type="radio" value="checkininhouse" id="checkininhouse" name="checkin_radio">
+        <a href="f_checkin_inhouse.php" class="radio__label" for="checkininhouse">IN-HOUSE</a>
       </div>
     </div>
     
@@ -77,7 +77,7 @@
             <td class="list-td" style="text-align: center;">
               <a href="#popup-waitinglist" class="reservation-button-red">Select</a>
             </td>
-          </tr>
+          </tr>          
           <tr class="list-tr">
             <td class="list-td" style="text-align: left;"> 000002 </td>
             <td class="list-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Esther Howard </a></td>
