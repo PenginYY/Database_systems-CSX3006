@@ -4,6 +4,14 @@ session_start();
 require_once 'r_db.php';
 
 $result = display_data();
+
+//Query account data & customer data
+$sql_customer_data = "SELECT * FROM `account` AS a, `reservation AS r WHERE a.email = ? AND a.email=r.email";
+$stmt_customer_data = $conn->prepare($sql_customer_data);
+$stmt_customer_data->bind_param("s", $email);
+$stmt_customer_data->execute();
+$result_customer_data = $stmt_customer_data->get_result();
+$row_customer_data = mysqli_fetch_array($result_customer_data);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,7 +110,9 @@ $result = display_data();
           </thead>
           <tbody class="list-tbody">
             <?php
-              while($row = mysqli_fetch_assoc($result)){
+            
+              //while($row = mysqli_fetch_assoc($result)){
+              while($row_customer_data){
             ?>
               <td class="list-td" style="text-align: left;"><?php echo $row['reservation_no'];?></td>
               <td class="list-td" style="text-align: left;">
