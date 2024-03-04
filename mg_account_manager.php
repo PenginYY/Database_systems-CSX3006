@@ -1,10 +1,9 @@
 <?php
-session_start(); 
 require './DB_connect.php';
 
 //Query account table
 $sql_accounts = "SELECT *
-                 FROM `account` AS a, `employee` AS e WHERE a.email= e.email";
+                 FROM `account` AS a, `employee` AS e WHERE a.email= e.email ORDER BY a.firstname ASC";
     $stmt_accounts = $conn->prepare($sql_accounts);
     $stmt_accounts->execute();
     $result_accounts = $stmt_accounts->get_result();
@@ -44,9 +43,9 @@ $sql_accounts = "SELECT *
 </div>
 
 <div class="reservation">
-  <div class="reservation-header">
+  <div class="list-header">
+  <h2>ACCOUNT MANAGER</h2>
     <div class="reservation-title">
-      <h2>ACCOUNT MANAGER</h2>
     </div>
     <div style="display: flex; margin-top: 30px;">
       <div class="hotel-info-manager" style="margin-right: 20px;">
@@ -91,6 +90,39 @@ $sql_accounts = "SELECT *
     </table>
   </div>
 </div>
+
+<div class="overlay" id="popup-info">
+      <div class="popup-box">
+        <div class="container">
+          <div class="title"><h3>Employee Info</h3></div>
+            <div class="list-details">
+              <div class="column1">
+                <div class="list-info-box">
+                  <dt class="list-dt">Employee name</dt>
+                  <dd class="list-dd"><?php echo $readResult['reservation_id'];?></dd>
+                </div>
+
+                <div class="list-info-box">
+                  <dt class="list-dt">Email</dt>
+                  <dd class="list-dd"><?php echo $readResult['email']; ?></dd>
+                </div>
+              </div>
+
+                <div class="list-info-box">
+                  <dt class="list-dt">Address</dt>
+                  <dd class="list-dd"><?php echo $readResult['total_room']; ?></dd>
+                </div>
+                
+                <div class="list-info-box">
+                  <dt class="list-dt">Phone</dt>
+                  <dd class="list-dd"><?php echo $readResult['agent']; ?></dd>
+                </div>
+            </div>
+            <div class="popup-info-button">
+              <a href="./mg_account_manager.php" class="reservation-button-red">Done</a>
+            </div>
+        </div>
+      </div>
 </body>
 </html>
 
