@@ -1,3 +1,31 @@
+<?php
+session_start();
+
+require './DB_connect.php';
+
+  //Query reservation data and account data
+  //Show reservation number, total room, customer name
+  $email = $_SESSION['email'];
+  $sql_customer_data = "SELECT * FROM `reservation` AS r, `account` AS a WHERE r.email=a.email AND a.email = ?";
+  $stmt_customer_data = $conn->prepare($sql_customer_data);
+  $stmt_customer_data->bind_param("s", $email);
+  $stmt_customer_data->execute();
+  $result_customer_data = $stmt_customer_data->get_result();
+  $row_customer_data = mysqli_fetch_array($result_customer_data);
+
+
+  //Query reservation data
+  //Show room number
+  $rev_no = $row_customer_data['reservation_no'];
+  $sql_reserved_room = "SELECT * FROM `reserved_room` WHERE reservation_no = ?";
+  $stmt_reserved_room = $conn->prepare($sql_reserved_room);
+  $stmt_reserved_room->bind_param("i", $rev_no); 
+  $stmt_reserved_room->execute();
+  $result_reserved_room = $stmt_reserved_room->get_result();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +64,9 @@
           <li>
             <a href="./c_RoomandHotel.php" style="color: #d73938;">room & hotel info</a>
           </li>
+          <li>
+            <a href="./c_db_logout.php">Logout</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -48,29 +79,56 @@
         <h3 class="head">Room Information</h3>
         <table class="room-info">
           <tr>
-            <th class="head">resevation number</th>
+            <th class="head">reservation number</th>
             <th class="head">Total room</th>
           </tr>
 
           <tr>
-            <td class="sub-head">000005</td>
-            <td class="sub-head">3</td>
+            <td class="sub-head">
+              <?php 
+              $formatted_rev_no = sprintf("%06d", $rev_no);
+              echo $formatted_rev_no;?>
+            </td>
+            <td class="sub-head">
+              <?php $rev_no = $row_customer_data['total_room'];
+              $formatted_rev_no = sprintf("%04d", $rev_no);
+              echo $formatted_rev_no;?>
+            </td>
           </tr>
 
           <tr>
             <th class="head">customer name</th>
+            <th class="head">check-in date</th>
           </tr>
 
           <tr>
-            <td class="sub-head">Brooklyn Simmons</td>
+            <td class="sub-head">
+              <?php echo $row_customer_data['firstname'], " ", $row_customer_data['lastname'];?>
+            </td>
+            <td class="sub-head">
+              <?php echo $row_customer_data['arrive_date'];?>
+            </td>
           </tr>
 
           <tr>
             <th class="head">room number</th>
+            <th class="head">check-out date</th>
           </tr>
 
           <tr>
-            <td class="sub-head">123, 124, 125</td>
+            <td class="sub-head">
+              <?php
+              $all_rooms = array();
+              $rowcount = mysqli_num_rows($result_reserved_room);
+              while($rowcount > 0 && $row_room = mysqli_fetch_array($result_reserved_room)) {
+                $all_rooms[] = $row_room['room_no'];
+                $rowcount-=1;
+              }
+              echo  implode(", ", $all_rooms);?>
+            </td>
+            <td class="sub-head">
+              <?php echo $row_customer_data['depart_date'];?>
+            </td>
           </tr>
 
           <tr>
@@ -97,7 +155,7 @@
             </tr>
 
             <tr>
-              <td class="sub-head">cute.hotel@gmail.com</td>
+              <td class="sub-head">Bangkok.hotel@gmail.com</td>
             </tr>
 
             <tr>
@@ -113,8 +171,7 @@
             </tr>
 
             <tr>
-              <td class="sub-head">123 cute city, thailand koh lan nakorn 
-sithammarat rattanakosin road, 22980</td>
+              <td class="sub-head">99/9 Phra Khanong, Bangkok, Thailand 10260</td>
             </tr>
 
             <tr>
@@ -122,7 +179,7 @@ sithammarat rattanakosin road, 22980</td>
             </tr>
 
             <tr>
-              <td class="sub-head"><a href="#" style="color:black;">WWW.CUTE-HOTEL.COM</a></td>
+              <td class="sub-head"><a href="#" style="color:black;">WWW.INFO@HOTEL.CO</a></td>
             </tr>
           </table>
       </div>

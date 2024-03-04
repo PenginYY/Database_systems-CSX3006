@@ -21,7 +21,7 @@
       </nav>
     </div>
     
-    <form action="./c_signup_db.php" method="POST">
+    <form action="./c_db_signup.php" method="POST">
       <div class="signup-form">
         <div class="fill-info">
           <h1>Sign up</h1><br>

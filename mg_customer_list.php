@@ -1,3 +1,27 @@
+<?php
+session_start();
+require './DB_connect.php';
+
+// Check if search
+if(isset($_GET['search']) && !empty($_GET['search'])) {
+    $search = mysqli_real_escape_string($conn, $_GET['search']);
+    
+    // Query with search
+    $sql_customers = "SELECT r.*, a.firstname, a.lastname
+                      FROM reservation r
+                      LEFT JOIN account a ON r.email = a.email
+                      WHERE a.firstname LIKE '%$search%' OR a.lastname LIKE '%$search%'";
+} else {
+    // Query without search
+    $sql_customers = "SELECT r.*, a.firstname, a.lastname
+                      FROM reservation r
+                      LEFT JOIN account a ON r.email = a.email";
+}
+
+$result_accounts = $conn->query($sql_customers);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -56,12 +80,13 @@
           <input class="radio__input" type="radio" value="day3" name="days" id="day3">
           <label class="radio__label" for="day3"> TOMORROW </label>
         </div>
-        <div class="search-container">
-          <form class="search">
-              <input class="search-input" type="search" placeholder="Search">
-              <i class="fa-solid fa-magnifying-glass"></i>
-          </form>
-        </div>
+          <!-- Search Form -->
+        <form class="search" action="mg_customer_list.php" method="GET">
+          <div class="search-container">
+          <input class="search-input" type="search" placeholder="Search" name="search">
+          <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+        </form>
       </div>
 
       <!-- Customer Body -->
@@ -74,42 +99,20 @@
               <th class="list-th" style="text-align: center;">Agent</th>
               <th class="list-th" style="text-align: center;">Arrive</th>
               <th class="list-th" style="text-align: center;">Depart</th>
-              <th class="list-th" style="text-align: center;">Status</th>
             </tr>
           </thead>
           <tbody class="list-tbody">
-            <tr class="list-tr">
-              <td class="list-td" style="text-align: left;">00001</td>
-              <td class="list-td" style="text-align: left;">Chayapat Pangpond</td>
-              <td class="list-td" style="text-align: center;">Agoda</td>
-              <td class="list-td" style="text-align: center;">04/11/23</td>
-              <td class="list-td" style="text-align: center;">05/11/23</td>
-              <td class="list-td" style="text-align: center;">Checked-Out</td>
-            </tr>
-            <tr class="list-tr">
-              <td class="list-td" style="text-align: left;">00002</td>
-              <td class="list-td" style="text-align: left;">Esther Howard</td>
-              <td class="list-td" style="text-align: center;">Booking.com</td>
-              <td class="list-td" style="text-align: center;">04/11/23</td>
-              <td class="list-td" style="text-align: center;">06/11/23</td>
-              <td class="list-td" style="text-align: center;">In-house</td>
-            </tr>
-            <tr class="list-tr">
-              <td class="list-td" style="text-align: left;">00003</td>
-              <td class="list-td" style="text-align: left;">Brooklyn Simmons</td>
-              <td class="list-td" style="text-align: center;">Walk-in</td>
-              <td class="list-td" style="text-align: center;">04/11/23</td>
-              <td class="list-td" style="text-align: center;">05/11/23</td>
-              <td class="list-td" style="text-align: center;">Waiting</td>
-            </tr>
-            <tr class="list-tr">
-              <td class="list-td" style="text-align: left;">00004</td>
-              <td class="list-td" style="text-align: left;">Savannah Nguyen</td>
-              <td class="list-td" style="text-align: center;">Walk-in</td>
-              <td class="list-td" style="text-align: center;">04/11/23</td>
-              <td class="list-td" style="text-align: center;">11/11/23</td>
-              <td class="list-td" style="text-align: center;">In-house</td>
-            </tr>
+            <?php
+            while ($row = $result_accounts->fetch_assoc()) {
+              echo "<tr class='list-tr'>";
+              echo "<td class='list-td' style='text-align: left;'>{$row['reservation_no']}</td>";
+              echo "<td class='list-td' style='text-align: left;'>{$row['firstname']} {$row['lastname']}</td>";
+              echo "<td class='list-td' style='text-align: center;'>{$row['agent']}</td>";
+              echo "<td class='list-td' style='text-align: center;'>{$row['arrive_date']}</td>";
+              echo "<td class='list-td' style='text-align: center;'>{$row['depart_date']}</td>";
+              echo "</tr>";
+            }
+            ?>
           </tbody>
         </table>
       </div>

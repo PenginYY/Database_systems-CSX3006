@@ -41,7 +41,7 @@
         </tr>
 
         <tr>
-          <td><p class="body">cute.hotel@gmail.com</p></td>
+          <td><p class="body">Bangkok.hotel@gmail.com</p></td>
           <td><p class="body">02-333-1010</p></td>
         </tr>
 
@@ -51,18 +51,10 @@
         </tr>
 
         <tr>
-          <td class="body">123 cute city, thailand koh lan nakorn 
-            sithammarat rattanakosin road, 22980</td>
-          <td><p class="body">www.hotel.com</p></td>
+          <td class="body">99/9 Phra Khanong, Bangkok, Thailand 10260</td>
+          <td><p class="body">WWW.INFO@HOTEL.CO</p></td>
         </tr>
       </table>
-
-      <div class="edit-hotel-info" style="text-align: right;">
-        <!-- link to edit page -->
-        <a href="./mg_edit_hotel_info.php">
-        <button type="submit" name="submit" class="reservation-button-red">Edit</button>
-        </a>
-      </div>
     </div>
   </body>
 </html>

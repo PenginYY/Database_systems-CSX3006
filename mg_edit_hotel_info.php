@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,9 +6,9 @@
     <title>Hotel Information Page</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body> -->
     <!-- Hotel info -->
-    <div class="navbar">
+    <!-- <div class="navbar">
       <nav class="navbar-container">
         <a href="mg_hotel_info.php"
           ><img src="./logo/Assumption_University(logo).png" alt="logo"
@@ -19,9 +19,9 @@
               ><h1>online hotel management system</h1></a
             >
           </li>
-        </ul>
+        </ul> -->
         <!-- To select other features -->
-        <ul class="navbar-right">
+        <!-- <ul class="navbar-right">
           <li>
             <a href="./mg_account_manager.php" style="color: #d73938;">account manager</a>
           </li>
@@ -30,9 +30,9 @@
           </li>
         </ul>
       </nav>
-    </div>
+    </div> -->
 
-    <h1 class="title_customer">Edit Hotel Information</h1>
+    <!-- <h1 class="title_customer">Edit Hotel Information</h1>
     <div class="account-info">
       <table>
         <tr>
@@ -90,12 +90,12 @@
         </tr>
       </table>
 
-      <div class="edit-hotel-info" style="text-align: right;">
+      <div class="edit-hotel-info" style="text-align: right;"> -->
         <!-- link to edit page -->
-        <a href="./mg_hotel_info.php">
+        <!-- <a href="./mg_hotel_info.php">
         <button type="submit" name="submit" class="reservation-button-red">Done</button>
         </a>
       </div>
     </div>
   </body>
-</html>
+</html> -->

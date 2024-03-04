@@ -1,4 +1,17 @@
-<?php session_start(); ?>
+<?php session_start(); 
+require './DB_connect.php';
+
+//Show data from Account table and Customer table
+$email = $_SESSION['email'];
+$sql_customer_data = "SELECT * FROM `account` AS a, `customer` AS c WHERE a.email = ? AND a.email=c.email";
+$stmt_customer_data = $conn->prepare($sql_customer_data);
+$stmt_customer_data->bind_param("s", $email);
+$stmt_customer_data->execute();
+$result_customer_data = $stmt_customer_data->get_result();
+$row_customer_data = mysqli_fetch_array($result_customer_data);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,25 +42,17 @@
           <li>
             <a href="./c_RoomandHotel.php">room & hotel info</a>
           </li>
+          <li>
+            <a href="./c_db_logout.php">Logout</a>
+          </li>
         </ul>
       </nav>
     </div>
 
-    <?php
-        $email = $_SESSION['email'];
-        $sql = "SELECT * FROM `Account` WHERE email = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        $row = mysqli_fetch_array($result);
-    ?>
-
-    <form action="./c_edit_personal_db.php" method="POST">
+    <form action="./c_db_edit_personal.php" method="POST" class="table-customer-info">
       <h1 class="title_customer">personal information</h1>
       <div class="account-info">
-        <table>
+        <table class="table-customer-info">
           <tr>
             <th class="head">customer name</th>
             <th class="head">address</th>
@@ -60,7 +65,7 @@
               <input type="text"
               id="name"
               name="name"
-              value=<?php echo $row['name']; ?>
+              value="<?php echo $row_customer_data['firstname']; ?>"
               >
             </p>
           </td>
@@ -73,7 +78,7 @@
                 type="text"
                 id="address"
                 name="address"
-                value=<?php echo $row['address']; ?>
+                value="<?php echo $row_customer_data['address']; ?>"
               />
             </p>
             </td>
@@ -86,11 +91,11 @@
                 <input type="text"
                 id="surname"
                 name="surname"
-                value=<?php echo $row['surname']; ?>
+                value="<?php echo $row_customer_data['lastname']; ?>"
                 >
                 </p>
             </td>
-            <th class="head">emergency call</th>
+            <th class="head">emergency contact</th>
           </tr>
 
           <tr>
@@ -101,7 +106,7 @@
               <input type="text"
                 id="name"
                 name="rel-name"
-                value="Esther Howard"
+                value="<?php echo $row_customer_data['emergency_name'];?>"
                 >
               </p>
             </td>
@@ -111,14 +116,14 @@
             <td class="sub-head">
               <label for="birthday">DD/MM/YYYY</label>
               <p class="body">
-              <input type="date" id="birthday" name="birthday">
+              <input type="date" id="birthday" name="birthday" value="<?php echo $row_customer_data['birthdate']; ?>">
               </p>
             </td>
 
             <td class="sub-head">
               <label for="phone">telephone</label>
               <p class="body">
-              <input type="tel" id="phone" name="rel-phone" placeholder="099-999-9999" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+              <input type="tel" id="phone" name="rel-phone" value="<?php echo $row_customer_data['emergency_phone'];?>">
               </p>
           </tr>
 
@@ -130,6 +135,8 @@
                 <select id="relationships" name="relationships" style="font-size: 15px; ">
                 <option value="parent">Parent</option>
                 <option value="sibling">Sibling</option>
+                <option value="sibling">Significant Other</option>
+                <option value="sibling">Daughter/Son</option>
                 <option value="relative">Relative</option>
                 <option value="friend">Friend</option>
                 <option value="other">Other</option>
@@ -142,7 +149,7 @@
             <td class="sub-head">
               <label for="telephone">TEL.XXX-XXX-XXXX</label>
               <p class="body">
-              <input type="tel" id="phone" name="cus-phone" placeholder="099-999-9999" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+              <input type="tel" id="phone" name="cus-phone" value="<?php echo $row_customer_data['phone'];?>">
               </p>
             </td>
 
@@ -157,3 +164,4 @@
     </form>
 </body>
 </html>
+

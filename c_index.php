@@ -21,7 +21,7 @@
       </nav>
     </div>
 
-    <form action="c_login_db.php" method="post">
+    <form action="c_login_db.php" method="POST">
       <div class="login-form">
         <div class="fill-info">
           <h1>Login</h1>
