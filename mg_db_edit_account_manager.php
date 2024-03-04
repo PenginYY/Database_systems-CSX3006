@@ -1,56 +1,44 @@
 <?php
+session_start();
 require('./DB_connect.php');
 
-function display_data() {
-    global $conn;
-    $query = "SELECT * FROM employee";
-    $result = mysqli_query($conn, $query);
-    return $result;
-}
+// Check if the form is submitted via POST
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Check if the email is provided through POST data
+    if (isset($_POST['email'])) {
+        // Assign POST data to variables
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $address = $_POST['address'];
+        $birthdate = $_POST['birthdate'];
+        $phone = $_POST['phone'];
+        $role = $_POST['role'];
 
-if (isset($_POST['submit'])) {
-    // account table
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $address = $_POST['address'];
-    $birthdate = $_POST['birthdate'];
-    $phone = $_POST['phone'];
-    // employee table
-    $role = $_POST['role'];
+        // Prepare and execute the update statements
+        $sql_account = "UPDATE account SET password=?, firstname=?, lastname=?, address=?, birthdate=?, phone=? WHERE email=?";
+        $stmt1 = $conn->prepare($sql_account);
+        $stmt1->bind_param("sssssss", $password, $firstname, $lastname, $address, $birthdate, $phone, $email);
 
-    if (!isset($_SESSION['email'])) {
-        echo "Error: Session email not found.";
-        exit;
-    }
-
-    $sql_account = "UPDATE account SET password=?, firstname=?, lastname=?, address=?, birthdate=?, phone=? WHERE email= ?";
-
-    $stmt1 = $conn->prepare($sql_account);
-    $stmt1->bind_param("ssssss", $password, $firstname, $lastname, $address, $birthdate, $phone, $_SESSION['email']);
-
-    if (!$stmt1->execute()) {
-        $error = "Error updating account: " . $stmt1->error;
-    } else {
-        // updating the employee role table
-        $sql_employee = "UPDATE employee SET role=? WHERE email= ?";
-
+        $sql_employee = "UPDATE employee SET role=? WHERE email=?";
         $stmt2 = $conn->prepare($sql_employee);
-        $stmt2->bind_param("ss", $role, $_SESSION['email']);
+        $stmt2->bind_param("ss", $role, $email);
 
-        if (!$stmt2->execute()) {
-            $error = "Error updating account: " . $stmt2->error;
+        // Execute the statements and handle errors
+        if ($stmt1->execute() && $stmt2->execute()) {
+            echo "Record updated successfully";
+            header("Location: mg_account_manager.php");
+            exit();
+        } else {
+            echo "Error updating record: " . $conn->error;
         }
-    }
 
-    if (isset($error)) {
-        echo $error;
-        exit;
+        // Close the prepared statements
+        $stmt1->close();
+        $stmt2->close();
+    } else {
+        echo "Email is not provided.";
     }
-    
-    // Both updates successful, redirect to success page
-    header("Location: http://localhost:3000/mg_account_manager.php");
-    exit;
 }
 ?>

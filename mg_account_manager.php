@@ -74,11 +74,15 @@ $sql_accounts = "SELECT *
         <?php
         while ($rowcount > 0 && $row = mysqli_fetch_array($result_accounts)) {
           echo "<tr class='list-tr'>";
-          echo "<td class='list-td' style='text-align: left;'><a href='#popup-info' style='text-decoration: none; color: black;'>{$row['firstname']} {$row['lastname']}</a></td>";
+          echo "<td class='list-td' style='text-align: left;'>
+                <a style='text-decoration: none; color: black;' href='mg_account_manager.php?email={$row["email"]}#popup-info'>
+                  {$row['firstname']} {$row['lastname']}
+                </a>
+                </td>";
           echo "<td class='list-td' style='text-align: left;'>{$row['email']}</td>";
           echo "<td class='list-td' style='text-align: left;'>{$row['role']}</td>";
           echo "<td class='list-td' style='text-align: center;'> 
-                <a href='./mg_edit_account_manager.php' class='reservation-button-edit'>
+                <a class='reservation-button-edit' href='./mg_edit_account_manager.php?email={$row["email"]}'>
                   <i class='fa-regular fa-pen-to-square'></i>
                 </a>
               </td>";
@@ -91,7 +95,25 @@ $sql_accounts = "SELECT *
   </div>
 </div>
 
-<div class="overlay" id="popup-info">
+    <?php
+    require_once('./DB_connect.php');
+    $email = isset($_GET["email"]) ? $_GET["email"] : null;
+    if ($email) {
+      $stmt = $conn->prepare("SELECT * FROM `account` AS a, `employee` AS e WHERE a.email= e.email AND a.email= ? ORDER BY a.firstname ASC");
+      $stmt->bind_param("i", $email);
+      $stmt->execute();
+      $result = $stmt->get_result();
+  
+      if ($result->num_rows > 0) {
+          $readResult = $result->fetch_assoc();
+      } else {
+          echo "Email not found: " . $_GET["email"];
+      }
+  
+      $stmt->close();
+    }
+    ?>
+    <div class="overlay" id="popup-info">
       <div class="popup-box">
         <div class="container">
           <div class="title"><h3>Employee Info</h3></div>
@@ -99,7 +121,7 @@ $sql_accounts = "SELECT *
               <div class="column1">
                 <div class="list-info-box">
                   <dt class="list-dt">Employee name</dt>
-                  <dd class="list-dd"><?php echo $readResult['reservation_id'];?></dd>
+                  <dd class="list-dd"><?php echo $readResult['firstname'], " ", $readResult['lastname'];?></dd>
                 </div>
 
                 <div class="list-info-box">
@@ -110,12 +132,12 @@ $sql_accounts = "SELECT *
 
                 <div class="list-info-box">
                   <dt class="list-dt">Address</dt>
-                  <dd class="list-dd"><?php echo $readResult['total_room']; ?></dd>
+                  <dd class="list-dd"><?php echo $readResult['address']; ?></dd>
                 </div>
                 
                 <div class="list-info-box">
                   <dt class="list-dt">Phone</dt>
-                  <dd class="list-dd"><?php echo $readResult['agent']; ?></dd>
+                  <dd class="list-dd"><?php echo $readResult['phone']; ?></dd>
                 </div>
             </div>
             <div class="popup-info-button">

@@ -1,6 +1,6 @@
 <?php
 require './DB_connect.php';
-
+/*
     //Account table
     $email = $_SESSION['email'];
     $sql_account = "SELECT * FROM `account` WHERE email = ?";
@@ -17,7 +17,9 @@ require './DB_connect.php';
     $stmt->execute();
     $result_employee = $stmt->get_result();
     $row_employee = mysqli_fetch_array($result_employee);
-
+*/
+    $sql_accounts = "SELECT *
+    FROM `account` AS a, `employee` AS e WHERE a.email= e.email AND a.email= ? ORDER BY a.firstname ASC";
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +56,26 @@ require './DB_connect.php';
       </nav>
     </div>
 
-    <form action="./mg_db_edit_account_manager.php" method="POST" class="table-customer-info">
+
+    <?php
+     require_once('./DB_connect.php');
+     $email = isset($_GET["email"]) ? $_GET["email"] : null;
+     if ($email) {
+      $stmt = $conn->prepare("SELECT * FROM `account` AS a, `employee` AS e WHERE a.email= e.email AND a.email= ? ORDER BY a.firstname ASC");
+      $stmt->bind_param("s", $email);
+      $stmt->execute();
+      $result = $stmt->get_result();
+  
+      if ($result->num_rows > 0) {
+          $editResult = $result->fetch_assoc();
+      } else {
+          echo "email not found: " . $_GET["email"];
+      }
+  
+      $stmt->close();
+     }
+    ?>
+    <form action="./mg_db_edit_account_manager.php" method="post">
       <h1 class="title_customer">edit personal information</h1>
       <div class="account-info">
 
@@ -75,7 +96,7 @@ require './DB_connect.php';
             <input type="text"
             id="firstname"
             name="firstname"
-            value="<?php echo $row_account['firstname']; ?>"
+            value="<?php echo $editResult['firstname']; ?>"
             >
             </p>
           </td>
@@ -89,7 +110,7 @@ require './DB_connect.php';
               type="text"
               id="address"
               name="address"
-              value="<?php echo $row_account['address']; ?>"
+              value="<?php echo $editResult['address']; ?>"
               />
               </p>
             </td>
@@ -101,7 +122,7 @@ require './DB_connect.php';
               <input type="text"
               id="lastname"
               name="lastname"
-              value="<?php echo $row_account['lastname']; ?>"
+              value="<?php echo $editResult['lastname']; ?>"
               >
               </p>
             <!-- Email Input Slot -->
@@ -109,7 +130,7 @@ require './DB_connect.php';
               <input type="text"
               id="email" 
               name="email"
-              value="<?php echo $row_account['email']; ?>"
+              value="<?php echo $editResult['email']; ?>"
               >
               </p>
             </tr>
@@ -129,7 +150,7 @@ require './DB_connect.php';
                 <input type="date"
                 id="birthdate"
                 name="birthdate"
-                value="<?php echo $row_account['birthdate']; ?>"
+                value="<?php echo $editResult['birthdate']; ?>"
                 >
                 </p>
               </td>
@@ -139,7 +160,7 @@ require './DB_connect.php';
                 <input type="text"
                   id="password"
                   name="password"
-                  value="<?php echo $row_account['password']; ?>"
+                  value="<?php echo $editResult['password']; ?>"
                   >
                  </p>
               </td>
@@ -154,8 +175,8 @@ require './DB_connect.php';
                 <!-- Roles options -->
                 <p class="body">
                   <select id="role" name="role" style="font-size: 50px; ">
-                  <option value="Reservation Staff">Reservation Staff</option>
-                  <option value="Front Desk Staff">Front Desk Staff</option>
+                  <option value="Reservation Staff" <?php if ($editResult['role'] == "Reservation Staff") echo "selected"; ?>>>Reservation Staff</option>
+                  <option value="Front Desk Staff" <?php if ($editResult['role'] == "Front Desk Staff") echo "selected"; ?>>>Front Desk Staff</option>
                   </select>
                 </p>
               </td>
@@ -169,17 +190,18 @@ require './DB_connect.php';
                 <input type="text"
                 id="phone"
                 name="phone"
-                value="<?php echo $row_account['phone']; ?>"
+                value="<?php echo $editResult['phone']; ?>"
                 >
                 </p>
               </td>
             </tr>
       </table>
         <div class="edit-personal-info">
-        <a href="./mg_account_manager.php"><p class="account">cancel</p> </a>
+          <a href="./mg_account_manager.php"><p class="account">cancel</p></a>
           <!-- link to edit page -->
-          <button type="submit" name="submit" class="button">Done</button>
-          </a>
+          <!--<button type="submit" name="submit" class="button">Done</button>-->
+          <input type="submit" value="Done" class="reservation-button-red">
+          <input type="hidden" name="email" value="<?php echo $email; ?>">
         </div>
       </form>
 </body>
