@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Check-in</title>
+  <title>Customer Check-out</title>
   <link rel="stylesheet" href="style.css"/>
   <link
     rel="stylesheet"
@@ -14,15 +14,15 @@
   />
 </head>
 <body>
-  <!-- Check-in Navbar -->
+  <!-- Check-out Navbar -->
   <div class="navbar">
     <nav class="navbar-container">
-      <a href="f_checkin_inhouse.php">
+      <a href="f_checkout_waiting.php">
         <img src="./logo/Assumption_University(logo).png" alt="logo"/>
       </a>
       <ul class="navbar-left">
         <li>
-          <a href="f_checkin_inhouse.php">
+          <a href="f_checkout_waiting.php">
             <h1>online hotel management system</h1>
           </a>
         </li>
@@ -30,16 +30,16 @@
 
       <ul class="navbar-right">
         <li>
-          <a style="color:#d73938;" href="f_checkin_inhouse.php">customer check-in</a>
+          <a href="f_checkin_waiting.php">customer check-in</a>
         </li>
         <li>
-          <a href="f_checkout_waiting.php">customer check-out</a>
+          <a style="color:#d73938;" href="f_checkout_waiting.php">customer check-out</a>
         </li>
       </ul>
     </nav>
   </div>
 
-  <!-- Check-in - update paid amount -->
+  <!-- Check-out -->
   <div class="list-container">
     <?php
     // Include database connection file
@@ -93,15 +93,18 @@
     // Close database connection
     mysqli_close($conn);
     ?>
-    <!-- Display form for updating paid amount -->
+    <!-- Display paid amount -->
     <br><br>
-    <form action="f_action_update.php" method="post">
-        <label for="paidamount"> Paid Amount: </label>
-        <input type="text" name="paidamount" placeholder="<?php echo $paidamount; ?>" style="width: 65px;">
+    <label for="paidamount"> Paid Amount: <?php echo $paidamount; ?></label>
+
+    <!-- Check-out Button -->
+    <br><br>
+    <form action="f_action_checkout.php" method="post">
         <input type='hidden' name='reservation_no' value='<?php echo $reservation_no; ?>'>
-        <button class="reservation-button-red">Update</button>
+        <button class="reservation-button-red">Check-out</button>
     </form>
-    <a href="f_checkin_inhouse.php" class="reservation-button-black">Cancel</a>
+    <br>
+    <a href="f_checkout_waiting.php" class="reservation-button-black">Cancel</a>
   </div>
 
 </body>

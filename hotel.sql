@@ -285,7 +285,6 @@ DELETE FROM in_house WHERE depart_date = CURDATE();
         /* f_checkin_inhouse_select */
             /*Same as f_checkin_waiting_select for
               Fecth the selected reservation information
-              and
               Fecth room numbers associated with the selected reservation */
             /* Fecth paid amount associated with the selected reservation */
             SELECT amount
@@ -296,15 +295,28 @@ DELETE FROM in_house WHERE depart_date = CURDATE();
             UPDATE paid SET amount = $paidamount
             WHERE reservation_no = $reservation_no;
 
+    /* f_checkout_waiting */
+        SELECT reservation_no, email, firstname, lastname, agent, total_room, arrive_date, depart_date
+        FROM reservation JOIN customer USING(email) JOIN account USING(email)
+        WHERE depart_date = CURDATE() AND reservation_no IN (SELECT reservation_no FROM in_house)
+        ORDER BY arrive_date ASC;
+        /* f_checkout_waiting_select */
+            /*Same as f_checkin_inhouse_select for
+              Fecth the selected reservation information
+              Fecth room numbers associated with the selected reservation
+              Fecth paid amount associated with the selected reservation */
+        /* f_action_checkout */
+            /* Check-out: delete the selected reservation from the in_house table */
+            DELETE FROM in_house
+            WHERE reservation_no = $reservation_no;
 
-/* checkout_waiting */
-SELECT reservation_no, email, firstname, lastname, agent, total_room, arrive_date, depart_date
-FROM reservation JOIN customer USING(email) JOIN account USING(email)
-WHERE depart_date = CURDATE() AND reservation_no IN (SELECT reservation_no FROM in_house)
-ORDER BY arrive_date ASC;
-
-/* checkout_inhouse */
-SELECT reservation_no, email, firstname, lastname, agent, total_room, arrive_date, depart_date
-FROM reservation JOIN customer USING(email) JOIN account USING(email)
-WHERE depart_date > CURDATE() AND reservation_no IN (SELECT reservation_no FROM in_house)
-ORDER BY arrive_date ASC;
+    /* f_checkout_inhouse */
+        SELECT reservation_no, email, firstname, lastname, agent, total_room, arrive_date, depart_date
+        FROM reservation JOIN customer USING(email) JOIN account USING(email)
+        WHERE depart_date > CURDATE() AND reservation_no IN (SELECT reservation_no FROM in_house)
+        ORDER BY arrive_date ASC;
+        /* f_checkout_waiting_select */
+        /*Same as f_checkin_inhouse_select for
+          Fecth the selected reservation information
+          Fecth room numbers associated with the selected reservation
+          Fecth paid amount associated with the selected reservation */
