@@ -55,12 +55,14 @@
       </div>
     </div>
     
-    <!-- Check-in Body -->
+    <!-- Check-out Body -->
     <div class="list-body">
       <table class="list-table">
+        <!-- Table headers -->
         <thead class="list-thead">
           <tr class="list-tr">
             <th class="list-th" style="text-align: left;"> Reservation No. </th>
+            <th class="list-th" style="text-align: left;"> Email </th>
             <th class="list-th" style="text-align: left;"> Customer Name </th>
             <th class="list-th" style="text-align: center;"> Agent </th>
             <th class="list-th" style="text-align: center;"> Arrive </th>
@@ -68,94 +70,44 @@
           </tr>
         </thead>
         <tbody class="list-tbody">
-          <tr class="list-tr">
-            <td class="list-td" style="text-align: left;"> 000001 </td>
-            <td class="list-td" style="text-align: left;"><a href="#popup-in-house" style="text-decoration: none; color: black;"> Chayapat Pangpon </a></td>
-            <td class="list-td" style="text-align: center;"> Agoda </td>
-            <td class="list-td" style="text-align: center;"> 04/11/23 </td>
-            <td class="list-td" style="text-align: center;"> 05/11/23 </td>
-            <td class="list-td" style="text-align: center;">
-              <a href="#popup-waitinglist" class="reservation-button-red">Select</a>
-            </td>
-          </tr>
-          <tr class="list-tr">
-            <td class="list-td" style="text-align: left;"> 000003 </td>
-            <td class="list-td" style="text-align: left;"><a href="#popup-info" style="text-decoration: none; color: black;"> Brooklyn Simmons </a></td>
-            <td class="list-td" style="text-align: center;"> Walk-in </td>
-            <td class="list-td" style="text-align: center;"> 04/11/23 </td>
-            <td class="list-td" style="text-align: center;"> 05/11/23 </td>
-            <td class="list-td" style="text-align: center;">
-              <a href="#popup-waitinglist" class="reservation-button-red">Select</a>
-            </td>
-          </tr>
+          <?php
+          // Include database connection file
+          require_once "DB_connect.php";
+
+          // Fetch reservations from the database
+          $query = "SELECT reservation_no, email, firstname, lastname, agent, total_room, arrive_date, depart_date
+                    FROM reservation JOIN customer USING(email) JOIN account USING(email)
+                    WHERE depart_date = CURDATE() AND reservation_no IN (SELECT reservation_no FROM in_house)
+                    ORDER BY arrive_date ASC;";
+          $result = mysqli_query($conn, $query);
+
+          // Loop through the results and display each reservation
+          while ($row = mysqli_fetch_assoc($result)) {
+            $formatted_reservation_no = sprintf("%06d", $row['reservation_no']);
+            echo "<tr class='list-tr'>";
+            echo "<td class='list-td' style='text-align: left;'>" . $formatted_reservation_no . "</td>";
+            echo "<td class='list-td' style='text-align: left;'>" . $row['email'] . "</td>";
+            echo "<td class='list-td' style='text-align: left;'>" . $row['firstname'] . " " . $row['lastname'] . "</td>";
+            echo "<td class='list-td' style='text-align: center;'>" . $row['agent'] . "</td>";
+            echo "<td class='list-td' style='text-align: center;'>" . $row['arrive_date'] . "</td>";
+            echo "<td class='list-td' style='text-align: center;'>" . $row['depart_date'] . "</td>";
+            echo "<td class='list-td' style='text-align: center;'>";
+            // Form to submit the selected reservation's reservation_no
+            echo "<form action='f_checkout_waiting_select.php' method='post'>";
+            echo "<input type='hidden' name='reservation_no' value='" . $row['reservation_no'] . "'>";
+            echo "<button type='submit' class='reservation-button-red'>Select</button>";
+            echo "</form>";
+            echo "</td>";
+            echo "</tr>";
+          }
+
+          // Close database connection
+          mysqli_close($conn);
+          ?>
         </tbody>
       </table>
     </div>
-  </div>
-
   
-
-  <!-- Select Waiting List -->
-  <div class="overlay" id="popup-waitinglist">
-    <div class="popup-box">
-      <div class="container">
-        <div class="title"><h3>Customer Check-out</h3></div>
-        <div class="list-details">
-        
-          <div class="column1">
-            <div class="list-info-box">
-              <dt class="list-dt">Reservation No.</dt>
-              <dd class="list-dd">000001</dd>
-            </div>
-            <div class="list-info-box">
-              <dt class="list-dt">Email</dt>
-              <dd class="list-dd">chayapat@gmail.com</dd>
-            </div>
-          </div>
-
-          <div class="list-info-box">
-            <dt class="list-dt">Customer Name</dt>
-            <dd class="list-dd">Chayapat Pangpond</dd>
-          </div>
-          
-          <div class="column4">
-            <div class="list-info-box">
-              <dt class="list-dt">Agent</dt>
-              <dd class="list-dd">Agoda</dd>
-            </div>
-            <div class="list-info-box">
-              <dt class="list-dt">Arriving Date</dt>
-              <dd class="list-dd">04/11/23</dd>
-            </div>
-            <div class="list-info-box">
-              <dt class="list-dt">Departure Date</dt>
-              <dd class="list-dd">05/11/23</dd>
-            </div>
-          </div>
-          
-          <div class="column4">
-            <div class="list-info-box">
-              <dt class="list-dt">Total Room(s)</dt>
-              <dd class="list-dd">01</dd>
-            </div>
-            <div class="list-info-box">
-              <dt class="list-dt">Room No.</dt>
-              <dd class="list-dd">001 - 001</dd>
-            </div>
-            <div class="list-info-box">
-              <dt class="list-dt">Paid Amount</dt>
-              <dd class="list-dd">1,600.00</dd>
-            </div>
-          </div>
-        
-        </div>
-        <div class="popup-add-button">
-          <a href="#" class="reservation-button-red">Check-out</a> <!--need to change href to delete database-->
-          <a href="#" class="reservation-button-black">Cancel</a>
-        </div>
-      </div>
-    </div>
   </div>
-
 </body>
 </html>
