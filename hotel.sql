@@ -4,9 +4,7 @@ MySQL Tutorial, MySQL Basics: https://www.mysqltutorial.org/mysql-basics/
 email VARCHAR(319): https://dba.stackexchange.com/questions/37014/in-what-data-TYPE-should-i-store-an-email-address-in-database
 */
 
-/*
-CREATE TABLE
-*/
+/* CREATE TABLE */
 
 CREATE TABLE room (
     room_no NUMERIC(4),
@@ -26,7 +24,7 @@ CREATE TABLE account(
 
 CREATE TABLE employee(
     email   VARCHAR(319)    DEFAULT 'deleted',
-    role    ENUM('Reservation Staff', 'Front Desk Staff')   NOT NULL,
+    role    ENUM('Reservation Staff', 'Front Desk Staff') NOT NULL,
     PRIMARY KEY(email),
     FOREIGN KEY(email) REFERENCES account(email)
         ON DELETE CASCADE
@@ -47,7 +45,7 @@ CREATE TABLE customer(
 CREATE TABLE reservation(
     reservation_no  INT AUTO_INCREMENT,
     email           VARCHAR(319)        NOT NULL    DEFAULT 'deleted',
-    agent           ENUM('Walk-in', '') NOT NULL,
+    agent           ENUM('Walk-in', 'Agoda', 'Booking.com') NOT NULL,
     total_room      NUMERIC(3)          NOT NULL	CHECK (total_room >= 1 AND total_room <= 100),
     arrive_date     DATE                NOT NULL,
     depart_date     DATE                NOT NULL,
@@ -86,9 +84,7 @@ CREATE TABLE reserved_room(
         ON UPDATE CASCADE
 );
 
-/*
-Populate the Database
-*/
+/* Populate the Database */
 
 /*
 INSERT INTO room
@@ -108,38 +104,74 @@ VALUES
 
 /*
 INSERT INTO account
-- a row for deleted accounts
+    The first row is a row for deleted accounts.
 */
 INSERT INTO account(email, password, firstname, lastname, address, birthdate, phone)
 VALUES
-    ('deleted', 'deleted', 'deleted', 'deleted', null, null, null),
-    ('employee1@email.com', 'employee543', 'Firstem', 'Lastem', null, null, null),
-    ('abc@gmail.com', 'qwerty123', 'First', 'Last', '123 Party Rd. Muang Rayong Rayong 21150 Thailand', '2000-10-29', '0123456789');
+    ('deleted',             'deleted',     'deleted',   'deleted',  null, null, null),    /* deleted accounts */
+    ('edna@gmail.com',      'employee123', 'Edna',      'Mode',     null, null, null),    /* employee1 Edna Mode */
+    ('randle@gmail.com',    'employee123', 'Randle',    'McMurphy', null, null, null),    /* employee2 Randle McMurphy */
+    ('optimus@gmail.com',   'employee123', 'Optimus',   'Prime',    null, null, null),    /* employee3 Optimus Prime */
+    ('norman@gmail.com',    'employee123', 'Norman',    'Bates',    null, null, null),    /* employee4 Norman Bates */
+    ('wednesday@gmail.com', 'employee123', 'Wednesday', 'Addams',   null, null, null),    /* employee5 Wednesday Addams */
+    ('inigo@gmail.com',     'employee123', 'Inigo',     'Montoya',  null, null, null),    /* employee6 Inigo Montoya */
+    ('sherman@gmail.com',   'qwerty123',   'Sherman',   'Peabody',  null, null, null),    /* customer1 Sherman Peabody */
+    ('chayapat@gmail.com',  'qwerty123',   'Chayapat',  'Pangpon',  null, null, null),    /* customer2 Chayapat Pangpon */
+    ('esther@gmail.com',    'qwerty123',   'Esther',    'Howard',   null, null, null),    /* customer3 Esther Howard */
+    ('brooklyn@gmail.com',  'qwerty123',   'Brooklyn',  'Simmons',  null, null, null),    /* customer4 Brooklyn Simmons */
+    ('savannah@gmail.com',  'qwerty123',   'Savannah',  'Nguyen',   null, null, null),    /* customer5 Savannah Nguyen */
+    ('somsak@gmail.com',    'qwerty123',   'Somsak',    'Arthit',   null, null, null),    /* customer6 Somsak Arthit */
+    ('mali@gmail.com',      'qwerty123',   'Mali',      'Kittisak', null, null, null),    /* customer7 Mali Kittisak */
+    ('forrest@gmail.com',   'qwerty123',   'Forrest',   'Gump',     null, null, null),    /* customer8 Forrest Gump */
+    ('jack@gmail.com',      'qwerty123',   'Jack',      'Sparrow',  null, null, null);    /* customer9 Jack Sparrow */
+  /*('abc@gmail.com', 'qwerty123', 'First', 'Last', '123 Party Rd. Muang Rayong Rayong 21150 Thailand', '2000-10-29', '0123456789');*/
 
 /*
 INSERT INTO employee
 */
 INSERT INTO employee(email, role)
 VALUES
-    ('employee1@email.com', 'Reservation Staff');
+    ('edna@gmail.com',      'Reservation Staff'),
+    ('randle@gmail.com',    'Reservation Staff'),
+    ('optimus@gmail.com',   'Reservation Staff'),
+    ('norman@gmail.com',    'Front Desk Staff'),
+    ('wednesday@gmail.com', 'Front Desk Staff'),
+    ('inigo@gmail.com',     'Front Desk Staff');
 
 
 /*
 INSERT INTO customer
-- a row for deleted accounts
+    The first row is a row for deleted accounts.
 */
 INSERT INTO customer(email, emergency_name, emergency_phone, emergency_relationship)
 VALUES
-    ('deleted', null, null, null),
-    ('abc@gmail.com', 'Mr.Name', '0987654321', 'Parent');
+    ('deleted',            null, null, null), /* deleted accounts */
+    ('sherman@gmail.com', 'Mr.Hector Peabody', '0987654321', 'Parent'), /* customer1 Sherman Peabody */
+    ('chayapat@gmail.com', null, null, null), /* customer2 Chayapat Pangpon */
+    ('esther@gmail.com',   null, null, null), /* customer3 Esther Howard */
+    ('brooklyn@gmail.com', null, null, null), /* customer4 Brooklyn Simmons */
+    ('savannah@gmail.com', null, null, null), /* customer5 Savannah Nguyen */
+    ('somsak@gmail.com',   null, null, null), /* customer6 Somsak Arthit */
+    ('mali@gmail.com',     null, null, null), /* customer7 Mali Kittisak */
+    ('forrest@gmail.com',  null, null, null), /* customer8 Forrest Gump */
+    ('jack@gmail.com',     null, null, null); /* customer9 Jack Sparrow */
 
 /*
 INSERT INTO reservation
-reservation(reservation_no) is AUTO_INCREMENT
+    reservation(reservation_no) is AUTO_INCREMENT
 */
 INSERT INTO reservation(email, agent, total_room, arrive_date, depart_date)
 VALUES
-    ('abc@gmail.com', 'Walk-in', 2, '2023-05-25', '2023-05-28');
+    ('sherman@gmail.com',   'Walk-in',     2, '2024-03-03', '2024-03-05'), /*  1 TotalRoom: 2 */
+    ('chayapat@gmail.com',  'Agoda',       1, '2024-03-03', '2024-03-05'), /*  2 TotalRoom: 1 */
+    ('esther@gmail.com',    'Booking.com', 2, '2024-03-04', '2024-03-05'), /*  3 TotalRoom: 2 */
+    ('brooklyn@gmail.com',  'Walk-in',     3, '2024-03-05', '2024-03-06'), /*  4 TotalRoom: 3 */
+    ('savannah@gmail.com',  'Walk-in',     1, '2024-03-05', '2024-03-06'), /*  5 TotalRoom: 1 */
+    ('somsak@gmail.com',    'Walk-in',     4, '2024-03-05', '2024-03-06'), /*  6 TotalRoom: 4 */
+    ('mali@gmail.com',      'Walk-in',     1, '2024-03-06', '2024-03-07'), /*  7 TotalRoom: 1 */
+    ('forrest@gmail.com',   'Walk-in',     1, '2024-03-06', '2024-03-07'), /*  8 TotalRoom: 1 */
+    ('jack@gmail.com',      'Walk-in',     3, '2024-03-06', '2024-03-07'), /*  9 TotalRoom: 3 */
+    ('jack@gmail.com',      'Walk-in',     2, '2024-03-06', '2024-03-08'); /* 10 TotalRoom: 2 */
 
 
 /*
@@ -147,7 +179,16 @@ INSERT INTO paid
 */
 INSERT INTO paid(reservation_no, amount)
 VALUES
-    (1, 3200);
+    ( 1, 3200), /*  1 TotalRoom: 2 */
+    ( 2, 1600), /*  2 TotalRoom: 1 */
+    ( 3, 3200), /*  3 TotalRoom: 2 */
+    ( 4, 4800), /*  4 TotalRoom: 3 */
+    ( 5, 1600), /*  5 TotalRoom: 1 */
+    ( 6, 6400), /*  6 TotalRoom: 4 */
+    ( 7, 1600), /*  7 TotalRoom: 1 */
+    ( 8, 1600), /*  8 TotalRoom: 1 */
+    ( 9, 4800), /*  9 TotalRoom: 3 */
+    (10, 3200); /* 10 TotalRoom: 2 */
 
 
 /*
@@ -155,7 +196,16 @@ INSERT INTO in_house
 */
 INSERT INTO in_house(reservation_no)
 VALUES
-    (1);
+    (1),
+    (2),
+    (3),
+    (4),
+    (5),
+    (6),
+    (7),
+    (8),
+    (9),
+    (10);
 
 
 /*
@@ -163,4 +213,13 @@ INSERT INTO reserved_room
 */
 INSERT INTO reserved_room(reservation_no, room_no)
 VALUES
-    (1, 101), (1, 102);
+    ( 1, 101), ( 1, 102),                       /*  1 TotalRoom: 2 */
+    ( 2, 103),                                  /*  2 TotalRoom: 1 */
+    ( 3, 104), ( 3, 105),                       /*  3 TotalRoom: 2 */
+    ( 4, 106), ( 4, 107), ( 4, 108),            /*  4 TotalRoom: 3 */
+    ( 5, 109),                                  /*  5 TotalRoom: 1 */
+    ( 6, 201), ( 6, 202), ( 6, 203), ( 6, 204), /*  6 TotalRoom: 4 */
+    ( 7, 110),                                  /*  7 TotalRoom: 1 */
+    ( 8, 205),                                  /*  8 TotalRoom: 1 */
+    ( 9, 206), ( 9, 207), ( 9, 208),            /*  9 TotalRoom: 3 */
+    (10, 209), (10, 210);                       /* 10 TotalRoom: 2 */
