@@ -31,7 +31,6 @@ require './DB_connect.php';
   $stmt_reserved_room->bind_param("i", $rev_no); 
   $stmt_reserved_room->execute();
   $result_reserved_room = $stmt_reserved_room->get_result();
-  $row_reserved_room = mysqli_fetch_array($result_reserved_room);
 
 ?>
 
@@ -108,7 +107,9 @@ require './DB_connect.php';
           </tr>
 
           <tr>
-            <td class="sub-head"><?php echo $row_account['firstname'], " ", $row_account['lastname'];?></td>
+            <td class="sub-head">
+              <?php echo $row_account['firstname'], " ", $row_account['lastname'];?>
+            </td>
           </tr>
 
           <tr>
@@ -117,8 +118,14 @@ require './DB_connect.php';
 
           <tr>
             <td class="sub-head">
-              <!-- must show all the room customer reserved for -->
-              <?php echo strval($row_reserved_room['room_no']);?>
+              <?php
+              $all_rooms = array();
+              $rowcount = mysqli_num_rows($result_reserved_room);
+              while($rowcount > 0 && $row_room = mysqli_fetch_array($result_reserved_room)) {
+                $all_rooms[] = $row_room['room_no'];
+                $rowcount-=1;
+              }
+              echo  implode(", ", $all_rooms);?>
             </td>
           </tr>
 
