@@ -9,14 +9,11 @@ if(isset($_POST['delete'])) {
     $stmt->execute();
 
     if (!$stmt->execute()) {
-        $error = "Error delete customer: " . $stmt->error;
+        $error = "Error delete employee: " . $stmt->error;
     }
 
+    header("Location: http://localhost:3000/mg_account_manager.php");
+    exit;
     session_destroy();
-    header("Location: http://localhost:3000/c_index.php");
-    exit;
-} else {
-    header("Location: http://localhost:3000/c_personal_info.php");
-    exit;
 }
 ?>

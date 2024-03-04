@@ -1,3 +1,26 @@
+<?php
+session_start(); 
+require './DB_connect.php';
+
+    //Account table
+    $email = $_SESSION['email'];
+    $sql_account = "SELECT * FROM `account` WHERE email = ?";
+    $stmt_account = $conn->prepare($sql_account);
+    $stmt_account->bind_param("s", $email);
+    $stmt_account->execute();
+    $result_account = $stmt_account->get_result();
+    $row_account = mysqli_fetch_array($result_account);
+    
+    //Employee table
+    $sql_employee = "SELECT * FROM `employee` WHERE email = ?";
+    $stmt = $conn->prepare($sql_employee);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result_employee = $stmt->get_result();
+    $row_employee = mysqli_fetch_array($result_employee);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,113 +55,133 @@
       </nav>
     </div>
 
-    <h1 class="title_customer">edit personal information</h1>
-    <div class="account-info">
+    <form action="./mg_db_edit_account_manager.php" method="POST" class="table-customer-info">
+      <h1 class="title_customer">edit personal information</h1>
+      <div class="account-info">
 
-      <table>
-          <tr>
-            <th class="head">name</th>
-            <th class="head">address</th>
-          </tr>
+      <!-- Table -->
+      <table class="table-customer-info">
+        <tr>
+          <!-- Name Title -->
+          <th class="head">name</th>
+          <!-- Address Title -->
+          <th class="head">address</th>
+        </tr>
 
-          <tr>
-            <td class="sub-head" style="padding-bottom: 0px;">
-              <label for="name">Name</label>
-              <p class="body">
-              <input type="text"
-              id="name"
-              name="name"
-              value="Chayapat"
-              >
+        <tr>
+          <!-- Name Input Slot -->
+          <td class="sub-head" style="padding-bottom: 0px;">
+            <label for="firstname">Name</label>
+            <p class="body">
+            <input type="text"
+            id="firstname"
+            name="firstname"
+            value="<?php echo $row_account['firstname']; ?>"
+            >
             </p>
           </td>
-
+      
+            <!-- Address Input Slot -->
             <td class="sub-head" style="padding-bottom: 0px;">
             <label for="address">Address (City / State / Country)</label>
             <p class="body">
               <input
-                style="width: 400px; height: 50px;"
-                type="text"
-                id="address"
-                name="address"
-                value="123 cute city, thailand koh lan nakorn sithammarat rattanakosin road, 22980"
+              style="width: 400px; height: 50px;"
+              type="text"
+              id="address"
+              name="address"
+              value="<?php echo $row_account['address']; ?>"
               />
-            </p>
+              </p>
             </td>
           </tr>
 
           <tr>
+            <!-- Surname Input Slot -->
             <td class="sub-head">surname<p class="body">
               <input type="text"
-                id="name"
-                name="name"
-                value="Pangpon"
-                >
+              id="lastname"
+              name="lastname"
+              value="<?php echo $row_account['lastname']; ?>"
+              >
               </p>
-          </tr>
-
-          <tr>
-            <th class="head">date of birth</th>
-            <th class="head">Email</th>
-          </tr>
-
-          <tr>
-            <td class="sub-head" style="padding-bottom: 0px;">
-              <label for="dob">DD/MM/YYYY</label>
-              <p class="body">
+            <!-- Email Input Slot -->
+            <td class="head">Email<p class="body">
               <input type="text"
-                id="dob"
-                name="dob"
-                value="12 October 1987"
+              id="email" 
+              name="email"
+              value="<?php echo $row_account['email']; ?>"
+              >
+              </p>
+            </tr>
+
+            <tr>
+              <!-- DOB Title -->
+              <th class="head">date of birth</th>
+              <!-- Password Title -->
+              <th class="head">Password</th>
+            </tr>
+
+            <tr>
+              <!-- DOB Input Slot -->
+              <td class="sub-head" style="padding-bottom: 0px;">
+                <label for="birthdate">DD/MM/YYYY</label>
+                <p class="body">
+                <input type="date"
+                id="birthdate"
+                name="birthdate"
+                value="<?php echo $row_account['birthdate']; ?>"
                 >
-              </p>
-            </td>
-            <td class="sub-head" style="padding-bottom: 0px;">
-              <p class="body">
-              <input type="text"
-                id="email"
-                name="email"
-                value="chayapat@gmail.com"
+                </p>
+              </td>
+              <!-- Password Input Slot -->
+              <td class="sub-head" style="padding-bottom: 0px;">
+                <p class="body">
+                <input type="text"
+                  id="password"
+                  name="password"
+                  value="<?php echo $row_account['password']; ?>"
+                  >
+                 </p>
+              </td>
+            </tr>
+
+            <tr>
+              <!-- Phonenumber Title -->
+              <th class="head">Phone number</th>
+              <!-- Role Title -->
+              <td class="head">
+                <label for="role">Role</label>
+                <!-- Roles options -->
+                <p class="body">
+                  <select id="role" name="role" style="font-size: 50px; ">
+                  <option value="Reservation Staff">Reservation Staff</option>
+                  <option value="Front Desk Staff">Front Desk Staff</option>
+                  </select>
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <!-- Telephone Input Slot -->
+              <td class="sub-head" style="padding-bottom: 0px;">
+                <label for="phone">TEL.XXX-XXX-XXXX</label>
+                <p class="body">
+                <input type="text"
+                id="phone"
+                name="phone"
+                value="<?php echo $row_account['phone']; ?>"
                 >
-              </p>
-            </td>
-          </tr>
-
-          <tr>
-            <th class="head">Phone number</th>
-            <td class="head">
-              <label for="relationship">Role</label>
-              <p class="body">
-                <select id="relationships" name="relationships" style="font-size: 15px; ">
-                <option value="customer">Customer</option>
-                <option value="reservation">Reservation Staff</option>
-                <option value="frontDesk">Front Desk Staff</option>
-                </select>
-              </p>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="sub-head" style="padding-bottom: 0px;">
-              <label for="telephone">TEL.XXX-XXX-XXXX</label>
-              <p class="body">
-              <input type="text"
-                id="telephone"
-                name="telephone"
-                value="099-999-9999"
-                >
-              </p>
-            </td>
-        </table>
-
-      <div class="add-new-account-manager">
-        <p class="account"><a href="#">delete account</a></p> 
-
-        <!-- link to edit page -->
-        <a href="./mg_account_manager.php">
-        <button type="submit" name="submit" class="button">Done</button>
-        </a>
-      </div>
-    </div>
-  </body>
+                </p>
+              </td>
+            </tr>
+      </table>
+        <div class="edit-personal-info">
+        <a href="./mg_account_manager.php"><p class="account">cancel</p> </a>
+          <!-- link to edit page -->
+          <button type="submit" name="submit" class="button">Done</button>
+          </a>
+        </div>
+      </form>
+</body>
 </html>
